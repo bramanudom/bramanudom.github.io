@@ -37,6 +37,60 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 .btn-teak { background: var(--teak); color: white; }
 .btn-ruby { background: var(--ruby); color: white; }
 
+/* HEADER LOGO & NAV */
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--teak);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/* FOOTER STYLING */
+.footer-container {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--cream);
+    color: var(--emerald);
+}
+
+.footer-divider {
+    width: 50px;
+    height: 1px;
+    background-color: var(--teak);
+    margin: 0 auto 30px;
+}
+
+.footer-names {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.footer-date {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.footer-icons {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-credit {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* FORMS */
 input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
 

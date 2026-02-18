@@ -29,6 +29,52 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 }
 .menu-overlay a { color: var(--cream); font-size: 1.5rem; text-decoration: none; margin: 12px 0; }
 
+/* --- HAMBURGER FIX --- */
+.hamburger {
+    cursor: pointer;
+    background: var(--emerald); /* Dark green background */
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    z-index: 1001; /* Stay above the overlay */
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream); /* Off-white lines */
+    transition: 0.3s;
+}
+
+/* Ensure the logo is visible and elegant */
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--teak);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+/* Overlay needs to be a flex column to center links */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--emerald);
+    z-index: 999;
+    display: none; /* Toggled by JS */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 /* PAGE LAYOUT */
 .container { padding: 100px 20px 60px; max-width: 900px; margin: 0 auto; }
 .card { background: var(--white); padding: 30px; border-radius: 12px; border-top: 4px solid var(--teak); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }

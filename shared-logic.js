@@ -33,4 +33,22 @@ function updateLanguage(lang) {
     document.getElementById(`btn-${lang}`)?.classList.add('active');
 }
 
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    // If it's currently hidden or no display style is set, show it
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'flex';
+    } else {
+        menu.style.display = 'none';
+    }
+}
+
+// Ensure the listener is attached after the DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('menuToggle');
+    if (btn) {
+        btn.addEventListener('click', toggleMenu);
+    }
+});
+
 window.onload = init;

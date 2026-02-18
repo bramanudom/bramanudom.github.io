@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP | Pet & Hannah</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="lang-switcher">
+            <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
+            <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
+            <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+        </div>
+        <a href="why.html" class="nav-logo">P & H</a>
+        <button class="hamburger" id="menuToggle"><span></span><span></span><span></span></button>
+    </nav>
+
+    <div class="menu-overlay" id="menu">
+        <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
+        <a href="events.html" data-i18n="nav_events">Schedule</a>
+        <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
+        <a href="pet-recs.html" data-i18n="nav_pet">Pet's Picks</a>
+        <a href="hannah-recs.html" data-i18n="nav_hannah">Hannah's Picks</a>
+        <a href="faq.html" data-i18n="nav_faq">Travel FAQ</a>
+        <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
+    </div>
+
+    <main class="container">
+        <h1 data-i18n="nav_rsvp">RSVP</h1>
+
+        <div id="lookupSection" class="card">
+            <p class="center" data-i18n="lookup_instr">Please enter your full name as written on your invitation.</p>
+            <input type="text" id="nameInput" placeholder="First Last">
+            <button id="findBtn" class="btn btn-teak" style="width:100%; margin-top: 15px;" data-i18n="find_btn">Find My Invitation</button>
+            <p id="lookupError" style="color:var(--ruby); display:none; margin-top:15px; text-align:center;" data-i18n="lookup_error">We couldn't find that name. Please check the spelling.</p>
+        </div>
+
+        <form id="rsvpForm" style="display:none;">
+            <div class="card">
+                <h3 id="guest1Header" style="text-align: left; color: var(--teak);"></h3>
+                <select name="Guest1Attend" required>
+                    <option value="" disabled selected data-i18n="form_select">Will you attend?</option>
+                    <option value="Yes" data-i18n="form_yes">Joyfully Accepts</option>
+                    <option value="No" data-i18n="form_no">Regretfully Declines</option>
+                </select>
+            </div>
+
+            <div id="plusOneCard" class="card" style="display:none;">
+                <h3 id="guest2Header" style="text-align: left; color: var(--teak);"></h3>
+                <select name="Guest2Attend">
+                    <option value="" disabled selected data-i18n="form_select">Will they attend?</option>
+                    <option value="Yes" data-i18n="form_yes">Joyfully Accepts</option>
+                    <option value="No" data-i18n="form_no">Regretfully Declines</option>
+                </select>
+            </div>
+
+            <div class="card">
+                <label data-i18n="form_dietary">Dietary Restrictions</label>
+                <input type="text" name="Dietary" placeholder="Allergies, Vegan, etc.">
+                
+                <label style="margin-top: 20px; display: block;" data-i18n="form_song">Song Request</label>
+                <input type="text" name="Song" placeholder="What gets you dancing?">
+            </div>
+
+            <input type="hidden" name="Guest1Name" id="hiddenName1">
+            <input type="hidden" name="Guest2Name" id="hiddenName2">
+
+            <button type="submit" id="submitBtn" class="btn btn-ruby" style="width:100%;" data-i18n="submit_btn">Confirm RSVP</button>
+        </form>
+
+        <div id="successMsg" class="card center" style="display:none;">
+            <h2 data-i18n="rsvp_thanks">Thank You!</h2>
+            <p data-i18n="rsvp_confirm">Your response has been received. We can't wait to see you!</p>
+        </div>
+    </main>
+
+    <footer class="footer-container">
+        <div class="footer-divider"></div>
+        <p class="footer-names">Pet & Hannah</p>
+        <p class="footer-date">12 . 11 . 2026 — CHIANG MAI</p>
+        <div class="footer-icons"><span>🐘</span><span>🌿</span><span>🌸</span></div>
+    </footer>
+
+    <script src="shared-logic.js"></script>
+    <script src="rsvp.js"></script>
+</body>
+</html>

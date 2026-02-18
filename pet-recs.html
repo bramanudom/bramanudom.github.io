@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet's Picks | P & H</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="lang-switcher">
+            <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
+            <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
+            <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+        </div>
+        <a href="why.html" class="nav-logo">P & H</a>
+        <button class="hamburger" id="menuToggle"><span></span><span></span><span></span></button>
+    </nav>
+
+    <div class="menu-overlay" id="menu">
+        <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
+        <a href="events.html" data-i18n="nav_events">Schedule</a>
+        <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
+        <a href="pet-recs.html" data-i18n="nav_pet">Pet's Picks</a>
+        <a href="hannah-recs.html" data-i18n="nav_hannah">Hannah's Picks</a>
+        <a href="faq.html" data-i18n="nav_faq">Travel FAQ</a>
+        <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
+    </div>
+
+    <main class="container">
+        <h1 data-i18n="nav_pet">Pet's Local Favorites</h1>
+        <p class="center" style="margin-bottom: 40px;">The spots Pet grew up visiting or where he finds the most "soul" in Chiang Mai.</p>
+
+        <div class="grid">
+            <div class="card" style="border-top-color: var(--emerald);">
+                <h3 data-i18n="pr1_t">Khao Soi Lung Prakit</h3>
+                <p data-i18n="pr1_d">The legendary "Netflix" Khao Soi. Rich, creamy curry noodles. Order the beef version and ask for extra pickles.</p>
+            </div>
+            <div class="card" style="border-top-color: var(--emerald);">
+                <h3 data-i18n="pr2_t">North Gate Jazz Co-op</h3>
+                <p data-i18n="pr2_d">Grab a beer and stand on the sidewalk. This is where the local musicians hang out. Best vibes after 9 PM.</p>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 30px; padding: 0; overflow: hidden;">
+            <iframe src="

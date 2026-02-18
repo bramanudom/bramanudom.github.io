@@ -1,0 +1,44 @@
+:root {
+    --emerald: #064E3B; --teak: #B45309; --ruby: #991B1B;
+    --plum: #4C1D95; --cream: #FDFCF0; --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+body { 
+    margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-color: var(--cream); color: var(--emerald); min-height: 100vh;
+}
+h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
+
+/* SHARED NAV */
+.nav-container {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
+    background: rgba(253, 252, 240, 0.98); border-bottom: 1px solid rgba(180, 83, 9, 0.1);
+}
+.lang-btn {
+    background: var(--white); border: 1px solid var(--teak); color: var(--teak);
+    padding: 6px 10px; cursor: pointer; font-size: 0.75rem; border-radius: 4px;
+}
+.lang-btn.active { background: var(--teak); color: var(--white); }
+
+/* SIDEBAR MENU */
+.menu-overlay {
+    position: fixed; inset: 0; background: var(--emerald); z-index: 999;
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+}
+.menu-overlay a { color: var(--cream); font-size: 1.5rem; text-decoration: none; margin: 12px 0; }
+
+/* PAGE LAYOUT */
+.container { padding: 100px 20px 60px; max-width: 900px; margin: 0 auto; }
+.card { background: var(--white); padding: 30px; border-radius: 12px; border-top: 4px solid var(--teak); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: bold; cursor: pointer; border: none; }
+.btn-teak { background: var(--teak); color: white; }
+.btn-ruby { background: var(--ruby); color: white; }
+
+/* FORMS */
+input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
+
+/* AUTH GATE */
+#gatekeeper { position: fixed; inset: 0; background: var(--emerald); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }

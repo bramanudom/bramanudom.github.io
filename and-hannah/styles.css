@@ -96,6 +96,7 @@ h3 {
 }
 
 /* --- Recs Corner --- */
+
 /* TAB STYLES */
 .tab-container {
     display: flex;
@@ -122,17 +123,26 @@ h3 {
 }
 
 .tab-content {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     animation: fadeIn 0.5s ease;
 }
 
 .active-content {
-    display: block; /* Shown when active */
+    display: block;
+    /* Shown when active */
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .map-card {
@@ -140,6 +150,46 @@ h3 {
     padding: 0;
     overflow: hidden;
     border-top: 5px solid var(--teak);
+}
+
+/* --- Schedule Page --- */
+
+.welcome-note h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.welcome-note p {
+    line-height: 1.8;
+    color: var(--emerald);
+    font-style: italic;
+}
+
+.timeline {
+    margin-top: 40px;
+}
+
+.event-card {
+    margin-bottom: 25px;
+    padding: 25px;
+    position: relative;
+    text-align: left;
+}
+
+.event-date {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: var(--teak);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.event-time {
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 0.95rem;
 }
 
 /* --- HAMBURGER FIX --- */

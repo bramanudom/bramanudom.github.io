@@ -3,57 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events | P & H</title>
+    <title>Schedule | Pet & Hannah</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-  <nav class="nav-container">
-    <div class="lang-switcher">
-        <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
-        <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
-        <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+    <nav class="nav-container">
+        <div class="lang-switcher">
+            <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
+            <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
+            <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+        </div>
+        <a href="why.html" class="nav-logo">P & H</a>
+        <button class="hamburger" id="menuToggle"><span></span><span></span><span></span></button>
+    </nav>
+
+    <div class="menu-overlay" id="menu">
+        <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
+        <a href="schedule.html" data-i18n="nav_events">Schedule</a>
+        <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
+        <a href="our-recs.html" data-i18n="nav_recs">Our Recs</a>
+        <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+        <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
     </div>
-    
-    <a href="why.html" class="nav-logo">P & H</a>
 
-    <button class="hamburger" id="menuToggle">
-        <span></span><span></span><span></span>
-    </button>
-</nav>
+    <main class="container">
+        <section class="welcome-note card" style="text-align: center; border-top-color: var(--teak);">
+            <h1 data-i18n="schedule_welcome_title">To Our Family & Friends</h1>
+            <p data-i18n="schedule_welcome_text">
+                We are so incredibly excited that you are traveling so far to celebrate with us. 
+                Chiang Mai is a place that holds so much of our hearts, and having you all here 
+                with us means the world. We appreciate the time, distance, and effort you've 
+                taken to be part of our story.
+            </p>
+        </section>
 
-<div class="menu-overlay" id="menu">
-    <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
-    <a href="schedule.html" data-i18n="nav_events">Schedule</a>
-    <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
-    <a href="recommendation-corner.html" data-i18n="nav-recommendations">Our Recs</a>
-    <a href="faq.html" data-i18n="nav_faq">Travel FAQ</a>
-    <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
-</div>
+        <div class="timeline">
+            
+            <div class="card event-card" style="border-left: 5px solid var(--emerald);">
+                <span class="event-date">Friday, Nov 11</span>
+                <h3 data-i18n="event1_title">Welcome Late Lunch: Moo Krata</h3>
+                <p class="event-time">2:00 PM — 4:00 PM</p>
+                <p data-i18n="event1_desc">Join us for a casual Thai BBQ experience. We'll be grilling and gathering at a local Moo Krata restaurant to kick off the weekend.</p>
+            </div>
 
-<section class="container">
-    <h1 data-i18n="nav_events">The Weekend</h1>
-    <div class="grid">
-        <div class="card"><h3>Welcome Drinks</h3><p>Nov 11, 6PM</p></div>
-        <div class="card"><h3>The Ceremony</h3><p>Nov 12, 4PM</p></div>
-    </div>
-</section>
-  
+            <div class="card event-card" style="border-left: 5px solid var(--ruby);">
+                <span class="event-date">Saturday, Nov 12</span>
+                <h3 data-i18n="event2_title">The Wedding Ceremony & Reception</h3>
+                <p class="event-time">4:30 PM — Late</p>
+                <p><strong>Anantara Chiang Mai Resort</strong></p>
+                <p data-i18n="event2_desc">The main event. Please join us for our ceremony by the river, followed by dinner, drinks, and dancing.</p>
+            </div>
+
+            <div class="card event-card" style="border-left: 5px solid var(--teak);">
+                <span class="event-date">Sunday, Nov 13</span>
+                <h3 data-i18n="event3_title">Goodbye Brunch</h3>
+                <p class="event-time">10:30 AM — 12:30 PM</p>
+                <p data-i18n="event3_desc">Before we all head our separate ways, let’s share one last coffee and meal at our favorite local coffee shop (rented exclusively for us).</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer-container">
+        <div class="footer-divider"></div>
+        <p class="footer-names">Pet & Hannah</p>
+        <p class="footer-date">12 . 11 . 2026 — CHIANG MAI</p>
+        <div class="footer-icons"><span>🐘</span><span>🌿</span><span>🌸</span></div>
+    </footer>
+
+    <script src="shared-logic.js"></script>
 </body>
-
-<footer class="footer-container">
-  <div class="footer-divider"></div>
-  <p class="footer-names">Pet & Hannah</p>
-  <p class="footer-date">12 . 11 . 2026 — CHIANG MAI</p>
-  
-  <div class="footer-icons">
-      <span>🐘</span>
-      <span>🌿</span>
-      <span>🌸</span>
-  </div>
-  
-  <p class="footer-credit">Made with love for our family & friends</p>
-</footer>
-
-<script src="shared-logic.js"></script>
+</html>

@@ -1,10 +1,6 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7ayEmGWqO0rED2qEqydRXuyQUmiiAAt7zBv2p76lupbfd-9or5SYap-J8pNGLwz81/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyM57GVG5lXcQLi96KXUWzMsRctzq4Qfyk1qzrpYUoRfuSqdyI-BKkQ7mZ31M2IngQl/exec";
 
-const lookupSection = document.getElementById('lookupSection');
-const rsvpForm = document.getElementById('rsvpForm');
-const successMsg = document.getElementById('successMsg');
-const findBtn = document.getElementById('findBtn');
-const nameInput = document.getElementById('nameInput');
+// ... (keep your existing element constants) ...
 
 // STEP 1: SEARCH GUEST
 findBtn.onclick = () => {
@@ -14,21 +10,20 @@ findBtn.onclick = () => {
     findBtn.disabled = true;
     findBtn.innerText = "...";
 
-    fetch(`${SCRIPT_URL}?action=search&name=${encodeURIComponent(name)}`)
+    // Added action parameter to match script logic
+    fetch(`${SCRIPT_URL}?name=${encodeURIComponent(name)}`)
         .then(res => res.json())
         .then(guest => {
-            if (guest && guest.found) {
+            // Note: Updated check to 'guest' directly based on script return
+            if (guest && guest.name) { 
                 lookupSection.style.display = 'none';
                 rsvpForm.style.display = 'block';
 
-                // Populate Guest 1
                 document.getElementById('guest1Header').innerText = guest.name;
                 document.getElementById('hiddenName1').value = guest.name;
 
-                // Populate Guest 2 (+1) if exists
                 if (guest.plusOne) {
-                    const p1Card = document.getElementById('plusOneCard');
-                    p1Card.style.display = 'block';
+                    document.getElementById('plusOneCard').style.display = 'block';
                     document.getElementById('guest2Header').innerText = guest.plusOne;
                     document.getElementById('hiddenName2').value = guest.plusOne;
                 }
@@ -51,17 +46,22 @@ rsvpForm.onsubmit = (e) => {
     submitBtn.disabled = true;
     submitBtn.innerText = "Sending...";
 
+    // Convert FormData to a plain JSON object for the App Script
     const formData = new FormData(rsvpForm);
-    // Append the language used for the spreadsheet records
-    formData.append("Language", localStorage.getItem('wedding_lang') || 'en');
+    const data = Object.fromEntries(formData.entries());
+    data.Language = localStorage.getItem('wedding_lang') || 'en';
 
-    fetch(SCRIPT_URL, { method: 'POST', body: formData })
-        .then(() => {
-            rsvpForm.style.display = 'none';
-            successMsg.style.display = 'block';
-        })
-        .catch(err => {
-            alert("Error submitting. Please try again.");
-            submitBtn.disabled = false;
-        });
+    fetch(SCRIPT_URL, { 
+        method: 'POST', 
+        mode: 'no-cors', // Essential for Google Apps Script redirects
+        body: JSON.stringify(data) 
+    })
+    .then(() => {
+        rsvpForm.style.display = 'none';
+        successMsg.style.display = 'block';
+    })
+    .catch(err => {
+        alert("Error submitting. Please try again.");
+        submitBtn.disabled = false;
+    });
 };

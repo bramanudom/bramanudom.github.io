@@ -19,51 +19,46 @@
         <h1 data-i18n="nav_rsvp">RSVP</h1>
 
         <div id="lookupSection" class="card">
-            <p class="center" data-i18n="lookup_instr">Please enter your full name as written on your invitation.</p>
-            <input type="text" id="nameInput" placeholder="First Last">
-            <button id="findBtn" class="btn btn-teak" style="width:100%; margin-top: 15px;" data-i18n="find_btn">Find My
-                Invitation</button>
-            <p id="lookupError" style="color:var(--ruby); display:none; margin-top:15px; text-align:center;"
-                data-i18n="lookup_error">We couldn't find that name. Please check the spelling.</p>
+            <p>Please enter your name as it appears on your invitation.</p>
+            <input type="text" id="nameInput" placeholder="Full Name">
+            <button id="findBtn" class="btn btn-teak">Find Invitation</button>
+            <p id="lookupError" style="color: var(--ruby); display: none; margin-top: 10px;">
+                We couldn't find that name. Please try again or contact us!
+            </p>
         </div>
 
-        <form id="rsvpForm" style="display:none;">
-            <div class="card">
-                <h3 id="guest1Header" style="text-align: left; color: var(--teak);"></h3>
-                <select name="Guest1Attend" required>
-                    <option value="" disabled selected data-i18n="form_select">Will you attend?</option>
-                    <option value="Yes" data-i18n="form_yes">Joyfully Accepts</option>
-                    <option value="No" data-i18n="form_no">Regretfully Declines</option>
-                </select>
-            </div>
-
-            <div id="plusOneCard" class="card" style="display:none;">
-                <h3 id="guest2Header" style="text-align: left; color: var(--teak);"></h3>
-                <select name="Guest2Attend">
-                    <option value="" disabled selected data-i18n="form_select">Will they attend?</option>
-                    <option value="Yes" data-i18n="form_yes">Joyfully Accepts</option>
-                    <option value="No" data-i18n="form_no">Regretfully Declines</option>
-                </select>
-            </div>
+        <form id="rsvpForm" style="display: none;">
 
             <div class="card">
-                <label data-i18n="form_dietary">Dietary Restrictions</label>
-                <input type="text" name="Dietary" placeholder="Allergies, Vegan, etc.">
-
-                <label style="margin-top: 20px; display: block;" data-i18n="form_song">Song Request</label>
-                <input type="text" name="Song" placeholder="What gets you dancing?">
+                <h3 id="guest1Header">Guest Name</h3>
+                <input type="hidden" name="hiddenName1" id="hiddenName1">
+                <div class="rsvp-options">
+                    <label><input type="radio" name="guest1Attend" value="Attending" required> Joyfully Accepts</label>
+                    <label><input type="radio" name="guest1Attend" value="Declining"> Regretfully Declines</label>
+                </div>
             </div>
 
-            <input type="hidden" name="Guest1Name" id="hiddenName1">
-            <input type="hidden" name="Guest2Name" id="hiddenName2">
+            <div id="plusOneCard" class="card" style="display: none; border-top: 3px solid var(--ruby);">
+                <h3 id="guest2Header">Plus One Name</h3>
+                <input type="hidden" name="hiddenName2" id="hiddenName2">
+                <div class="rsvp-options">
+                    <label><input type="radio" name="guest2Attend" value="Attending"> Joyfully Accepts</label>
+                    <label><input type="radio" name="guest2Attend" value="Declining"> Regretfully Declines</label>
+                </div>
+            </div>
 
-            <button type="submit" id="submitBtn" class="btn btn-ruby" style="width:100%;" data-i18n="submit_btn">Confirm
-                RSVP</button>
+            <div class="card">
+                <h3>Dietary Requirements</h3>
+                <textarea name="Dietary" placeholder="Allergies, vegetarian, etc."></textarea>
+                <button type="submit" id="submitBtn" class="btn btn-emerald" style="width: 100%; margin-top: 20px;">
+                    Send RSVP
+                </button>
+            </div>
         </form>
 
-        <div id="successMsg" class="card center" style="display:none;">
-            <h2 data-i18n="rsvp_thanks">Thank You!</h2>
-            <p data-i18n="rsvp_confirm">Your response has been received. We can't wait to see you!</p>
+        <div id="successMsg" class="card center" style="display: none;">
+            <h2>ขอบคุณค่ะ / 감사합니다!</h2>
+            <p>Thank you! Your response has been recorded.</p>
         </div>
     </main>
 

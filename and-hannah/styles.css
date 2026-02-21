@@ -192,6 +192,28 @@ h3 {
     font-size: 0.95rem;
 }
 
+.map-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--teak);
+    text-decoration: none;
+    border: 1.5px solid var(--teak);
+    padding: 6px 14px;
+    border-radius: 50px; /* Pill shape */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.map-link:hover {
+    background: var(--teak);
+    color: var(--white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(180, 83, 9, 0.2);
+}
+
 /* --- HAMBURGER FIX --- */
 .hamburger {
     cursor: pointer;

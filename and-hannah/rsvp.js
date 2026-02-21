@@ -1,5 +1,4 @@
-// REPLACE THIS with your Deployment URL from Google Apps Script
-const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7ayEmGWqO0rED2qEqydRXuyQUmiiAAt7zBv2p76lupbfd-9or5SYap-J8pNGLwz81/exec";
 
 const lookupSection = document.getElementById('lookupSection');
 const rsvpForm = document.getElementById('rsvpForm');

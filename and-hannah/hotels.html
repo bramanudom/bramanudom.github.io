@@ -12,26 +12,7 @@
 </head>
 
 <body>
-    <nav class="nav-container">
-        <div class="lang-switcher">
-            <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
-            <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
-            <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
-        </div>
-        <a href="why.html" class="nav-logo">P & H</a>
-        <button class="hamburger" id="menuToggle">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
-
-    <div class="menu-overlay" id="menu">
-        <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
-        <a href="schedule.html" data-i18n="nav_events">Schedule</a>
-        <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
-        <a href="recommendation-corner.html" data-i18n="nav-recommendations">Our Recs</a>
-        <a href="faq.html" data-i18n="nav_faq">Travel FAQ</a>
-        <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
-    </div>
+    <div id="header-placeholder"></div>
 
     <main class="container">
         <h1 data-i18n="nav_hotels">Accommodations</h1>
@@ -56,17 +37,15 @@
         </div>
 
         <div class="card" style="margin-top: 30px; padding: 0; overflow: hidden;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.340947708304!2d99.00223531535497!3d18.78184618725841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da30a8487de14f%3A0xc1c1c0cd4114e62d!2sAnantara%20Chiang%20Mai%20Resort!5e0!3m2!1sen!2sus!4v1689100000000!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.340947708304!2d99.00223531535497!3d18.78184618725841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da30a8487de14f%3A0xc1c1c0cd4114e62d!2sAnantara%20Chiang%20Mai%20Resort!5e0!3m2!1sen!2sus!4v1689100000000!5m2!1sen!2sus"
+                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </main>
 
-    <footer class="footer-container">
-        <div class="footer-divider"></div>
-        <p class="footer-names">Pet & Hannah</p>
-        <p class="footer-date">12 . 11 . 2026 — CHIANG MAI</p>
-        <div class="footer-icons"><span>🐘</span><span>🌿</span><span>🌸</span></div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="shared-logic.js"></script>
 </body>
+
 </html>

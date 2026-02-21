@@ -35,63 +35,75 @@ const dictionary = {
 
 };
 
-// 1. Unified Toggle Function
+const globalHeader = `
+    <nav class="nav-container">
+        <div class="lang-switcher">
+            <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
+            <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
+            <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+        </div>
+        <a href="why.html" class="nav-logo">P & H</a>
+        <button class="hamburger" id="menuToggle"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="menu-overlay" id="menu">
+        <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
+        <a href="schedule.html" data-i18n="nav_events">Schedule</a>
+        <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
+        <a href="recommendation-corner.html" data-i18n="nav-recommendations">Our Recs</a>
+        <a href="faq.html" data-i18n="nav_faq">Travel FAQ</a>
+        <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
+    </div>
+`;
+
+const globalFooter = `
+    <footer class="footer-container">
+        <div class="footer-divider"></div>
+        <p class="footer-names">Pet & Hannah</p>
+        <p class="footer-date">12 . 11 . 2026 — CHIANG MAI</p>
+        <div class="footer-icons"><span>🐘</span><span>🌿</span><span>🌸</span></div>
+    </footer>
+`;
+
 function toggleMenu() {
     const menu = document.getElementById('menu');
     if (!menu) return;
-
-    // Check computed style to see what the browser actually sees
     const isHidden = window.getComputedStyle(menu).display === 'none';
     menu.style.display = isHidden ? 'flex' : 'none';
 }
 
-// 2. Language Function
 function updateLanguage(lang) {
     localStorage.setItem('wedding_lang', lang);
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dictionary[lang] && dictionary[lang][key]) {
-            el.innerText = dictionary[lang][key];
-        }
+        if (dictionary[lang][key]) el.innerText = dictionary[lang][key];
     });
-
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    const activeBtn = document.getElementById(`btn-${lang}`);
-    if (activeBtn) activeBtn.classList.add('active');
+    document.getElementById(`btn-${lang}`)?.classList.add('active');
 }
 
-// 3. Single Initialization Point
 function init() {
-    // Auth Check
+    // 1. Check Auth (Allow index.html without auth)
     const isAuth = localStorage.getItem('wedding_auth');
-    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+    const path = window.location.pathname;
+    const isIndex = path.endsWith('index.html') || path === '/' || path.endsWith('/and-hannah/');
 
     if (!isAuth && !isIndex) {
         window.location.href = 'index.html';
         return;
     }
 
-    // Language Init
+    // 2. Inject HTML
+    const hPlace = document.getElementById('header-placeholder');
+    const fPlace = document.getElementById('footer-placeholder');
+    if (hPlace) hPlace.innerHTML = globalHeader;
+    if (fPlace) fPlace.innerHTML = globalFooter;
+
+    // 3. Setup Lang & Menu
     const savedLang = localStorage.getItem('wedding_lang') || 'en';
     updateLanguage(savedLang);
 
-    // Menu Toggle - Only set it once here
     const btn = document.getElementById('menuToggle');
-    if (btn) {
-        btn.onclick = (e) => {
-            e.preventDefault();
-            toggleMenu();
-        };
-    }
-
-    // Close menu when clicking a link
-    const menuLinks = document.querySelectorAll('#menu a');
-    menuLinks.forEach(link => {
-        link.onclick = () => {
-            document.getElementById('menu').style.display = 'none';
-        };
-    });
+    if (btn) btn.onclick = toggleMenu;
 }
 
-// Run everything when the window loads
 window.onload = init;

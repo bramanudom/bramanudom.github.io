@@ -1,38 +1,132 @@
 :root {
-    --emerald: #064E3B; --teak: #B45309; --ruby: #991B1B;
-    --plum: #4C1D95; --cream: #FDFCF0; --white: #FFFFFF;
+    --emerald: #064E3B;
+    --teak: #B45309;
+    --ruby: #991B1B;
+    --plum: #4C1D95;
+    --cream: #FDFCF0;
+    --white: #FFFFFF;
 }
 
-* { box-sizing: border-box; scroll-behavior: smooth; }
-body { 
-    margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; 
-    background-color: var(--cream); color: var(--emerald); min-height: 100vh;
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
-h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--cream);
+    color: var(--emerald);
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
 
 /* SHARED NAV */
 .nav-container {
-    position: fixed; top: 0; width: 100%; z-index: 1000;
-    padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-    background: rgba(253, 252, 240, 0.98); border-bottom: 1px solid rgba(180, 83, 9, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(253, 252, 240, 0.98);
+    border-bottom: 1px solid rgba(180, 83, 9, 0.1);
 }
+
 .lang-btn {
-    background: var(--white); border: 1px solid var(--teak); color: var(--teak);
-    padding: 6px 10px; cursor: pointer; font-size: 0.75rem; border-radius: 4px;
+    background: var(--white);
+    border: 1px solid var(--teak);
+    color: var(--teak);
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    border-radius: 4px;
 }
-.lang-btn.active { background: var(--teak); color: var(--white); }
+
+.lang-btn.active {
+    background: var(--teak);
+    color: var(--white);
+}
 
 /* SIDEBAR MENU */
 .menu-overlay {
-    position: fixed; inset: 0; background: var(--emerald); z-index: 999;
-    display: none; flex-direction: column; align-items: center; justify-content: center;
+    position: fixed;
+    inset: 0;
+    background: var(--emerald);
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.menu-overlay a { color: var(--cream); font-size: 1.5rem; text-decoration: none; margin: 12px 0; }
+
+.menu-overlay a {
+    color: var(--cream);
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin: 12px 0;
+}
+
+/* TAB STYLES */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    border: 2px solid var(--teak);
+    background: transparent;
+    color: var(--teak);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* --- Recs Corner --- */
+.tab-btn.active {
+    background: var(--teak);
+    color: var(--white);
+}
+
+.tab-content {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.5s ease;
+}
+
+.active-content {
+    display: block; /* Shown when active */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.map-card {
+    margin-top: 50px;
+    padding: 0;
+    overflow: hidden;
+    border-top: 5px solid var(--teak);
+}
 
 /* --- HAMBURGER FIX --- */
 .hamburger {
     cursor: pointer;
-    background: var(--emerald); /* Dark green background */
+    background: var(--emerald);
+    /* Dark green background */
     padding: 10px;
     border-radius: 8px;
     border: none;
@@ -43,14 +137,16 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
     width: 44px;
     height: 44px;
     align-items: center;
-    z-index: 1001; /* Stay above the overlay */
+    z-index: 1001;
+    /* Stay above the overlay */
 }
 
 .hamburger span {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--cream); /* Off-white lines */
+    background: var(--cream);
+    /* Off-white lines */
     transition: 0.3s;
 }
 
@@ -70,18 +166,54 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
     inset: 0;
     background: var(--emerald);
     z-index: 999;
-    display: none; /* Toggled by JS */
+    display: none;
+    /* Toggled by JS */
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 /* PAGE LAYOUT */
-.container { padding: 100px 20px 60px; max-width: 900px; margin: 0 auto; }
-.card { background: var(--white); padding: 30px; border-radius: 12px; border-top: 4px solid var(--teak); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: bold; cursor: pointer; border: none; }
-.btn-teak { background: var(--teak); color: white; }
-.btn-ruby { background: var(--ruby); color: white; }
+.container {
+    padding: 100px 20px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    border-top: 4px solid var(--teak);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-teak {
+    background: var(--teak);
+    color: white;
+}
+
+.btn-ruby {
+    background: var(--ruby);
+    color: white;
+}
 
 /* HEADER LOGO & NAV */
 .nav-logo {
@@ -138,7 +270,24 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; text-align: center; }
 }
 
 /* FORMS */
-input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
 
 /* AUTH GATE */
-#gatekeeper { position: fixed; inset: 0; background: var(--emerald); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
+#gatekeeper {
+    position: fixed;
+    inset: 0;
+    background: var(--emerald);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

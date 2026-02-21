@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet & Hannah | Welcome</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <nav class="nav-container">
@@ -15,27 +19,26 @@
             <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
             <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
         </div>
-        
+
         <a href="index.html" class="nav-logo">P & H</a>
 
         <button class="hamburger" id="menuToggle">
             <span></span><span></span><span></span>
         </button>
     </nav>
-
     <div class="menu-overlay" id="menu">
         <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
-        <a href="events.html" data-i18n="nav_events">Schedule</a>
+        <a href="schedule.html" data-i18n="nav_events">Schedule</a>
         <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
-        <a href="pet-recs.html" data-i18n="nav_pet">Pet's Picks</a>
-        <a href="hannah-recs.html" data-i18n="nav_hannah">Hannah's Picks</a>
+        <a href="recommendation-corner.html" data-i18n="nav-recommendations">Our Recs</a>
         <a href="faq.html" data-i18n="nav_faq">Travel FAQ</a>
         <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
     </div>
 
     <div id="gatekeeper">
         <h2 style="color: white; font-family: 'Playfair Display', serif;">Sawasdee & Annyeong</h2>
-        <p style="color: white; opacity: 0.8; margin-bottom: 20px;">Please enter the secret word from your invitation</p>
+        <p style="color: white; opacity: 0.8; margin-bottom: 20px;">Please enter the secret word from your invitation
+        </p>
         <input type="password" id="pass" placeholder="Secret Word">
         <button class="btn btn-teak" onclick="unlock()">Enter Site</button>
     </div>
@@ -53,7 +56,7 @@
     <script src="shared-logic.js"></script>
     <script>
         function unlock() {
-            if(document.getElementById('pass').value.toLowerCase() === 'mangosteen') {
+            if (document.getElementById('pass').value.toLowerCase() === 'mangosteen') {
                 localStorage.setItem('wedding_auth', 'true');
                 window.location.href = 'events.html';
             } else {
@@ -62,4 +65,5 @@
         }
     </script>
 </body>
+
 </html>

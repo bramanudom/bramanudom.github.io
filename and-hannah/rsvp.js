@@ -1,7 +1,5 @@
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyM57GVG5lXcQLi96KXUWzMsRctzq4Qfyk1qzrpYUoRfuSqdyI-BKkQ7mZ31M2IngQl/exec";
 
-// ... (keep your existing element constants) ...
-
 // STEP 1: SEARCH GUEST
 findBtn.onclick = () => {
     const name = nameInput.value.trim();
@@ -15,7 +13,7 @@ findBtn.onclick = () => {
         .then(res => res.json())
         .then(guest => {
             // Note: Updated check to 'guest' directly based on script return
-            if (guest && guest.name) { 
+            if (guest && guest.name) {
                 lookupSection.style.display = 'none';
                 rsvpForm.style.display = 'block';
 
@@ -26,6 +24,11 @@ findBtn.onclick = () => {
                     document.getElementById('plusOneCard').style.display = 'block';
                     document.getElementById('guest2Header').innerText = guest.plusOne;
                     document.getElementById('hiddenName2').value = guest.plusOne;
+                }
+                if (guest.baby) {
+                    document.getElementById('babyCard').style.display = 'block';
+                    document.getElementById('babyHeader').innerText = guest.baby;
+                    document.getElementById('hiddenBabyName').value = guest.baby;
                 }
             } else {
                 document.getElementById('lookupError').style.display = 'block';
@@ -51,17 +54,17 @@ rsvpForm.onsubmit = (e) => {
     const data = Object.fromEntries(formData.entries());
     data.Language = localStorage.getItem('wedding_lang') || 'en';
 
-    fetch(SCRIPT_URL, { 
-        method: 'POST', 
+    fetch(SCRIPT_URL, {
+        method: 'POST',
         mode: 'no-cors', // Essential for Google Apps Script redirects
-        body: JSON.stringify(data) 
+        body: JSON.stringify(data)
     })
-    .then(() => {
-        rsvpForm.style.display = 'none';
-        successMsg.style.display = 'block';
-    })
-    .catch(err => {
-        alert("Error submitting. Please try again.");
-        submitBtn.disabled = false;
-    });
+        .then(() => {
+            rsvpForm.style.display = 'none';
+            successMsg.style.display = 'block';
+        })
+        .catch(err => {
+            alert("Error submitting. Please try again.");
+            submitBtn.disabled = false;
+        });
 };

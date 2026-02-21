@@ -47,13 +47,28 @@
                 </div>
             </div>
 
+            <div id="babyCard" class="card" style="display: none; border-top: 3px solid var(--ruby);">
+                <h3 id="babyHeader">Baby Name</h3>
+                <input type="hidden" name="babyName" id="babyName">
+                <div class="rsvp-options">
+                    <label><input type="radio" name="babyAttend" value="Attending"> Joyfully Accepts</label>
+                    <label><input type="radio" name="babyAttend" value="Declining"> Regretfully Declines</label>
+                </div>
+            </div>
+
             <div class="card">
                 <h3>Dietary Requirements</h3>
                 <textarea name="Dietary" placeholder="Allergies, vegetarian, etc."></textarea>
-                <button type="submit" id="submitBtn" class="btn btn-emerald" style="width: 100%; margin-top: 20px;">
-                    Send RSVP
-                </button>
             </div>
+
+
+            <div class="card">
+                <h3>Song Request</h3>
+                <textarea name="Song" placeholder="New Jeans Please"></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-emerald" style="width: 100%; margin-top: 20px;">
+                Send RSVP
+            </button>
         </form>
 
         <div id="successMsg" class="card center" style="display: none;">

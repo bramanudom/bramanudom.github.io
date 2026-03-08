@@ -7,16 +7,17 @@
     --cream: #faedd0;
     --white: #fff7e6;
 
-    /* Centralized Typography */
-    /* Stack: Helvetica Neue is the gold standard, Helvetica is second, Arial is fallback */
+    /* Body */
     --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
+    
+    /* Header */
+    --font-heading: 'Cherry Bomb One', system-ui;
+    
     /* Typography Fine-Tuning */
     --base-line-height: 1.6;
-    --heading-letter-spacing: -0.02em;
-    /* Helvetica looks better slightly tight */
+    --heading-letter-spacing: 0.02em; /* Adjusted for bubbly font */
     --nav-letter-spacing: 0.05em;
+
 }
 
 * {

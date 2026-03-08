@@ -1,20 +1,21 @@
 :root {
     /* Colors */
-    --emerald: #064E3B;
-    --teak: #B45309;
-    --ruby: #991B1B;
+    --emerald: #165735;
+    --teak: #64111b;
+    --ruby: #3476ad;
     --plum: #4C1D95;
-    --cream: #FDFCF0;
-    --white: #FFFFFF;
+    --cream: #faedd0;
+    --white: #fff7e6;
 
     /* Centralized Typography */
     /* Stack: Helvetica Neue is the gold standard, Helvetica is second, Arial is fallback */
     --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    
+
     /* Typography Fine-Tuning */
     --base-line-height: 1.6;
-    --heading-letter-spacing: -0.02em; /* Helvetica looks better slightly tight */
+    --heading-letter-spacing: -0.02em;
+    /* Helvetica looks better slightly tight */
     --nav-letter-spacing: 0.05em;
 }
 
@@ -35,7 +36,9 @@ body {
     line-height: var(--base-line-height);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-heading);
     text-align: center;
     font-weight: 700;
@@ -160,7 +163,8 @@ h1, h2, h3 {
 /* --- Schedule/Timeline --- */
 .event-card {
     border-left: 4px solid var(--teak);
-    border-top: none; /* Remove standard card top border for timeline */
+    border-top: none;
+    /* Remove standard card top border for timeline */
     padding-left: 30px;
 }
 
@@ -210,14 +214,23 @@ h1, h2, h3 {
     transition: 0.3s;
 }
 
-.btn-teak { background: var(--teak); color: white; }
-.btn-emerald { background: var(--emerald); color: white; }
+.btn-teak {
+    background: var(--teak);
+    color: white;
+}
 
-input, select, textarea {
+.btn-emerald {
+    background: var(--emerald);
+    color: white;
+}
+
+input,
+select,
+textarea {
     width: 100%;
     padding: 14px;
     margin: 10px 0 20px;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     font-family: var(--font-main);
     font-size: 1rem;

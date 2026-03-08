@@ -66,12 +66,14 @@ h3 {
 
 .nav-logo {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 400;
     text-decoration: none;
     color: var(--teak);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    /* Slightly increased to show off the font */
     letter-spacing: 1px;
-    text-transform: uppercase;
+    text-transform: none;
+    /* Bubbly fonts usually look better in Title Case than All Caps */
 }
 
 .lang-btn {
@@ -250,9 +252,10 @@ textarea {
 
 .footer-names {
     font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.8rem;
-    letter-spacing: var(--heading-letter-spacing);
+    font-weight: 400;
+    font-size: 2.2rem;
+    /* Make it a bit bigger for a fun sign-off */
+    color: var(--teak);
 }
 
 .footer-date {

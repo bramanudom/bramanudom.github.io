@@ -9,13 +9,14 @@
 
     /* Body */
     --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    
+
     /* Header */
     --font-heading: 'Cherry Bomb One', system-ui;
-    
+
     /* Typography Fine-Tuning */
     --base-line-height: 1.6;
-    --heading-letter-spacing: 0.02em; /* Adjusted for bubbly font */
+    --heading-letter-spacing: 0.02em;
+    /* Adjusted for bubbly font */
     --nav-letter-spacing: 0.05em;
 
 }

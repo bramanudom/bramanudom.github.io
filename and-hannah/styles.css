@@ -254,17 +254,3 @@ h3 {
         padding-top: 60px;
     }
 }
-
-
-/* --- FIX FOR LANDING/LOGIN PAGES --- */
-.landing-body,
-.login-body {
-    display: block !important;
-    /* Override the flex from body */
-}
-
-/* This targets only pages that have the header/footer */
-body.main-page {
-    display: flex;
-    flex-direction: column;
-}

@@ -1,7 +1,7 @@
 const dictionary = {
     en: {
-        nav_home: "Home", nav_why: "Why Thailand",
-        nav_hotels: "Hotels", nav_pet: "Pet's Picks", nav_hannah: "Hannah's Picks",
+        nav_home: "Home", nav_why: "Why Thailand?",
+        nav_hotels: "Hotels", nav_recs: "Recommendation Corner",
         nav_faq: "FAQ", nav_rsvp: "RSVP",
         nav_events: "Schedule",
         schedule_welcome_title: "To Our Family & Friends",
@@ -12,7 +12,7 @@ const dictionary = {
     },
     th: {
         nav_home: "หน้าแรก", nav_why: "ทำไมต้องไทย",
-        nav_hotels: "ที่พัก", nav_pet: "มุมของเพชร", nav_hannah: "มุมของฮันนาห์",
+        nav_hotels: "ที่พัก", nav_recs: "มุมแนะนำ",
         nav_faq: "คำถาม", nav_rsvp: "ลงทะเบียน",
         nav_events: "กำหนดการ",
         schedule_welcome_title: "ถึงครอบครัวและเพื่อนที่รักทุกท่าน",
@@ -23,7 +23,7 @@ const dictionary = {
     },
     ko: {
         nav_home: "홈", nav_why: "왜 태국인가요", nav_events: "일정",
-        nav_hotels: "호텔", nav_pet: "펫의 추천", nav_hannah: "한나의 추천",
+        nav_hotels: "호텔", nav_recs: "추천 코너",
         nav_faq: "FAQ", nav_rsvp: "참석여부",
         nav_events: "일정",
         schedule_welcome_title: "사랑하는 가족과 친구들에게",
@@ -49,7 +49,7 @@ const globalHeader = `
             <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
             <a href="schedule.html" data-i18n="nav_events">Schedule</a>
             <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
-            <a href="recommendation-corner.html" data-i18n="nav_pet">Recommendations</a>
+            <a href="recommendation-corner.html" data-i18n="nav_recs">Recommendation Corner</a>
             <a href="faq.html" data-i18n="nav_faq">FAQ</a>
             <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
         </div>

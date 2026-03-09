@@ -113,12 +113,6 @@ h3 {
     margin: 40px auto;
 }
 
-.landing-subtext {
-    font-size: 1.2rem;
-    color: var(--emerald);
-    margin-bottom: 40px;
-}
-
 .contact-box {
     background: rgba(180, 83, 9, 0.1);
     padding: 20px;
@@ -143,6 +137,38 @@ h3 {
 .btn-email:hover {
     color: var(--ruby);
     border-color: var(--ruby);
+}
+
+/* Styling for the translated headlines */
+.landing-sub-headline {
+    font-family: var(--font-main);
+    /* Helvetica works best for Thai/Korean readability */
+    font-size: 1.2rem;
+    color: var(--emerald);
+    margin-top: -15px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.multilingual-box {
+    margin-bottom: 40px;
+}
+
+.multilingual-box p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: var(--emerald);
+}
+
+.landing-text-en {
+    font-weight: 700;
+}
+
+.landing-text-th,
+.landing-text-ko {
+    opacity: 0.8;
+    font-size: 0.9rem;
 }
 
 /* --- Navigation --- */

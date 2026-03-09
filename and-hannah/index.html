@@ -4,41 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet & Hannah Wedding| Welcome</title>
+    <title>Pet & Hannah | 12.11.26</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="landing-body">
 
+    <main class="landing-container">
+        <div class="landing-card">
+            <h1 class="landing-title">Pet and Hannah are having a wedding!</h1>
 
-    <div id="SaveTheDateLanding">
-        <h2>Pet and Hannah Are Having A Wedding!</h2>
-        <p style="color: white; opacity: 0.8; margin-bottom: 20px;">More Details to Follow
-        </p>
-    </div>
+            <div class="landing-date">
+                <span>12</span>
+                <span class="dot">•</span>
+                <span>11</span>
+                <span class="dot">•</span>
+                <span>2026</span>
+            </div>
 
-    <!-- Uncomment this when RSVPs are out  -->
-    <!-- <div id="gatekeeper">
-        <h2>Pet and Hannah Have A Wedding!</h2>
-        <p style="color: white; opacity: 0.8; margin-bottom: 20px;">Please enter the secret word from your invitation
-        </p>
-        <input type="password" id="pass" placeholder="Secret Word">
-        <button class="btn btn-teak" onclick="unlock()">Enter Site</button>
-    </div> -->
+            <p class="landing-location">Chiang Mai, Thailand</p>
 
-    <script src="shared-logic.js"></script>
+            <div class="divider"></div>
 
-    <!-- Uncomment this when RSVPs are out  -->
-    <!-- <script>
-        function unlock() {
-            if (document.getElementById('pass').value.toLowerCase() === 'yay') {
-                localStorage.setItem('wedding_auth', 'true');
-                window.location.href = 'schedule.html';
-            } else {
-                alert("Incorrect password. Please try again!");
-            }
-        }
-    </script> -->
+            <p class="landing-subtext">More details to follow soon.</p>
+
+            <a href="login.html" style="opacity: 0.1; cursor: default; text-decoration: none; color: inherit;">.</a>
+
+            <div class="contact-box">
+                <p>Have questions in the meantime?</p>
+                <a href="mailto:hello@yourweddingemail.com" class="btn-email">Ask us anything</a>
+            </div>
+        </div>
+    </main>
+
 </body>
 
 </html>

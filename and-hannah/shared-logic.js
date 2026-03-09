@@ -81,28 +81,32 @@ function updateLanguage(lang) {
 }
 
 function init() {
-    // 1. Check Auth (Allow index.html without auth)
     const isAuth = localStorage.getItem('wedding_auth');
     const path = window.location.pathname;
-    const isIndex = path.endsWith('index.html') || path === '/' || path.endsWith('/and-hannah/');
 
-    if (!isAuth && !isIndex) {
-        window.location.href = 'index.html';
+    // Define which pages are "Public"
+    const isLandingPage = path.endsWith('index.html') || path === '/' || path.endsWith('/and-hannah/');
+    const isLoginPage = path.endsWith('login.html');
+
+    // If they aren't logged in and they try to access a protected page:
+    if (!isAuth && !isLandingPage && !isLoginPage) {
+        window.location.href = 'index.html'; // Send them back to the Save the Date
         return;
     }
 
-    // 2. Inject HTML
-    const hPlace = document.getElementById('header-placeholder');
-    const fPlace = document.getElementById('footer-placeholder');
-    if (hPlace) hPlace.innerHTML = globalHeader;
-    if (fPlace) fPlace.innerHTML = globalFooter;
+    // Only inject header/footer and check language if it's NOT the landing page
+    if (!isLandingPage) {
+        const hPlace = document.getElementById('header-placeholder');
+        const fPlace = document.getElementById('footer-placeholder');
+        if (hPlace) hPlace.innerHTML = globalHeader;
+        if (fPlace) fPlace.innerHTML = globalFooter;
 
-    // 3. Setup Lang & Menu
-    const savedLang = localStorage.getItem('wedding_lang') || 'en';
-    updateLanguage(savedLang);
+        const savedLang = localStorage.getItem('wedding_lang') || 'en';
+        updateLanguage(savedLang);
 
-    const btn = document.getElementById('menuToggle');
-    if (btn) btn.onclick = toggleMenu;
+        const btn = document.getElementById('menuToggle');
+        if (btn) btn.onclick = toggleMenu;
+    }
 }
 
 window.onload = init;

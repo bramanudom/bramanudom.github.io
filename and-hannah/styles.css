@@ -51,6 +51,100 @@ h3 {
     margin-top: 0;
 }
 
+/* --- LANDING PAGE SPECIFIC --- */
+.landing-body {
+    background: var(--emerald);
+    /* Deep green background for a "Save the Date" feel */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.landing-container {
+    max-width: 600px;
+    width: 100%;
+}
+
+.landing-card {
+    background: var(--cream);
+    padding: 60px 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 8px solid var(--white);
+}
+
+.landing-title {
+    color: var(--teak);
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.landing-date {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--emerald);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.dot {
+    color: var(--ruby);
+}
+
+.landing-location {
+    font-family: var(--font-main);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--emerald);
+}
+
+.divider {
+    height: 2px;
+    width: 60px;
+    background: var(--teak);
+    margin: 40px auto;
+}
+
+.landing-subtext {
+    font-size: 1.2rem;
+    color: var(--emerald);
+    margin-bottom: 40px;
+}
+
+.contact-box {
+    background: rgba(180, 83, 9, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.contact-box p {
+    margin: 0 0 15px 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.btn-email {
+    display: inline-block;
+    color: var(--teak);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid var(--teak);
+    transition: 0.3s;
+}
+
+.btn-email:hover {
+    color: var(--ruby);
+    border-color: var(--ruby);
+}
+
 /* --- Navigation --- */
 .nav-container {
     position: fixed;

@@ -193,84 +193,51 @@ h3 {
 /* ==========================================================================
    7. LANDING & LOGIN PAGE (Playful Overhaul)
    ========================================================================== */
+/* --- EDITORIAL LANDING (Unboxed) --- */
 .landing-body {
-    background: radial-gradient(circle at center, #2d542e 0%, #112212 100%) !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    min-height: 100vh;
+    background: var(--cream) !important;
+    /* Soft, warm base */
+    padding: 40px 20px;
 }
 
-.landing-card {
-    background: var(--white);
-    padding: 60px 40px;
-    border-radius: 60px 8px 60px 8px;
+.landing-container {
+    max-width: 700px;
+    margin: 0 auto;
     text-align: center;
-    box-shadow: 15px 15px 0px rgba(100, 17, 27, 0.2);
-    max-width: 500px;
-    width: 100%;
+    color: var(--emerald);
 }
 
+/* Big, expressive typography instead of a box */
 .landing-title {
-    font-size: 3rem;
+    font-size: clamp(3rem, 10vw, 5rem);
     color: var(--teak);
+    line-height: 0.9;
     margin-bottom: 20px;
-    line-height: 1;
 }
 
 .landing-date {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--ruby);
-    margin: 20px 0;
+    margin: 40px 0;
     font-family: var(--font-heading);
 }
 
 .landing-location {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--emerald);
-}
-
-.multilingual-box {
-    background: var(--cream);
-    padding: 25px;
-    border-radius: 20px;
-    border: 2px solid var(--ruby);
-    color: var(--emerald);
-    font-weight: 600;
-}
-
-.btn-email,
-.btn-enter {
-    display: inline-block;
-    padding: 15px 30px;
-    background: var(--ruby);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 50px;
-    font-family: var(--font-heading);
     font-size: 1.2rem;
-    transition: transform 0.2s;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--emerald);
 }
 
-.btn-enter:hover,
-.btn-email:hover {
-    transform: scale(1.05);
-}
-
-input[type="password"] {
-    width: 100%;
-    padding: 15px;
-    margin: 20px 0;
-    border: 2px solid #e0dcd5;
-    border-radius: 8px;
-    font-family: var(--font-main);
-    font-size: 1rem;
-    text-align: center;
+/* Treat the details as a "Floating Note" rather than a box */
+.multilingual-box {
+    margin: 60px auto;
+    padding: 30px;
+    border-top: 1px solid var(--ruby);
+    border-bottom: 1px solid var(--ruby);
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--emerald);
 }
 
 /* ==========================================================================

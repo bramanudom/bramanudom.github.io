@@ -5,9 +5,8 @@
 
 :root {
     --emerald: #213f22;
-    --teak: #64111b;
+    --teak: #803030;
     --ruby: #3476ad;
-    --plum: #4C1D95;
     --cream: #faedd0;
     --white: #fff7e6;
 
@@ -175,7 +174,8 @@ h3 {
 .map-link {
     border-radius: 8px !important;
     padding: 10px 20px;
-    border: 2px solid var(--emerald);
+    /* Use a translucent border to reduce contrast intensity */
+    border: 2px solid rgba(33, 63, 34, 0.3);
     background: transparent;
     color: var(--emerald);
     font-weight: 700;
@@ -187,7 +187,7 @@ h3 {
 .lang-btn {
     padding: 4px 10px;
     font-size: 0.7rem;
-    border: 1px solid var(--teak);
+    border: 1px solid rgba(128, 48, 48, 0.4);
     color: var(--teak);
 }
 
@@ -195,11 +195,13 @@ h3 {
 .lang-btn:hover {
     background: var(--teak);
     color: var(--white);
+    border-color: var(--teak);
 }
 
 .tab-btn.active {
     background: var(--emerald);
     color: var(--white);
+    border-color: var(--emerald);
 }
 
 /* ==========================================================================

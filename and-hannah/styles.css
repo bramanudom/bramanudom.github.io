@@ -7,7 +7,7 @@
     --emerald: #213f22;
     --teak: #803030;
     --ruby: #3476ad;
-    --cream: #fdfaf3;
+    --cream: #eef4f0;
     --white: #ffffff;
     --text: #2c3e50;
 
@@ -31,6 +31,7 @@ body {
     line-height: 1.6;
 }
 
+
 /* ==========================================================================
    2. MAIN LAYOUT (Sidebar Desktop, Topbar Mobile)
    ========================================================================== */
@@ -40,16 +41,19 @@ body {
     flex-direction: column;
 }
 
+/* The new Emerald Sidebar */
 .sidebar-nav {
     width: var(--sidebar-width);
-    background: var(--white);
+    background: var(--emerald);
+    /* Solid Green Background */
     position: fixed;
     height: 100vh;
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     padding: 40px 20px;
     z-index: 1000;
+    box-shadow: 4px 0 15px rgba(33, 63, 34, 0.1);
+    /* Soft shadow bleeding into the page */
 }
 
 .nav-header {
@@ -59,15 +63,17 @@ body {
     margin-bottom: 40px;
 }
 
+/* Logo is now white so it pops on the green */
 .nav-logo {
     font-family: var(--font-heading);
     font-size: 1.8rem;
-    color: var(--emerald);
+    color: var(--white);
     text-decoration: none;
     text-align: center;
     width: 100%;
 }
 
+/* Mobile Hamburger is now white */
 .hamburger {
     display: none;
     background: none;
@@ -82,7 +88,7 @@ body {
     display: block;
     width: 25px;
     height: 3px;
-    background: var(--emerald);
+    background: var(--white);
     border-radius: 3px;
 }
 
@@ -104,9 +110,10 @@ body {
     gap: 10px;
 }
 
+/* Links are slightly transparent white, hovering to full white */
 .nav-links a {
     text-decoration: none;
-    color: var(--text);
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 500;
     padding: 10px 15px;
     border-radius: 8px;
@@ -114,8 +121,28 @@ body {
 }
 
 .nav-links a:hover {
-    background: rgba(33, 63, 34, 0.05);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+/* Language buttons inverted for the dark background */
+.lang-btn {
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+    background: var(--white);
     color: var(--emerald);
+    border-color: var(--white);
 }
 
 /* Centering the main content area */
@@ -126,9 +153,7 @@ main.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* This ensures the cards sit in the center of the available space */
     flex: 1;
-    /* Pushes footer down */
 }
 
 /* ==========================================================================

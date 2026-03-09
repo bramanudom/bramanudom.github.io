@@ -478,3 +478,110 @@ textarea.form-input {
         padding: 25px;
     }
 }
+
+/* ==========================================================================
+   8. LANDING & LOGIN PAGE (Save the Date Card)
+   ========================================================================== */
+.landing-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--cream);
+}
+
+.landing-container {
+    max-width: 600px;
+    width: 100%;
+}
+
+.save-the-date-card {
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adds a fun, 3-color stripe at the top of the card using your jewel tones */
+.card-tricolor-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--teak) 33%, var(--ruby) 33%, var(--ruby) 66%, var(--emerald) 66%);
+}
+
+/* Typography Hierarchy */
+.eyebrow-text {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: var(--emerald);
+    font-weight: 700;
+    margin: 10px 0 15px;
+}
+
+.couple-names {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    margin-bottom: 5px;
+    color: var(--teak);
+    line-height: 1;
+}
+
+.wedding-announcement {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 30px;
+}
+
+/* Clean grouping for the translations */
+.multilingual-divider {
+    margin: 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.multilingual-th {
+    font-size: 1.3rem;
+    margin: 0 0 5px;
+    color: var(--emerald);
+    font-family: var(--font-main);
+}
+
+.multilingual-ko {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--ruby);
+    font-family: var(--font-main);
+}
+
+/* Stationery-style Date & Location */
+.date-display {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--teak);
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.location-display {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    color: var(--emerald);
+}
+
+/* Subtle Footer Notes */
+.coming-soon-notes {
+    margin-top: 40px;
+    opacity: 0.4;
+    font-size: 0.8rem;
+    line-height: 1.8;
+}
+
+.coming-soon-notes p {
+    margin: 0;
+}

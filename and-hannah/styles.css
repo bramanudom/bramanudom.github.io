@@ -1,347 +1,261 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Gaegu&family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans+Thai:wght@300;400;700&display=swap');
+   /* ==========================================================================
+   1. IMPORTS & VARIABLES
+   ========================================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Itim&family=Gaegu&family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans+Thai:wght@300;400;700&display=swap');
 
-:root {
-    /* Colors */
-    --emerald: #213f22;
-    --teak: #64111b;
-    --ruby: #3476ad;
-    --plum: #4C1D95;
-    --cream: #faedd0;
-    --white: #fff7e6;
+   :root {
+       /* Colors */
+       --emerald: #213f22;
+       --teak: #64111b;
+       --ruby: #3476ad;
+       --plum: #4C1D95;
+       --cream: #faedd0;
+       --white: #fff7e6;
 
-    /* Fonts */
-    --font-heading: 'Itim', 'Gaegu', cursive;
-    --font-main: 'Inter', 'Noto Sans Thai', 'Noto Sans KR', sans-serif;
-    --base-line-height: 1.75;
-}
+       --font-heading: 'Itim', 'Gaegu', cursive;
+       --font-main: 'Inter', 'Noto Sans Thai', 'Noto Sans KR', sans-serif;
+       --base-line-height: 1.75;
+   }
 
-/* --- RESET & BASE --- */
-* {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+   /* ==========================================================================
+   2. RESET & BASE STYLES
+   ========================================================================== */
+   * {
+       box-sizing: border-box;
+       scroll-behavior: smooth;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+   }
 
-body {
-    margin: 0;
-    font-family: var(--font-main);
-    line-height: var(--base-line-height);
-    background-color: var(--cream);
-    color: var(--emerald);
-    min-height: 100vh;
-}
+   body {
+       margin: 0;
+       font-family: var(--font-main);
+       line-height: var(--base-line-height);
+       background-color: var(--cream);
+       color: var(--emerald);
+       min-height: 100vh;
+   }
 
-/* --- LAYOUT CONTAINERS --- */
-.container {
-    padding: 120px 20px 60px;
-    max-width: 800px;
-    margin: 0 auto;
-}
+   /* ==========================================================================
+   3. LAYOUT & CARDS
+   ========================================================================== */
+   .container {
+       padding: 120px 20px 60px;
+       max-width: 800px;
+       margin: 0 auto;
+   }
 
-.card {
-    background: var(--white);
-    padding: 35px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(33, 63, 34, 0.05);
-}
+   .card {
+       background: var(--white);
+       padding: 35px;
+       border-radius: 8px;
+       /* Soft square */
+       margin-bottom: 25px;
+       box-shadow: 0 4px 15px rgba(33, 63, 34, 0.05);
+   }
 
-/* --- TYPOGRAPHY --- */
-h1,
-h2,
-h3 {
-    font-family: var(--font-heading);
-    color: var(--teak);
-    font-weight: 400;
-    text-align: center;
-    margin-top: 0;
-}
+   .landing-card {
+       background: var(--white);
+       padding: clamp(30px, 8vw, 60px);
+       border-radius: 8px;
+       text-align: center;
+       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+       width: 100%;
+       max-width: 650px;
+   }
 
-h1 {
-    font-size: 2.2rem;
-}
+   /* ==========================================================================
+   4. TYPOGRAPHY
+   ========================================================================== */
+   h1,
+   h2,
+   h3 {
+       font-family: var(--font-heading);
+       color: var(--teak);
+       font-weight: 400;
+       text-align: center;
+       margin-top: 0;
+   }
 
-h3 {
-    font-size: 1.5rem;
-}
+   h1 {
+       font-size: 2.2rem;
+   }
 
-.event-date {
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 0.75rem;
-    color: var(--teak);
-    font-weight: 700;
-    margin-bottom: 10px;
-}
+   h3 {
+       font-size: 1.5rem;
+   }
 
-.event-time {
-    font-weight: 600;
-    color: var(--emerald);
-    margin: 10px 0;
-}
+   .event-date {
+       display: block;
+       text-transform: uppercase;
+       letter-spacing: 0.15em;
+       font-size: 0.75rem;
+       color: var(--teak);
+       font-weight: 700;
+       margin-bottom: 10px;
+   }
 
-/* --- SCHEDULE SPECIFIC --- */
-.event-card {
-    border-left: 6px solid var(--teak);
-    text-align: left;
-}
+   /* ==========================================================================
+   5. HEADER & NAVIGATION (Refined)
+   ========================================================================== */
+   .nav-container {
+       position: sticky;
+       top: 0;
+       width: 100%;
+       background: var(--cream);
+       padding: 15px 20px;
+       border-top: 6px solid var(--teak);
+       border-bottom: 2px solid var(--emerald);
+       z-index: 1000;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 10px;
+   }
 
-.map-link {
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 0.75rem;
-    color: var(--teak);
-    text-decoration: none;
-    border: 1.5px solid var(--teak);
-    padding: 8px 18px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
+   .nav-logo {
+       font-family: var(--font-heading);
+       text-decoration: none;
+       color: var(--teak);
+       font-size: 2.2rem;
+       text-align: center;
+   }
 
-.map-link:hover {
-    background: var(--teak);
-    color: var(--white);
-}
+   .nav-links {
+       display: flex;
+       gap: 25px;
+       flex-wrap: wrap;
+       justify-content: center;
+       border-top: 1px solid rgba(33, 63, 34, 0.1);
+       padding-top: 10px;
+       width: 100%;
+   }
 
-/* --- LANDING & LOGIN BACKGROUNDS --- */
-.landing-body,
-.login-body {
-    background: linear-gradient(135deg, #213f22 0%, #112212 100%) !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    min-height: 100vh;
-}
+   .nav-links a {
+       text-decoration: none;
+       font-family: var(--font-main);
+       font-weight: 600;
+       font-size: 0.8rem;
+       color: var(--emerald);
+       text-transform: uppercase;
+       letter-spacing: 0.1em;
+       transition: 0.2s;
+   }
 
-.landing-card {
-    background: var(--white);
-    padding: clamp(30px, 8vw, 60px);
-    border-radius: 40px;
-    text-align: center;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 650px;
-}
+   .nav-links a:hover {
+       color: var(--teak);
+   }
 
-.landing-title {
-    font-size: clamp(2.2rem, 9vw, 3.8rem);
-    line-height: 1.1;
-    margin-bottom: 15px;
-}
+   /* ==========================================================================
+   6. BUTTONS & TABS (Soft Square)
+   ========================================================================== */
+   .btn,
+   .tab-btn,
+   .lang-btn,
+   .map-link {
+       border-radius: 8px !important;
+       padding: 10px 20px;
+       transition: all 0.2s ease;
+       cursor: pointer;
+       font-family: var(--font-main);
+       font-weight: 700;
+       text-transform: uppercase;
+       letter-spacing: 0.05em;
+       border: 2px solid var(--emerald);
+       background: transparent;
+       color: var(--emerald);
+   }
 
-.landing-date {
-    font-weight: 700;
-    font-size: 2.2rem;
-    color: var(--emerald);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
+   .lang-btn {
+       padding: 4px 10px;
+       font-size: 0.7rem;
+       border: 1px solid var(--teak);
+       color: var(--teak);
+   }
 
-.dot {
-    color: var(--ruby);
-}
+   .lang-btn.active,
+   .lang-btn:hover {
+       background: var(--teak);
+       color: var(--white);
+   }
 
-/* --- NAVIGATION & FOOTER --- */
-.nav-container {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(250, 237, 208, 0.96);
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid rgba(100, 17, 27, 0.1);
-}
+   .tab-btn.active {
+       background: var(--emerald);
+       color: var(--white);
+   }
 
-.nav-logo {
-    font-family: var(--font-heading);
-    text-decoration: none;
-    color: var(--teak);
-    font-size: 1.8rem;
-}
+   /* ==========================================================================
+   7. LANDING PAGE & LOGIN
+   ========================================================================== */
+   .landing-body,
+   .login-body {
+       background: linear-gradient(135deg, #213f22 0%, #112212 100%) !important;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 20px;
+       min-height: 100vh;
+   }
 
-.footer-container {
-    padding: 60px 20px;
-    text-align: center;
-}
+   .landing-title {
+       font-size: clamp(2.2rem, 9vw, 3.8rem);
+       line-height: 1.1;
+       margin-bottom: 15px;
+   }
 
-.footer-names {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    color: var(--teak);
-}
+   /* ==========================================================================
+   8. COMPONENTS & ANIMATIONS
+   ========================================================================== */
+   .event-card {
+       border-left: 6px solid var(--teak);
+       text-align: left;
+   }
 
-/* --- ANIMATIONS --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: calmFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
+   .tab-content {
+       display: none;
+   }
 
-.delay-1 {
-    animation-delay: 0.2s;
-}
+   .active-content {
+       display: block;
+       animation: calmFadeIn 0.5s ease-out;
+   }
 
-.delay-2 {
-    animation-delay: 0.4s;
-}
+   .reveal {
+       opacity: 0;
+       transform: translateY(20px);
+       animation: calmFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+   }
 
-.delay-3 {
-    animation-delay: 0.6s;
-}
+   @keyframes calmFadeIn {
+       to {
+           opacity: 1;
+           transform: translateY(0);
+       }
+   }
 
-@keyframes calmFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+   /* ==========================================================================
+   9. MOBILE OPTIMIZATIONS
+   ========================================================================== */
+   @media (max-width: 600px) {
+       .nav-container {
+           padding: 10px;
+           gap: 5px;
+       }
 
-@media (max-width: 480px) {
-    .container {
-        padding-top: 100px;
-    }
+       .nav-logo {
+           font-size: 1.3rem;
+       }
 
-    .card {
-        padding: 25px;
-    }
-}
+       .nav-links {
+           gap: 10px;
+           padding-top: 5px;
+       }
 
-/* --- HORIZONTAL NAVIGATION --- */
-.nav-container {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background: var(--cream);
-    padding: 20px 20px 10px;
-    border-bottom: 1px solid rgba(100, 17, 27, 0.1);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
+       .nav-links a {
+           font-size: 0.7rem;
+       }
 
-.top-bar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.nav-logo {
-    font-family: var(--font-heading);
-    text-decoration: none;
-    color: var(--teak);
-    font-size: 2.2rem;
-    text-align: center;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.nav-links a {
-    text-decoration: none;
-    font-family: var(--font-main);
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--emerald);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 5px;
-}
-
-.nav-links a:hover {
-    color: var(--teak);
-}
-
-/* --- MOBILE TWEAKS --- */
-@media (max-width: 600px) {
-    .nav-logo {
-        font-size: 1.5rem;
-    }
-
-    .nav-links {
-        gap: 10px;
-    }
-
-    .nav-links a {
-        font-size: 0.75rem;
-    }
-}
-
-/* --- BUTTONS: LANGUAGES & TABS --- */
-
-/* Language Buttons */
-.lang-btn {
-    background: transparent;
-    border: 1px solid var(--teak);
-    color: var(--teak);
-    padding: 4px 10px;
-    cursor: pointer;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border-radius: 50px;
-    margin: 0 2px;
-    transition: 0.3s;
-}
-
-.lang-btn.active,
-.lang-btn:hover {
-    background: var(--teak);
-    color: var(--white);
-}
-
-/* Tab Container */
-.tab-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-.tab-btn {
-    padding: 12px 30px;
-    border: 2px solid var(--emerald);
-    background: transparent;
-    color: var(--emerald);
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.tab-btn.active {
-    background: var(--emerald);
-    color: var(--white);
-    box-shadow: 0 10px 20px rgba(33, 63, 34, 0.2);
-}
-
-/* Tab Content Visibility */
-.tab-content {
-    display: none;
-}
-
-.active-content {
-    display: block;
-    animation: calmFadeIn 0.5s ease-out;
-}
-
-/* Utility */
-.center {
-    text-align: center;
-}
+       .container {
+           padding-top: 100px;
+       }
+   }

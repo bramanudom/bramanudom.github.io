@@ -37,22 +37,23 @@ const dictionary = {
 
 const globalHeader = `
     <nav class="nav-container">
-        <div class="lang-switcher">
-            <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
-            <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
-            <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+        <div class="top-bar">
+            <div class="lang-switcher">
+                <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
+                <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
+                <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+            </div>
         </div>
         <a href="why.html" class="nav-logo">Pet and Hannah Have a Wedding!</a>
-        <button class="hamburger" id="menuToggle"><span></span><span></span><span></span></button>
+        <div class="nav-links">
+            <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
+            <a href="schedule.html" data-i18n="nav_events">Schedule</a>
+            <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
+            <a href="recommendation-corner.html" data-i18n="nav_pet">Recommendations</a>
+            <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+            <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
+        </div>
     </nav>
-    <div class="menu-overlay" id="menu">
-        <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
-        <a href="schedule.html" data-i18n="nav_events">Schedule</a>
-        <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
-        <a href="recommendation-corner.html" data-i18n="nav-recommendations">Our Recs</a>
-        <a href="faq.html" data-i18n="nav_faq">Travel FAQ</a>
-        <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
-    </div>
 `;
 
 const globalFooter = `
@@ -62,13 +63,6 @@ const globalFooter = `
         <p class="footer-date">Nov 6 2027 — CHIANG MAI</p>
     </footer>
 `;
-
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    if (!menu) return;
-    const isHidden = window.getComputedStyle(menu).display === 'none';
-    menu.style.display = isHidden ? 'flex' : 'none';
-}
 
 function updateLanguage(lang) {
     localStorage.setItem('wedding_lang', lang);

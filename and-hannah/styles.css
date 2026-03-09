@@ -48,7 +48,9 @@ body {
 }
 
 /* --- TYPOGRAPHY --- */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-heading);
     color: var(--teak);
     font-weight: 400;
@@ -56,8 +58,13 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-h1 { font-size: 2.2rem; }
-h3 { font-size: 1.5rem; }
+h1 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
 
 .event-date {
     display: block;
@@ -101,7 +108,8 @@ h3 { font-size: 1.5rem; }
 }
 
 /* --- LANDING & LOGIN BACKGROUNDS --- */
-.landing-body, .login-body {
+.landing-body,
+.login-body {
     background: linear-gradient(135deg, #213f22 0%, #112212 100%) !important;
     display: flex;
     align-items: center;
@@ -120,9 +128,25 @@ h3 { font-size: 1.5rem; }
     max-width: 650px;
 }
 
-.landing-title { font-size: clamp(2.2rem, 9vw, 3.8rem); line-height: 1.1; margin-bottom: 15px;}
-.landing-date { font-weight: 700; font-size: 2.2rem; color: var(--emerald); display: flex; justify-content: center; align-items: center; gap: 15px; }
-.dot { color: var(--ruby); }
+.landing-title {
+    font-size: clamp(2.2rem, 9vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.landing-date {
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--emerald);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.dot {
+    color: var(--ruby);
+}
 
 /* --- NAVIGATION & FOOTER --- */
 .nav-container {
@@ -139,20 +163,122 @@ h3 { font-size: 1.5rem; }
     border-bottom: 1px solid rgba(100, 17, 27, 0.1);
 }
 
-.nav-logo { font-family: var(--font-heading); text-decoration: none; color: var(--teak); font-size: 1.8rem; }
+.nav-logo {
+    font-family: var(--font-heading);
+    text-decoration: none;
+    color: var(--teak);
+    font-size: 1.8rem;
+}
 
-.footer-container { padding: 60px 20px; text-align: center; }
-.footer-names { font-family: var(--font-heading); font-size: 2rem; color: var(--teak); }
+.footer-container {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.footer-names {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--teak);
+}
 
 /* --- ANIMATIONS --- */
-.reveal { opacity: 0; transform: translateY(20px); animation: calmFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: calmFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
 
-@keyframes calmFadeIn { to { opacity: 1; transform: translateY(0); } }
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+@keyframes calmFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 @media (max-width: 480px) {
-    .container { padding-top: 100px; }
-    .card { padding: 25px; }
+    .container {
+        padding-top: 100px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+}
+
+/* --- HORIZONTAL NAVIGATION --- */
+.nav-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: var(--cream);
+    padding: 20px 20px 10px;
+    border-bottom: 1px solid rgba(100, 17, 27, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-logo {
+    font-family: var(--font-heading);
+    text-decoration: none;
+    color: var(--teak);
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--emerald);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 5px;
+}
+
+.nav-links a:hover {
+    color: var(--teak);
+}
+
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 600px) {
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+    }
 }

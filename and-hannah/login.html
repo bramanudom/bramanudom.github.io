@@ -3,30 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Enter Website | P & H</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body style="background: var(--emerald); display: flex; align-items: center; justify-content: center; height: 100vh;">
-    <div class="card" style="max-width: 400px; text-align: center;">
-        <h2 style="font-family: var(--font-heading);">Welcome!</h2>
-        <p>Please enter the guest code from your invitation:</p>
-        <input type="password" id="passInput" placeholder="Enter Code">
-        <button onclick="checkPass()" class="btn btn-teak" style="width: 100%;">Enter</button>
-        <p id="err" style="color: var(--ruby); display: none; margin-top: 10px;">Incorrect code, please try again.</p>
+<body class="login-body">
+
+    <div class="login-container">
+        <div class="card login-card">
+            <h2 class="login-header">Welcome!</h2>
+            <p class="login-instruction">Please enter the guest code from your invitation:</p>
+
+            <div class="input-group">
+                <input type="password" id="passInput" placeholder="Enter Code" autocomplete="off">
+                <button onclick="checkPass()" class="btn btn-teak login-btn">Enter</button>
+            </div>
+
+            <p id="err" class="error-msg">Incorrect code, please try again.</p>
+
+            <a href="index.html" class="back-link">← Back to Save the Date</a>
+        </div>
     </div>
 
     <script>
         function checkPass() {
             const pass = document.getElementById('passInput').value.toLowerCase().trim();
-            if (pass === 'yay') { // Change this to your desired password
+            if (pass === 'yay') {
                 localStorage.setItem('wedding_auth', 'true');
-                window.location.href = 'why.html'; // Redirect to the first internal page
+                window.location.href = 'why.html';
             } else {
                 document.getElementById('err').style.display = 'block';
             }
         }
+
+        // Allow "Enter" key to submit
+        document.getElementById("passInput").addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                checkPass();
+            }
+        });
     </script>
 </body>
 

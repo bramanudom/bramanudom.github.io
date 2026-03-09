@@ -77,15 +77,14 @@ function updateLanguage(lang) {
 function init() {
     const isAuth = localStorage.getItem('wedding_auth');
     const path = window.location.pathname;
-
-    // Define which pages are "Public"
     const isLandingPage = path.endsWith('index.html') || path === '/' || path.endsWith('/and-hannah/');
     const isLoginPage = path.endsWith('login.html');
 
-    // If they aren't logged in and they try to access a protected page:
-    if (!isAuth && !isLandingPage && !isLoginPage) {
-        window.location.href = 'index.html'; // Send them back to the Save the Date
-        return;
+    // Add the class dynamically to body
+    if (isLandingPage || isLoginPage) {
+        document.body.className = isLandingPage ? 'landing-body' : 'login-body';
+    } else {
+        document.body.className = 'main-page';
     }
 
     // Only inject header/footer and check language if it's NOT the landing page

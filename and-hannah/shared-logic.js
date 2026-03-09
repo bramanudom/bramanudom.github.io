@@ -42,7 +42,7 @@ const globalHeader = `
             <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
             <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
         </div>
-        <a href="why.html" class="nav-logo">P & H</a>
+        <a href="why.html" class="nav-logo">Pet and Hannah Have a Wedding!</a>
         <button class="hamburger" id="menuToggle"><span></span><span></span><span></span></button>
     </nav>
     <div class="menu-overlay" id="menu">
@@ -58,9 +58,8 @@ const globalHeader = `
 const globalFooter = `
     <footer class="footer-container">
         <div class="footer-divider"></div>
-        <p class="footer-names">Pet & Hannah</p>
-        <p class="footer-date">12 . 11 . 2026 — CHIANG MAI</p>
-        <div class="footer-icons"><span>🐘</span><span>🌿</span><span>🌸</span></div>
+        <p class="footer-names">Made by Pet (and Hannah helped) </p>
+        <p class="footer-date">Nov 6 2027 — CHIANG MAI</p>
     </footer>
 `;
 

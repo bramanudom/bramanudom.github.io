@@ -602,9 +602,18 @@ textarea.form-input {
 /* Subtle Footer Notes */
 .coming-soon-notes {
     margin-top: 40px;
-    opacity: 0.4;
-    font-size: 0.8rem;
+    padding-top: 30px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    /* Adds a playful "ticket" or "stationery" line */
+    opacity: 0.7;
+    /* Increased from 0.4 so it's easier to read */
+    font-size: 0.9rem;
     line-height: 1.8;
+    color: var(--emerald);
+}
+
+.coming-soon-notes p {
+    margin: 0;
 }
 
 .coming-soon-notes p {

@@ -37,24 +37,27 @@ const dictionary = {
 
 const globalHeader = `
     <nav class="nav-container">
-        <div class="top-bar">
-            <div class="lang-switcher">
-                <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
-                <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
-                <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
-            </div>
+        <a href="why.html" class="nav-logo">Pet & Hannah</a>
+        
+        <div class="lang-switcher" style="margin-bottom: 20px;">
+            <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
+            <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
+            <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
         </div>
-        <a href="why.html" class="nav-logo">Pet and Hannah Have a Wedding!</a>
+
         <div class="nav-links">
             <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
             <a href="schedule.html" data-i18n="nav_events">Schedule</a>
             <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
-            <a href="recommendation-corner.html" data-i18n="nav_recs">Recommendation Corner</a>
+            <a href="recommendation-corner.html" data-i18n="nav_recs">Recommendations</a>
             <a href="faq.html" data-i18n="nav_faq">FAQ</a>
             <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
         </div>
     </nav>
 `;
+
+// In your init() function, ensure landing-body and login-body 
+// do not show the sidebar by checking the class.
 
 const globalFooter = `
     <footer class="footer-container">

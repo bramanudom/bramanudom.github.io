@@ -4,26 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule | Pet & Hannah</title>
+    <title>Login | Pet & Hannah</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="login-body">
-    <div class="login-container">
-        <div class="landing-card">
-            <h2 class="login-header">Welcome!</h2>
-            <p class="login-instruction">Please enter the guest code from your invitation:</p>
+<body class="landing-body">
+    <main class="container">
+        <div class="card" style="max-width: 400px; margin: 100px auto; text-align: center;">
+            <h2 style="color: var(--teak);">Welcome!</h2>
+            <p>Please enter the guest code from your invitation:</p>
 
-            <div class="input-group">
-                <input type="password" id="passInput" placeholder="Enter Code" autocomplete="off">
-                <button onclick="checkPass()" class="btn btn-teak login-btn">Enter</button>
+            <div class="input-group" style="display: flex; gap: 10px; justify-content: center; margin: 20px 0;">
+                <input type="password" id="passInput" placeholder="Enter Code"
+                    style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <button onclick="checkPass()" class="btn btn-teak">Enter</button>
             </div>
 
-            <p id="err" class="error-msg">Incorrect code, please try again.</p>
+            <p id="err" style="color: var(--ruby); display: none;">Incorrect code, please try again.</p>
 
-            <a href="index.html" class="back-link">← Back to Save the Date</a>
+            <a href="index.html" style="font-size: 0.8rem; color: var(--emerald);">← Back to Save the Date</a>
         </div>
-    </div>
+    </main>
 
     <script>
         function checkPass() {
@@ -35,13 +36,6 @@
                 document.getElementById('err').style.display = 'block';
             }
         }
-
-        // Allow "Enter" key to submit
-        document.getElementById("passInput").addEventListener("keyup", function (event) {
-            if (event.key === "Enter") {
-                checkPass();
-            }
-        });
     </script>
 </body>
 

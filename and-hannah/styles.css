@@ -410,3 +410,83 @@ textarea {
     height: 2px;
     background: var(--cream);
 }
+
+/* --- MOBILE-OPTIMIZED LANDING PAGE --- */
+
+/* Base container adjustment */
+.landing-body {
+    background: var(--emerald);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    /* Smaller padding for mobile */
+    min-height: 100vh;
+}
+
+.landing-card {
+    background: var(--cream);
+    padding: 40px 20px;
+    /* Reduced from 60px 40px */
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border: 4px solid var(--white);
+    /* Thinner border for mobile */
+    width: 100%;
+}
+
+/* Scalable Title */
+.landing-title {
+    color: var(--teak);
+    font-size: clamp(2rem, 8vw, 3rem);
+    /* Dynamically scales between 2rem and 3rem */
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* Responsive Date Row */
+.landing-date {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    color: var(--emerald);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    /* Tighter gap for mobile */
+}
+
+/* Adjust Sub-headlines (Thai/Korean) */
+.landing-sub-headline {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+    margin-top: -10px;
+    margin-bottom: 25px;
+}
+
+/* Contact box for mobile */
+.contact-box {
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.contact-box p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Tablet and Mobile Specific Tweaks */
+@media (max-width: 480px) {
+    .landing-card {
+        padding: 30px 15px;
+    }
+
+    .divider {
+        margin: 25px auto;
+    }
+
+    .landing-subtext {
+        font-size: 1rem;
+    }
+}

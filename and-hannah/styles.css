@@ -155,8 +155,9 @@ h3 {
 }
 
 .multilingual-box p {
-    margin: 5px 0;
-    font-size: 1rem;
+    font-family: var(--font-heading);
+    margin: 10px 0;
+    font-size: 1.2rem;
     color: var(--emerald);
 }
 

@@ -32,16 +32,75 @@ body {
     min-height: 100vh;
 }
 
+/* --- LAYOUT CONTAINERS --- */
+.container {
+    padding: 120px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(33, 63, 34, 0.05);
+}
+
+/* --- TYPOGRAPHY --- */
 h1, h2, h3 {
     font-family: var(--font-heading);
     color: var(--teak);
     font-weight: 400;
-    letter-spacing: 0.02em;
     text-align: center;
+    margin-top: 0;
+}
+
+h1 { font-size: 2.2rem; }
+h3 { font-size: 1.5rem; }
+
+.event-date {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    color: var(--teak);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.event-time {
+    font-weight: 600;
+    color: var(--emerald);
+    margin: 10px 0;
+}
+
+/* --- SCHEDULE SPECIFIC --- */
+.event-card {
+    border-left: 6px solid var(--teak);
+    text-align: left;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.75rem;
+    color: var(--teak);
+    text-decoration: none;
+    border: 1.5px solid var(--teak);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.map-link:hover {
+    background: var(--teak);
+    color: var(--white);
 }
 
 /* --- LANDING & LOGIN BACKGROUNDS --- */
-/* This ensures the gradient works and overrides the default body background */
 .landing-body, .login-body {
     background: linear-gradient(135deg, #213f22 0%, #112212 100%) !important;
     display: flex;
@@ -49,130 +108,23 @@ h1, h2, h3 {
     justify-content: center;
     padding: 20px;
     min-height: 100vh;
-    margin: 0;
 }
 
-/* --- LANDING PAGE CARD --- */
 .landing-card {
     background: var(--white);
     padding: clamp(30px, 8vw, 60px);
     border-radius: 40px;
     text-align: center;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;
     max-width: 650px;
 }
 
-.landing-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 9vw, 3.8rem);
-    color: var(--teak);
-    margin-bottom: 10px;
-    line-height: 1.1;
-}
-
-.landing-sub-headline {
-    font-family: var(--font-main);
-    font-weight: 300;
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
-    color: var(--emerald);
-    opacity: 0.8;
-    margin-bottom: 20px;
-}
-
-.landing-date {
-    font-family: var(--font-main);
-    font-weight: 700;
-    font-size: clamp(1.5rem, 6vw, 2.2rem);
-    color: var(--emerald);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(8px, 3vw, 15px);
-    margin-top: 20px;
-}
-
+.landing-title { font-size: clamp(2.2rem, 9vw, 3.8rem); line-height: 1.1; margin-bottom: 15px;}
+.landing-date { font-weight: 700; font-size: 2.2rem; color: var(--emerald); display: flex; justify-content: center; align-items: center; gap: 15px; }
 .dot { color: var(--ruby); }
 
-.landing-location {
-    font-family: var(--font-main);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 0.8rem;
-    color: var(--teak);
-    margin-top: 10px;
-}
-
-.divider {
-    height: 2px;
-    width: 60px;
-    background: var(--teak);
-    margin: 30px auto;
-}
-
-.multilingual-box { margin-bottom: 30px; }
-.multilingual-box p {
-    font-family: var(--font-heading);
-    margin: 8px 0;
-    font-size: clamp(1rem, 4vw, 1.3rem);
-    color: var(--emerald);
-}
-
-.contact-box {
-    background: rgba(33, 63, 34, 0.05);
-    padding: 20px;
-    border-radius: 20px;
-}
-
-.contact-box p {
-    margin: 0 0 10px 0;
-    font-size: 0.8rem;
-    font-weight: 700;
-    opacity: 0.8;
-}
-
-.btn-email {
-    display: inline-block;
-    color: var(--teak);
-    text-decoration: none;
-    font-weight: 700;
-    border-bottom: 2px solid var(--teak);
-    transition: 0.3s;
-    font-size: 0.9rem;
-}
-
-/* --- LOGIN PAGE CARD --- */
-.login-container { width: 100%; max-width: 400px; }
-.login-card {
-    background: var(--white);
-    padding: 40px 30px;
-    border-radius: 25px;
-    border-top: 8px solid var(--teak);
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
-
-#passInput {
-    width: 100%;
-    padding: 14px;
-    font-size: 16px; /* Prevents iOS zoom */
-    text-align: center;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
-    margin-bottom: 15px;
-    font-family: var(--font-main);
-}
-
-.error-msg {
-    color: var(--ruby);
-    display: none;
-    font-size: 0.85rem;
-    margin-top: 10px;
-}
-
-/* --- NAVIGATION & SIDEBAR --- */
+/* --- NAVIGATION & FOOTER --- */
 .nav-container {
     position: fixed;
     top: 0;
@@ -182,91 +134,25 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(250, 237, 208, 0.98);
+    background: rgba(250, 237, 208, 0.96);
+    backdrop-filter: blur(5px);
     border-bottom: 1px solid rgba(100, 17, 27, 0.1);
 }
 
-.nav-logo {
-    font-family: var(--font-heading);
-    text-decoration: none;
-    color: var(--teak);
-    font-size: 1.8rem;
-}
+.nav-logo { font-family: var(--font-heading); text-decoration: none; color: var(--teak); font-size: 1.8rem; }
 
-.hamburger {
-    cursor: pointer;
-    background: var(--emerald);
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    width: 44px;
-    height: 44px;
-    align-items: center;
-    justify-content: center;
-    z-index: 1001;
-}
-
-.hamburger span {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: var(--cream);
-}
-
-/* --- BUTTONS & TABS --- */
-.btn {
-    padding: 16px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: inline-block;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.85rem;
-    cursor: pointer;
-    border: none;
-    font-family: var(--font-main);
-}
-
-.btn-teak { background: var(--teak); color: white; }
-.btn-emerald { background: var(--emerald); color: white; }
-
-.tab-btn {
-    padding: 10px 20px;
-    border: 2px solid var(--teak);
-    background: transparent;
-    color: var(--teak);
-    font-family: var(--font-main);
-    font-weight: 700;
-    border-radius: 50px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-}
-
-.tab-btn.active { background: var(--teak); color: white; }
+.footer-container { padding: 60px 20px; text-align: center; }
+.footer-names { font-family: var(--font-heading); font-size: 2rem; color: var(--teak); }
 
 /* --- ANIMATIONS --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: calmFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
+.reveal { opacity: 0; transform: translateY(20px); animation: calmFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.6s; }
 
-@keyframes calmFadeIn {
-    to { opacity: 1; transform: translateY(0); }
-}
+@keyframes calmFadeIn { to { opacity: 1; transform: translateY(0); } }
 
-/* --- MOBILE SPECIFIC OVERRIDES --- */
 @media (max-width: 480px) {
-    .landing-card { padding: 30px 20px; border-radius: 30px; }
-    .landing-date { gap: 10px; }
-    .divider { margin: 25px auto; }
-    .nav-logo { font-size: 1.5rem; }
+    .container { padding-top: 100px; }
+    .card { padding: 25px; }
 }

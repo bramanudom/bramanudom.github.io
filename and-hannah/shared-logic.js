@@ -58,9 +58,9 @@ const globalHeader = `
 
 const globalFooter = `
     <footer class="footer-container">
-        <div class="footer-divider"></div>
-        <p class="footer-names">Made by Pet (and Hannah helped) </p>
-        <p class="footer-date">Nov 6 2027 — CHIANG MAI</p>
+        <div class="footer-divider" style="height: 1px; background: rgba(100, 17, 27, 0.2); width: 100px; margin: 0 auto 30px;"></div>
+        <p class="footer-names">Made by Pet (and Hannah helped)</p>
+        <p class="footer-date">Nov 6, 2027 — CHIANG MAI</p>
     </footer>
 `;
 

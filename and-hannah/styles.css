@@ -1,5 +1,5 @@
    /* ==========================================================================
-   1. IMPORTS & VARIABLES
+    IMPORTS & VARIABLES
    ========================================================================== */
    @import url('https://fonts.googleapis.com/css2?family=Itim&family=Gaegu&family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans+Thai:wght@300;400;700&display=swap');
 
@@ -18,7 +18,7 @@
    }
 
    /* ==========================================================================
-   2. RESET & BASE STYLES
+    RESET & BASE STYLES
    ========================================================================== */
    * {
        box-sizing: border-box;
@@ -37,7 +37,7 @@
    }
 
    /* ==========================================================================
-   3. LAYOUT & CARDS
+    LAYOUT & CARDS
    ========================================================================== */
    .container {
        padding: 120px 20px 60px;
@@ -65,7 +65,7 @@
    }
 
    /* ==========================================================================
-   4. TYPOGRAPHY
+    TYPOGRAPHY
    ========================================================================== */
    h1,
    h2,
@@ -96,7 +96,7 @@
    }
 
    /* ==========================================================================
-   5. HEADER & NAVIGATION (Refined)
+    HEADER & FOOTER & NAVIGATION 
    ========================================================================== */
    .nav-container {
        position: sticky;
@@ -146,8 +146,34 @@
        color: var(--teak);
    }
 
+
+   .footer-container {
+       padding: 80px 20px 40px;
+       text-align: center;
+       background-color: var(--cream);
+       margin-top: auto;
+       /* Pushes footer to bottom if page content is short */
+       border-top: 1px solid rgba(100, 17, 27, 0.1);
+   }
+
+   .footer-names {
+       font-family: var(--font-heading);
+       font-size: 1.5rem;
+       color: var(--teak);
+       margin-bottom: 5px;
+   }
+
+   .footer-date {
+       font-family: var(--font-main);
+       font-size: 0.7rem;
+       text-transform: uppercase;
+       letter-spacing: 0.2em;
+       color: var(--emerald);
+       opacity: 0.7;
+   }
+
    /* ==========================================================================
-   6. BUTTONS & TABS (Soft Square)
+    BUTTONS & TABS (Soft Square)
    ========================================================================== */
    .btn,
    .tab-btn,
@@ -185,7 +211,7 @@
    }
 
    /* ==========================================================================
-   7. LANDING PAGE & LOGIN
+    LANDING PAGE & LOGIN
    ========================================================================== */
    .landing-body,
    .login-body {
@@ -204,7 +230,7 @@
    }
 
    /* ==========================================================================
-   8. COMPONENTS & ANIMATIONS
+    COMPONENTS & ANIMATIONS
    ========================================================================== */
    .event-card {
        border-left: 6px solid var(--teak);
@@ -234,7 +260,7 @@
    }
 
    /* ==========================================================================
-   9. MOBILE OPTIMIZATIONS
+    MOBILE OPTIMIZATIONS
    ========================================================================== */
    @media (max-width: 600px) {
        .nav-container {

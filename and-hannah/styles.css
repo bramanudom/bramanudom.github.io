@@ -37,6 +37,7 @@ body {
 .main-layout {
     display: flex;
     min-height: 100vh;
+    flex-direction: column;
 }
 
 .sidebar-nav {
@@ -74,6 +75,7 @@ body {
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
+    padding: 10px;
 }
 
 .hamburger span {
@@ -116,13 +118,17 @@ body {
     color: var(--emerald);
 }
 
+/* Centering the main content area */
 main.container {
     margin-left: var(--sidebar-width);
     padding: 60px 40px;
-    max-width: 900px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    /* This ensures the cards sit in the center of the available space */
+    flex: 1;
+    /* Pushes footer down */
 }
 
 /* ==========================================================================
@@ -130,20 +136,24 @@ main.container {
    ========================================================================== */
 .card {
     background: var(--white);
-    padding: 35px;
+    padding: 40px;
     border-radius: var(--radius);
     margin-bottom: 25px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     border: none;
+    width: 100%;
+    max-width: 750px;
+    /* Constrains line-length for readable text */
 }
 
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
+    width: 100%;
+    max-width: 750px;
 }
 
-/* Colored Card Accents */
 .card-top-teak {
     border-top: 6px solid var(--teak);
 }
@@ -181,13 +191,13 @@ h3 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     text-align: center;
     margin-bottom: 40px;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
     margin-bottom: 15px;
 }
 
@@ -205,6 +215,10 @@ h3 {
 
 .mb-4 {
     margin-bottom: 40px;
+}
+
+.mt-2 {
+    margin-top: 20px;
 }
 
 .lead-text {
@@ -296,6 +310,8 @@ h3 {
     gap: 10px;
     margin-bottom: 30px;
     justify-content: center;
+    width: 100%;
+    max-width: 750px;
 }
 
 .tab-btn {
@@ -310,6 +326,9 @@ h3 {
 
 .tab-content {
     display: none;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
 }
 
 .tab-content.active-content {
@@ -353,6 +372,7 @@ textarea.form-input {
 
 .lookup-group .form-input {
     flex: 1;
+    min-width: 200px;
     max-width: 300px;
 }
 
@@ -375,22 +395,48 @@ textarea.form-input {
     padding: 0;
     overflow: hidden;
     margin-top: 20px;
+    width: 100%;
+    max-width: 750px;
 }
 
 /* ==========================================================================
-   6. MOBILE RESPONSIVENESS (Hamburger Menu)
+   6. FOOTER (Less Obtrusive)
+   ========================================================================== */
+.footer-container {
+    margin-left: var(--sidebar-width);
+    text-align: center;
+    padding: 30px 20px 40px;
+    color: rgba(44, 62, 80, 0.4);
+    /* Extremely subtle text color */
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-names {
+    margin: 0 0 5px 0;
+}
+
+.footer-date {
+    margin: 0;
+}
+
+/* ==========================================================================
+   7. MOBILE RESPONSIVENESS
    ========================================================================== */
 @media (max-width: 900px) {
     .main-layout {
         flex-direction: column;
     }
 
+    /* Make the mobile header sticky */
     .sidebar-nav {
         width: 100%;
         height: auto;
-        position: relative;
-        padding: 20px;
+        position: sticky;
+        top: 0;
+        padding: 15px 20px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
     }
 
     .nav-header {
@@ -409,15 +455,26 @@ textarea.form-input {
         display: none;
         padding-top: 20px;
         border-top: 1px solid #eee;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     .nav-menu.show {
         display: flex;
     }
 
+    /* Adjust padding and footer for mobile */
     main.container {
         margin-left: 0;
-        padding: 30px 20px;
+        padding: 40px 20px;
+    }
+
+    .footer-container {
+        margin-left: 0;
+        padding: 20px 20px 40px;
+    }
+
+    /* Reduce card padding to save screen space */
+    .card {
+        padding: 25px;
     }
 }

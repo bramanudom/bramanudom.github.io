@@ -11,71 +11,70 @@
 <body>
     <div id="header-placeholder"></div>
 
-
     <main class="container">
         <h1 data-i18n="nav_rsvp">RSVP</h1>
 
-        <div id="lookupSection" class="card">
-            <p>Please enter your name as it appears on your invitation.</p>
-            <input type="text" id="nameInput" placeholder="Full Name">
-            <button id="findBtn" class="btn btn-teak">Find Invitation</button>
-            <p id="lookupError" style="color: var(--ruby); display: none; margin-top: 10px;">
+        <div id="lookupSection" class="card text-center">
+            <p class="mb-2">Please enter your name as it appears on your invitation.</p>
+            <div class="lookup-group">
+                <input type="text" id="nameInput" placeholder="Full Name" class="form-input">
+                <button id="findBtn" class="btn btn-teak">Find Invitation</button>
+            </div>
+            <p id="lookupError" style="color: var(--ruby); display: none;" class="mt-2">
                 We couldn't find that name. Please try again or contact us!
             </p>
         </div>
 
         <form id="rsvpForm" style="display: none;">
-
             <div class="card">
-                <h3 id="guest1Header">Guest Name</h3>
+                <h3 id="guest1Header" class="text-left">Guest Name</h3>
                 <input type="hidden" name="hiddenName1" id="hiddenName1">
-                <div class="rsvp-options">
+                <div class="radio-group">
                     <label><input type="radio" name="guest1Attend" value="Attending" required> Joyfully Accepts</label>
                     <label><input type="radio" name="guest1Attend" value="Declining"> Regretfully Declines</label>
                 </div>
             </div>
 
-            <div id="plusOneCard" class="card" style="display: none; border-top: 3px solid var(--ruby);">
-                <h3 id="guest2Header">Plus One Name</h3>
+            <div id="plusOneCard" class="card card-top-ruby" style="display: none;">
+                <h3 id="guest2Header" class="text-left">Plus One Name</h3>
                 <input type="hidden" name="hiddenName2" id="hiddenName2">
-                <div class="rsvp-options">
+                <div class="radio-group">
                     <label><input type="radio" name="guest2Attend" value="Attending"> Joyfully Accepts</label>
                     <label><input type="radio" name="guest2Attend" value="Declining"> Regretfully Declines</label>
                 </div>
             </div>
 
-            <div id="babyCard" class="card" style="display: none; border-top: 3px solid var(--ruby);">
-                <h3 id="babyHeader">Baby Name</h3>
+            <div id="babyCard" class="card card-top-ruby" style="display: none;">
+                <h3 id="babyHeader" class="text-left">Baby Name</h3>
                 <input type="hidden" name="babyName" id="babyName">
-                <div class="rsvp-options">
+                <div class="radio-group">
                     <label><input type="radio" name="babyAttend" value="Attending"> Joyfully Accepts</label>
                     <label><input type="radio" name="babyAttend" value="Declining"> Regretfully Declines</label>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Dietary Requirements</h3>
-                <textarea name="Dietary" placeholder="Allergies, vegetarian, etc."></textarea>
+                <h3 class="text-left">Dietary Requirements</h3>
+                <textarea name="Dietary" placeholder="Allergies, vegetarian, etc." class="form-input"></textarea>
             </div>
-
 
             <div class="card">
-                <h3>Song Request</h3>
-                <textarea name="Song" placeholder="New Jeans Please"></textarea>
+                <h3 class="text-left">Song Request</h3>
+                <textarea name="Song" placeholder="New Jeans Please" class="form-input"></textarea>
             </div>
-            <button type="submit" id="submitBtn" class="btn btn-emerald" style="width: 100%; margin-top: 20px;">
+
+            <button type="submit" id="submitBtn" class="btn btn-emerald" style="width: 100%;">
                 Send RSVP
             </button>
         </form>
 
-        <div id="successMsg" class="card center" style="display: none;">
-            <h2>ขอบคุณค่ะ / 감사합니다!</h2>
+        <div id="successMsg" class="card text-center" style="display: none;">
+            <h2 class="mb-2">ขอบคุณค่ะ / 감사합니다!</h2>
             <p>Thank you! Your response has been recorded.</p>
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
-
     <script src="shared-logic.js"></script>
     <script src="rsvp.js"></script>
 </body>

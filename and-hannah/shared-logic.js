@@ -36,34 +36,37 @@ const dictionary = {
 };
 
 const globalHeader = `
-    <nav class="nav-container">
-        <a href="why.html" class="nav-logo">Pet & Hannah</a>
-        
-        <div class="lang-switcher" style="margin-bottom: 20px;">
-            <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
-            <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
-            <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+    <nav class="sidebar-nav">
+        <div class="nav-header">
+            <a href="why.html" class="nav-logo">Pet & Hannah</a>
+            <button class="hamburger" id="menuToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-
-        <div class="nav-links">
-            <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
-            <a href="schedule.html" data-i18n="nav_events">Schedule</a>
-            <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
-            <a href="recommendation-corner.html" data-i18n="nav_recs">Recommendations</a>
-            <a href="faq.html" data-i18n="nav_faq">FAQ</a>
-            <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
+        
+        <div class="nav-menu" id="navMenu">
+            <div class="lang-switcher">
+                <button id="btn-en" class="lang-btn" onclick="updateLanguage('en')">EN</button>
+                <button id="btn-th" class="lang-btn" onclick="updateLanguage('th')">TH</button>
+                <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
+            </div>
+            <div class="nav-links">
+                <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
+                <a href="schedule.html" data-i18n="nav_events">Schedule</a>
+                <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
+                <a href="recommendation-corner.html" data-i18n="nav_recs">Recommendations</a>
+                <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+                <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
+            </div>
         </div>
     </nav>
 `;
 
-// In your init() function, ensure landing-body and login-body 
-// do not show the sidebar by checking the class.
-
+// Footer is cleaner and simplified
 const globalFooter = `
     <footer class="footer-container">
-        <div class="footer-divider" style="height: 1px; background: rgba(100, 17, 27, 0.2); width: 100px; margin: 0 auto 30px;"></div>
         <p class="footer-names">Made by Pet (and Hannah helped)</p>
-        <p class="footer-date">Nov 6, 2027 — CHIANG MAI</p>
+        <p class="footer-date">06 • 11 • 2027</p>
     </footer>
 `;
 
@@ -71,27 +74,28 @@ function updateLanguage(lang) {
     localStorage.setItem('wedding_lang', lang);
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dictionary[lang][key]) el.innerText = dictionary[lang][key];
+        if (dictionary[lang] && dictionary[lang][key]) {
+            el.innerText = dictionary[lang][key];
+        }
     });
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(`btn-${lang}`)?.classList.add('active');
+    const activeBtn = document.getElementById(`btn-${lang}`);
+    if (activeBtn) activeBtn.classList.add('active');
+}
+
+function toggleMenu() {
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('show');
 }
 
 function init() {
-    const isAuth = localStorage.getItem('wedding_auth');
     const path = window.location.pathname;
     const isLandingPage = path.endsWith('index.html') || path === '/' || path.endsWith('/and-hannah/');
     const isLoginPage = path.endsWith('login.html');
 
-    // Add the class dynamically to body
-    if (isLandingPage || isLoginPage) {
-        document.body.className = isLandingPage ? 'landing-body' : 'login-body';
-    } else {
-        document.body.className = 'main-page';
-    }
+    document.body.className = (isLandingPage || isLoginPage) ? 'landing-body' : 'main-layout';
 
-    // Only inject header/footer and check language if it's NOT the landing page
-    if (!isLandingPage) {
+    if (!isLandingPage && !isLoginPage) {
         const hPlace = document.getElementById('header-placeholder');
         const fPlace = document.getElementById('footer-placeholder');
         if (hPlace) hPlace.innerHTML = globalHeader;
@@ -100,6 +104,7 @@ function init() {
         const savedLang = localStorage.getItem('wedding_lang') || 'en';
         updateLanguage(savedLang);
 
+        // Attach hamburger logic
         const btn = document.getElementById('menuToggle');
         if (btn) btn.onclick = toggleMenu;
     }

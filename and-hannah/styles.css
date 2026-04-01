@@ -30,7 +30,7 @@ body {
     line-height: 1.6;
 
     /* TILED BACKGROUND LOGIC */
-    background-image: url('assets/Untitled_Artwork.png');
+    background-image: url('/Untitled_Artwork.png');
     background-repeat: repeat;
     background-position: top left;
     background-attachment: fixed; /* Keep pattern stationary while scrolling */

@@ -515,7 +515,7 @@ textarea.form-input {
     padding: 20px;
     
     /* NEW: Tiled Background Logic */
-    background-image: url('assets/Untitled_Artwork.png');
+    background-image: url('/Untitled_Artwork.png');
     background-repeat: repeat;
     background-position: top left;
     background-attachment: fixed;

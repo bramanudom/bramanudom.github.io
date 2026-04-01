@@ -34,7 +34,7 @@ body {
     background-repeat: repeat;
     background-position: top left;
     background-attachment: fixed; /* Keep pattern stationary while scrolling */
-    background-size: 200px auto; 
+    background-size: 100px auto; 
     /* Emerald/Cream wash so the pattern is subtle and cohesive */
     background-color: rgba(250, 250, 243, 0.9); 
     background-blend-mode: overlay;

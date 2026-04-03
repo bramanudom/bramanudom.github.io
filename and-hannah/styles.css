@@ -2,7 +2,7 @@
    1. VARIABLES & PALETTE
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans+Thai:wght@300;400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     --emerald: #213f22;
     --teak: #803030;
@@ -11,7 +11,7 @@
     --white: #ffffff;
     --text: #2c3e50;
 
-    --font-heading: 'Itim', cursive;
+    --font-heading: 'Roboto Condensed', sans-serif;
     --font-main: 'Inter', 'Noto Sans Thai', 'Noto Sans KR', sans-serif;
 
     --sidebar-width: 260px;

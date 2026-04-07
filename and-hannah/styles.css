@@ -138,25 +138,6 @@ body {
     transform: translateX(5px);
 }
 
-/* Language buttons inverted for the dark background */
-.lang-btn {
-    padding: 5px 10px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: rgba(255, 255, 255, 0.8);
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.lang-btn.active,
-.lang-btn:hover {
-    background: var(--white);
-    color: var(--emerald);
-    border-color: var(--white);
-}
-
 /* Centering the main content area */
 main.container {
     margin-left: var(--sidebar-width);
@@ -330,8 +311,8 @@ h3 {
     border-radius: 50px;
     font-size: 0.75rem;
     background: transparent;
-    border: 1px solid var(--teak);
-    color: var(--teak);
+    border: 1px solid #ffffff;
+    color: #ffffff;
     cursor: pointer;
     transition: 0.2s;
 }

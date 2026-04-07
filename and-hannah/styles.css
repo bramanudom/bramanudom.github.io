@@ -131,7 +131,7 @@ body {
 }
 
 .nav-links a:hover {
-    background: var(--teak)
+    background: var(--teak);
     color: var(--white);
     transform: translateX(5px);
 }

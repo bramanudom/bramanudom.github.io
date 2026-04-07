@@ -30,16 +30,18 @@ body {
     color: var(--text);
     line-height: 1.6;
 
-    /* TILED BACKGROUND LOGIC */
-    background-image: url('/and-hannah/assets/wedding-background.png');
+    background-image:
+        url('/and-hannah/assets/wedding-background.png'),
+        url('/and-hannah/assets/wedding-background.png');
+
     background-repeat: repeat;
-    background-position: top left;
     background-attachment: fixed;
-    /* Keep pattern stationary while scrolling */
-    background-size: 300px auto;
-    /* Emerald/Cream wash so the pattern is subtle and cohesive */
-    background-color: rgba(250, 250, 243, 0.9);
-    background-blend-mode: overlay;
+
+    background-size: 180px auto, 500px auto;
+    background-position: 0 0, 90px 45px;
+
+    background-color: rgba(253, 250, 243, 0.2);
+    background-blend-mode: multiply, overlay;
 }
 
 /* ==========================================================================

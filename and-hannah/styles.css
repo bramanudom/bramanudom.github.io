@@ -136,14 +136,14 @@ body {
     transform: translateX(5px);
 }
 
-/* Centering the main content area */
 main.container {
+    flex: 1;
     margin-left: var(--sidebar-width);
     padding: 60px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
+    width: auto;
 }
 
 /* ==========================================================================
@@ -163,10 +163,18 @@ main.container {
 
 .grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr;
+    /* Single column for mobile */
+    gap: 25px;
     width: 100%;
     max-width: 750px;
+}
+
+/* Switches to side-by-side once the screen is wide enough */
+@media (min-width: 650px) {
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .card-top-teak {
@@ -440,7 +448,8 @@ textarea.form-input {
    ========================================================================== */
 @media (max-width: 900px) {
     .main-layout {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column;
+        /* Stack vertically */
     }
 
     .sidebar-nav {
@@ -451,24 +460,32 @@ textarea.form-input {
         padding: 15px 20px;
     }
 
-    .hamburger { display: flex; }
+    .hamburger {
+        display: flex;
+    }
 
     .nav-menu {
         display: none;
         padding-top: 20px;
     }
 
-    .nav-menu.show { display: flex; }
+    .nav-menu.show {
+        display: flex;
+    }
 
     main.container {
-        margin-left: 0; /* Remove side margin on mobile */
+        margin-left: 0;
         padding: 30px 15px;
         width: 100%;
     }
 
-    .card { padding: 25px; }
+    .card {
+        padding: 25px;
+    }
 
-    .footer-container { margin-left: 0; }
+    .footer-container {
+        margin-left: 0;
+    }
 }
 
 /* ==========================================================================
@@ -498,6 +515,23 @@ textarea.form-input {
     .landing-body {
         background-size: 220px auto, 600px auto;
         background-position: 0 0, 110px 55px;
+    }
+
+    main.container {
+        margin-left: 0;
+        /* Removes sidebar gap on mobile */
+        padding: 30px 20px;
+        width: 100%;
+    }
+
+    .card {
+        padding: 25px;
+        /* Reduces padding so text isn't too squeezed */
+    }
+
+    .tab-container {
+        flex-wrap: wrap;
+        /* Ensures buttons don't clip on small screens */
     }
 }
 
@@ -638,5 +672,3 @@ textarea.form-input {
 .coming-soon-notes p {
     margin: 0;
 }
-
-

@@ -31,14 +31,12 @@ body {
     line-height: 1.6;
 
     background-image:
-        url('/and-hannah/assets/wedding-background.png'),
         url('/and-hannah/assets/wedding-background.png');
-
     background-repeat: repeat;
     background-attachment: fixed;
 
-    background-size: 180px auto, 500px auto;
-    background-position: 0 0, 90px 45px;
+    background-size: 400px;
+    background-position: 0 0;
 
     background-color: rgba(253, 250, 243, 0.2);
     background-blend-mode: multiply, overlay;

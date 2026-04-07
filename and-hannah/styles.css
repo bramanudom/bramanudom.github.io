@@ -600,8 +600,8 @@ textarea.form-input {
 }
 
 .wedding-announcement {
+    color: var(--teak);
     font-size: 1.2rem;
-    color: var(--text);
     margin-bottom: 30px;
 }
 

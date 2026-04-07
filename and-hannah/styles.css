@@ -3,6 +3,7 @@
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans+Thai:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
     --emerald: #213f22;
     --teak: #803030;
@@ -33,12 +34,14 @@ body {
     background-image: url('/assets/wedding-background.png');
     background-repeat: repeat;
     background-position: top left;
-    background-attachment: fixed; /* Keep pattern stationary while scrolling */
-    background-size: 300px auto; 
+    background-attachment: fixed;
+    /* Keep pattern stationary while scrolling */
+    background-size: 300px auto;
     /* Emerald/Cream wash so the pattern is subtle and cohesive */
-    background-color: rgba(250, 250, 243, 0.9); 
+    background-color: rgba(250, 250, 243, 0.9);
     background-blend-mode: overlay;
 }
+
 /* ==========================================================================
    2. MAIN LAYOUT (Sidebar Desktop, Topbar Mobile)
    ========================================================================== */
@@ -520,21 +523,54 @@ textarea.form-input {
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
-    
-    /* NEW: Tiled Background Logic */
-    background-image: url('/Untitled_Artwork.png');
+
+    background-image:
+        url('/and-hannah/assets/wedding-background.png'),
+        url('/and-hannah/assets/wedding-background.png');
+
     background-repeat: repeat;
-    background-position: top left;
     background-attachment: fixed;
-    
-    /* Adds a subtle emerald wash over the pattern to maintain theme */
-    background-color: rgba(33, 63, 34, 0.85);
-    background-blend-mode: multiply;
+
+    /* Layer 1 is smaller/crisp, Layer 2 is larger/offset to hide the 'repeat' */
+    background-size: 180px auto, 500px auto;
+    background-position: 0 0, 90px 45px;
+
+    /* This creates a soft cream wash so the text stays the priority */
+    background-color: rgba(253, 250, 243, 0.85);
+    background-blend-mode: multiply, overlay;
 }
 
 .landing-container {
     max-width: 600px;
     width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.landing-title {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+    color: var(--teak);
+    margin-bottom: 20px;
+    line-height: 1.1;
+    font-family: var(--font-heading);
+}
+
+.landing-date {
+    font-size: 2.2rem;
+    color: var(--ruby);
+    margin: 30px 0 5px;
+    font-family: var(--font-heading);
+}
+
+.landing-location {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--emerald);
+    margin-bottom: 40px;
 }
 
 .save-the-date-card {

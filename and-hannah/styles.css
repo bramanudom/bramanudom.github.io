@@ -532,12 +532,24 @@ textarea.form-input {
     background-attachment: fixed;
 
     /* Layer 1 is smaller/crisp, Layer 2 is larger/offset to hide the 'repeat' */
-    background-size: 180px auto, 500px auto;
-    background-position: 0 0, 90px 45px;
+    background-size: 120px auto, 300px auto;
+    background-position: 0 0, 40px 40px;
+
 
     /* This creates a soft cream wash so the text stays the priority */
     background-color: rgba(253, 250, 243, 0.85);
     background-blend-mode: multiply, overlay;
+}
+
+@media (min-width: 901px) {
+    .landing-body {
+        background-size: 220px auto, 600px auto;
+        background-position: 0 0, 110px 55px;
+    }
+
+    .body {
+        background-size: 220px auto, 600px auto;
+    }
 }
 
 .landing-container {

@@ -162,6 +162,63 @@ main.container {
     /* Constrains line-length for readable text */
 }
 
+.card-title {
+    display: inline-block;
+    margin: 0 auto 50px auto;
+    padding: 15px 60px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 4px solid var(--teak);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.card-title h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teak);
+}
+
+.intro-message {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    border-top: 6px solid var(--teak); 
+    margin-bottom: 60px; 
+}
+
+.intro-header {
+    font-family: var(--font-heading);
+    font-size: 1.6rem; 
+    color: var(--teak);
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.lead-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text);
+    opacity: 0.9;
+    font-style: italic; 
+}
+
+@media (max-width: 600px) {
+    .intro-message {
+        padding: 30px 20px;
+        margin-bottom: 40px;
+    }
+    .card-title {
+        padding: 12px 40px;
+    }
+}
 .grid-cards {
     display: grid;
     grid-template-columns: 1fr;

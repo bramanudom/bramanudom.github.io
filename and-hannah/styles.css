@@ -162,34 +162,6 @@ main.container {
     /* Constrains line-length for readable text */
 }
 
-.card-title {
-    /* 1. Layout & Sizing */
-    display: inline-block;
-    margin: 0 auto 40px auto;
-    padding: 30px 60px;
-    background: var(--white);
-    text-align: center;
-    position: relative;
-
-    --r: 12px;
-
-    mask:
-        radial-gradient(var(--r) at var(--r) var(--r), #0000 98%, #000) calc(-1 * var(--r)) calc(-1 * var(--r));
-    mask-size: calc(2 * var(--r)) calc(2 * var(--r));
-
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-}
-
-.card-title h1 {
-    margin: 0;
-    font-size: clamp(1.8rem, 5vw, 2.4rem);
-    color: var(--teak);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-family: var(--font-heading);
-    padding: 0 10px;
-}
-
 .grid-cards {
     display: grid;
     grid-template-columns: 1fr;
@@ -531,17 +503,6 @@ textarea.form-input {
         margin-left: 0;
     }
 }
-
-@media (max-width: 600px) {
-    @media (max-width: 600px) {
-        .card-title {
-            --r: 10px;
-            padding: 20px 35px;
-            margin-bottom: 30px;
-            width: auto;
-            max-width: 90%;
-        }
-    }
 
     /* ==========================================================================
    8. LANDING & LOGIN PAGE (Save the Date Card)

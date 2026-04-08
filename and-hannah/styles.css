@@ -162,6 +162,18 @@ main.container {
     /* Constrains line-length for readable text */
 }
 
+.card-title {
+    --r: 25px;
+    background: var(--white);
+    height: 320px;
+    aspect-ratio: 1;
+    padding: calc(1.5*var(--r));
+
+    mask:
+        linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)),
+        radial-gradient(farthest-side, #000 97%, #0000) 0 0/calc(2*var(--r)) calc(2*var(--r)) round;
+}
+
 .grid-cards {
     display: grid;
     grid-template-columns: 1fr;

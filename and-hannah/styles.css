@@ -163,21 +163,19 @@ main.container {
 }
 
 .card-title {
-
-    display: inline-block;
-    /* Wraps tightly around the text */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto 40px auto;
-    /* Centers it and adds space below */
-    padding: 30px 50px;
-    /* Plenty of "Editorial" breathing room */
+    padding: 30px 60px;
     background: var(--white);
-    text-align: center;
+    position: relative;
 
     --r: 12px;
-    /* The size of the curves */
+
     mask:
-        radial-gradient(var(--r) at var(--r) var(--r), #0000 98%, #000) calc(-1*var(--r)) calc(-1*var(--r));
-    mask-size: calc(100% + var(--r)) calc(100% + var(--r));
+        radial-gradient(var(--r) at var(--r) var(--r), #000 98%, #0000) calc(-1 * var(--r)) calc(-1 * var(--r)) / calc(2 * var(--r)) calc(2 * var(--r)) round;
+
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.08));
 }
 
@@ -186,7 +184,8 @@ main.container {
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--teak);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    font-family: var(--font-heading);
 }
 
 .grid-cards {
@@ -532,194 +531,195 @@ textarea.form-input {
 }
 
 @media (max-width: 600px) {
-    .card-title {
-        --r: 8px;
-        padding: 20px 30px;
-        width: 90%;
+    @media (max-width: 600px) {
+        .card-title {
+            --r: 10px;
+            padding: 20px 40px;
+            max-width: 90%;
+        }
     }
-}
 
-/* ==========================================================================
+    /* ==========================================================================
    8. LANDING & LOGIN PAGE (Save the Date Card)
    ========================================================================== */
-.landing-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    flex-direction: column;
-
-    /* Distinct Dual-Layer Background for Landing */
-    background-image:
-        url('/and-hannah/assets/wedding-background.png'),
-        url('/and-hannah/assets/wedding-background.png');
-    background-repeat: repeat;
-    background-attachment: fixed;
-    background-size: 150px auto, 400px auto;
-    background-position: 0 0, 40px 40px;
-    background-color: rgba(253, 250, 243, 0.85);
-    background-blend-mode: multiply, overlay;
-}
-
-@media (min-width: 901px) {
     .landing-body {
-        background-size: 220px auto, 600px auto;
-        background-position: 0 0, 110px 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        flex-direction: column;
+
+        /* Distinct Dual-Layer Background for Landing */
+        background-image:
+            url('/and-hannah/assets/wedding-background.png'),
+            url('/and-hannah/assets/wedding-background.png');
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size: 150px auto, 400px auto;
+        background-position: 0 0, 40px 40px;
+        background-color: rgba(253, 250, 243, 0.85);
+        background-blend-mode: multiply, overlay;
     }
 
-    main.container {
-        margin-left: 0;
-        /* Removes sidebar gap on mobile */
-        padding: 30px 20px;
+    @media (min-width: 901px) {
+        .landing-body {
+            background-size: 220px auto, 600px auto;
+            background-position: 0 0, 110px 55px;
+        }
+
+        main.container {
+            margin-left: 0;
+            /* Removes sidebar gap on mobile */
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        .card {
+            padding: 25px;
+            /* Reduces padding so text isn't too squeezed */
+        }
+
+        .tab-container {
+            flex-wrap: wrap;
+            /* Ensures buttons don't clip on small screens */
+        }
+    }
+
+    .landing-container {
+        max-width: 600px;
         width: 100%;
+        text-align: center;
+        background: rgba(33, 63, 34, 0.1);
+        padding: 20px;
+        border-radius: 12px;
     }
 
-    .card {
-        padding: 25px;
-        /* Reduces padding so text isn't too squeezed */
+    /* Rest of your landing styles (titles, names, etc.) remain as they were */
+    .save-the-date-card {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 60px 40px;
+        border-radius: var(--radius);
+        text-align: center;
     }
 
-    .tab-container {
-        flex-wrap: wrap;
-        /* Ensures buttons don't clip on small screens */
+    .landing-container {
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        background: #213f224d;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
     }
-}
 
-.landing-container {
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-    background: rgba(33, 63, 34, 0.1);
-    padding: 20px;
-    border-radius: 12px;
-}
+    .landing-title {
+        font-size: clamp(2.8rem, 8vw, 4rem);
+        color: var(--teak);
+        margin-bottom: 20px;
+        line-height: 1.1;
+        font-family: var(--font-heading);
+    }
 
-/* Rest of your landing styles (titles, names, etc.) remain as they were */
-.save-the-date-card {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 60px 40px;
-    border-radius: var(--radius);
-    text-align: center;
-}
+    .landing-date {
+        font-size: 2.2rem;
+        color: var(--ruby);
+        margin: 30px 0 5px;
+        font-family: var(--font-heading);
+    }
 
-.landing-container {
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-    background: #213f224d;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    .landing-location {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: var(--emerald);
+        margin-bottom: 40px;
+    }
 
-}
+    .save-the-date-card {
+        text-align: center;
+        padding: 60px 40px;
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: var(--radius);
+    }
 
-.landing-title {
-    font-size: clamp(2.8rem, 8vw, 4rem);
-    color: var(--teak);
-    margin-bottom: 20px;
-    line-height: 1.1;
-    font-family: var(--font-heading);
-}
+    /* Typography Hierarchy */
+    .eyebrow-text {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        color: var(--emerald);
+        font-weight: 700;
+        margin: 10px 0 15px;
+    }
 
-.landing-date {
-    font-size: 2.2rem;
-    color: var(--ruby);
-    margin: 30px 0 5px;
-    font-family: var(--font-heading);
-}
+    .couple-names {
+        font-size: clamp(3rem, 10vw, 4.5rem);
+        margin-bottom: 5px;
+        color: var(--teak);
+        line-height: 1;
+    }
 
-.landing-location {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    color: var(--emerald);
-    margin-bottom: 40px;
-}
+    .wedding-announcement {
+        color: var(--teak);
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
 
-.save-the-date-card {
-    text-align: center;
-    padding: 60px 40px;
-    position: relative;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: var(--radius);
-}
+    /* Clean grouping for the translations */
+    .multilingual-divider {
+        margin: 30px 0;
+        padding: 20px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
 
-/* Typography Hierarchy */
-.eyebrow-text {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    color: var(--emerald);
-    font-weight: 700;
-    margin: 10px 0 15px;
-}
+    .multilingual-th {
+        font-size: 1.3rem;
+        margin: 0 0 5px;
+        color: var(--emerald);
+        font-family: var(--font-main);
+    }
 
-.couple-names {
-    font-size: clamp(3rem, 10vw, 4.5rem);
-    margin-bottom: 5px;
-    color: var(--teak);
-    line-height: 1;
-}
+    .multilingual-ko {
+        font-size: 1.2rem;
+        margin: 0;
+        color: var(--ruby);
+        font-family: var(--font-main);
+    }
 
-.wedding-announcement {
-    color: var(--teak);
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
+    /* Stationery-style Date & Location */
+    .date-display {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--teak);
+        letter-spacing: 3px;
+        margin-bottom: 5px;
+    }
 
-/* Clean grouping for the translations */
-.multilingual-divider {
-    margin: 30px 0;
-    padding: 20px 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
+    .location-display {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        color: var(--emerald);
+    }
 
-.multilingual-th {
-    font-size: 1.3rem;
-    margin: 0 0 5px;
-    color: var(--emerald);
-    font-family: var(--font-main);
-}
+    /* Subtle Footer Notes */
+    .coming-soon-notes {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px dashed rgba(0, 0, 0, 0.1);
+        /* Adds a playful "ticket" or "stationery" line */
+        opacity: 0.7;
+        /* Increased from 0.4 so it's easier to read */
+        font-size: 0.9rem;
+        line-height: 1.8;
+        color: var(--emerald);
+    }
 
-.multilingual-ko {
-    font-size: 1.2rem;
-    margin: 0;
-    color: var(--ruby);
-    font-family: var(--font-main);
-}
-
-/* Stationery-style Date & Location */
-.date-display {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--teak);
-    letter-spacing: 3px;
-    margin-bottom: 5px;
-}
-
-.location-display {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    color: var(--emerald);
-}
-
-/* Subtle Footer Notes */
-.coming-soon-notes {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px dashed rgba(0, 0, 0, 0.1);
-    /* Adds a playful "ticket" or "stationery" line */
-    opacity: 0.7;
-    /* Increased from 0.4 so it's easier to read */
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: var(--emerald);
-}
-
-.coming-soon-notes p {
-    margin: 0;
-}
+    .coming-soon-notes p {
+        margin: 0;
+    }

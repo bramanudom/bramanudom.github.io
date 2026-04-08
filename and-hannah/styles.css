@@ -38,7 +38,7 @@ body {
     background-size: 400px;
     background-position: 0 0;
 
-    background-color: rgba(253, 250, 243, 0.2);
+    background-color: rgba(253, 250, 243, 0.3);
     background-blend-mode: multiply, overlay;
 }
 
@@ -110,7 +110,8 @@ body {
 
 .lang-switcher {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 0 0 0 10px;
     gap: 5px;
 }
 
@@ -464,6 +465,18 @@ textarea.form-input {
         display: flex;
     }
 
+    .lang-btn.active {
+        font-size: 1rem;
+    }
+
+    .nav-header {
+        margin-bottom: 0;
+    }
+
+    .nav-links {
+        font-size: 1.2rem;
+    }
+
     .nav-menu {
         display: none;
         padding-top: 20px;
@@ -471,6 +484,7 @@ textarea.form-input {
 
     .nav-menu.show {
         display: flex;
+        height: 100vh;
     }
 
     main.container {

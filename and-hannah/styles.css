@@ -477,7 +477,9 @@ textarea.form-input {
         display: flex;
     }
 
-    .lang-btn.active {
+    .lang-btn,
+    .lang-btn.active.active,
+    .lang-btn:hover{
         font-size: 1rem;
     }
 

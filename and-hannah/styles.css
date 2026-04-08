@@ -163,15 +163,30 @@ main.container {
 }
 
 .card-title {
-    --r: 25px;
-    background: var(--white);
-    height: 320px;
-    aspect-ratio: 1;
-    padding: calc(1.5*var(--r));
 
+    display: inline-block;
+    /* Wraps tightly around the text */
+    margin: 0 auto 40px auto;
+    /* Centers it and adds space below */
+    padding: 30px 50px;
+    /* Plenty of "Editorial" breathing room */
+    background: var(--white);
+    text-align: center;
+
+    --r: 12px;
+    /* The size of the curves */
     mask:
-        linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)),
-        radial-gradient(farthest-side, #000 97%, #0000) 0 0/calc(2*var(--r)) calc(2*var(--r)) round;
+        radial-gradient(var(--r) at var(--r) var(--r), #0000 98%, #000) calc(-1*var(--r)) calc(-1*var(--r));
+    mask-size: calc(100% + var(--r)) calc(100% + var(--r));
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.08));
+}
+
+.card-title h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: var(--teak);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .grid-cards {
@@ -479,7 +494,7 @@ textarea.form-input {
 
     .lang-btn,
     .lang-btn.active.active,
-    .lang-btn:hover{
+    .lang-btn:hover {
         font-size: 1rem;
     }
 
@@ -513,6 +528,14 @@ textarea.form-input {
 
     .footer-container {
         margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-title {
+        --r: 8px;
+        padding: 20px 30px;
+        width: 90%;
     }
 }
 

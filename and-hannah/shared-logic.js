@@ -1,7 +1,7 @@
 const dictionary = {
     en: {
         nav_home: "Home", nav_why: "Why Thailand?",
-        nav_hotels: "Hotels", nav_recs: "Recommendation Corner",
+        nav_hotels: "Accomodations", nav_recs: "Recommendation Corner",
         nav_faq: "FAQ", nav_rsvp: "RSVP",
         nav_events: "Schedule",
         schedule_welcome_title: "To Our Family & Friends",

@@ -13,44 +13,17 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
+    // Trigger confetti when the window is fully loaded
     window.addEventListener('load', () => {
+        // We add a slight delay (500ms) so it fires right as your 'reveal' animations finish
         setTimeout(() => {
-            var end = Date.now() + (1 * 1000); // 1-second burst
-
-            var colors = [
-                '#D4AF37', // Metallic Gold
-                '#A9DFBF', // Mint (Light Emerald)
-                '#F1948A', // Soft Coral (Light Teak)
-                '#AED6F1', // Sky Blue (Light Ruby)
-                '#FFFFFF'  /* Pure White Sparkle */
-            ];
-
-            (function frame() {
-                confetti({
-                    particleCount: 3, // Smaller frequent bursts for glitter look
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0, y: 0.6 },
-                    colors: colors,
-                    disableForReducedMotion: true, 
-                    scalar: 0.6, // Makes particles smaller/delicate
-                    ticks: 200  /* Makes them drift longer */
-                });
-                confetti({
-                    particleCount: 3,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1, y: 0.6 },
-                    colors: colors,
-                    disableForReducedMotion: true,
-                    scalar: 0.6,
-                    ticks: 200
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }, // Fires from slightly below the center
+                colors: ['#213f22', '#803030', '#3476ad', '#fdfaf3'],
+                disableForReducedMotion: true // Respects guest's accessibility settings
+            });
         }, 500);
     });
 </script>

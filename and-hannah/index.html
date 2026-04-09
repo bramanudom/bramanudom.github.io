@@ -10,6 +10,24 @@
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
 </head>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+    // Trigger confetti when the window is fully loaded
+    window.addEventListener('load', () => {
+        // We add a slight delay (500ms) so it fires right as your 'reveal' animations finish
+        setTimeout(() => {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }, // Fires from slightly below the center
+                colors: ['#213f22', '#803030', '#3476ad', '#fdfaf3'],
+                disableForReducedMotion: true // Respects guest's accessibility settings
+            });
+        }, 500);
+    });
+</script>
+
 <body class="landing-body">
     <main class="landing-container">
 

@@ -687,14 +687,14 @@ textarea.form-input {
 }
 
 .multilingual-th {
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin: 0 0 5px;
     color: var(--emerald);
     font-family: var(--font-main);
 }
 
 .multilingual-ko {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0;
     color: var(--ruby);
     font-family: var(--font-main);

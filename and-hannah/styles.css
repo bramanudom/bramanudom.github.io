@@ -190,13 +190,13 @@ main.container {
     max-width: 700px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-    border-top: 6px solid var(--teak); 
-    margin-bottom: 60px; 
+    border-top: 6px solid var(--teak);
+    margin-bottom: 60px;
 }
 
 .intro-header {
     font-family: var(--font-heading);
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     color: var(--teak);
     margin-bottom: 15px;
     font-weight: 400;
@@ -207,7 +207,7 @@ main.container {
     line-height: 1.8;
     color: var(--text);
     opacity: 0.9;
-    font-style: italic; 
+    font-style: italic;
 }
 
 @media (max-width: 600px) {
@@ -215,10 +215,12 @@ main.container {
         padding: 30px 20px;
         margin-bottom: 40px;
     }
+
     .card-title {
         padding: 12px 40px;
     }
 }
+
 .grid-cards {
     display: grid;
     grid-template-columns: 1fr;
@@ -561,187 +563,172 @@ textarea.form-input {
     }
 }
 
-    /* ==========================================================================
+/* ==========================================================================
    8. LANDING & LOGIN PAGE (Save the Date Card)
    ========================================================================== */
+.landing-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    flex-direction: column;
+
+    background-image:
+        url('/and-hannah/assets/wedding-background.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: 300px;
+    background-position: 0;
+}
+
+@media (min-width: 901px) {
     .landing-body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 20px;
-        flex-direction: column;
-
-        /* Distinct Dual-Layer Background for Landing */
-        background-image:
-            url('/and-hannah/assets/wedding-background.png'),
-            url('/and-hannah/assets/wedding-background.png');
-        background-repeat: repeat;
-        background-attachment: fixed;
-        background-size: 150px auto, 400px auto;
-        background-position: 0 0, 40px 40px;
-        background-color: rgba(253, 250, 243, 0.85);
-        background-blend-mode: multiply, overlay;
+        background-size: 400px;
+        background-position: 0;
     }
 
-    @media (min-width: 901px) {
-        .landing-body {
-            background-size: 220px auto, 600px auto;
-            background-position: 0 0, 110px 55px;
-        }
-
-        main.container {
-            margin-left: 0;
-            /* Removes sidebar gap on mobile */
-            padding: 30px 20px;
-            width: 100%;
-        }
-
-        .card {
-            padding: 25px;
-            /* Reduces padding so text isn't too squeezed */
-        }
-
-        .tab-container {
-            flex-wrap: wrap;
-            /* Ensures buttons don't clip on small screens */
-        }
-    }
-
-    .landing-container {
-        max-width: 600px;
+    main.container {
+        margin-left: 0;
+        /* Removes sidebar gap on mobile */
+        padding: 30px 20px;
         width: 100%;
-        text-align: center;
-        background: rgba(33, 63, 34, 0.1);
-        padding: 20px;
-        border-radius: 12px;
     }
 
-    /* Rest of your landing styles (titles, names, etc.) remain as they were */
-    .save-the-date-card {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 60px 40px;
-        border-radius: var(--radius);
-        text-align: center;
+    .card {
+        padding: 25px;
+        /* Reduces padding so text isn't too squeezed */
     }
 
-    .landing-container {
-        max-width: 600px;
-        width: 100%;
-        text-align: center;
-        background: #213f224d;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-
+    .tab-container {
+        flex-wrap: wrap;
+        /* Ensures buttons don't clip on small screens */
     }
+}
 
-    .landing-title {
-        font-size: clamp(2.8rem, 8vw, 4rem);
-        color: var(--teak);
-        margin-bottom: 20px;
-        line-height: 1.1;
-        font-family: var(--font-heading);
-    }
+.landing-container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    background: rgba(33, 63, 34, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+}
 
-    .landing-date {
-        font-size: 2.2rem;
-        color: var(--ruby);
-        margin: 30px 0 5px;
-        font-family: var(--font-heading);
-    }
+/* Rest of your landing styles (titles, names, etc.) remain as they were */
+.save-the-date-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: var(--radius);
+    text-align: center;
+}
 
-    .landing-location {
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.3em;
-        color: var(--emerald);
-        margin-bottom: 40px;
-    }
+.landing-title {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+    color: var(--teak);
+    margin-bottom: 20px;
+    line-height: 1.1;
+    font-family: var(--font-heading);
+}
 
-    .save-the-date-card {
-        text-align: center;
-        padding: 60px 40px;
-        position: relative;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: var(--radius);
-    }
+.landing-date {
+    font-size: 2.2rem;
+    color: var(--ruby);
+    margin: 30px 0 5px;
+    font-family: var(--font-heading);
+}
 
-    /* Typography Hierarchy */
-    .eyebrow-text {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.8rem;
-        color: var(--emerald);
-        font-weight: 700;
-        margin: 10px 0 15px;
-    }
+.landing-location {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--emerald);
+    margin-bottom: 40px;
+}
 
-    .couple-names {
-        font-size: clamp(3rem, 10vw, 4.5rem);
-        margin-bottom: 5px;
-        color: var(--teak);
-        line-height: 1;
-    }
+.save-the-date-card {
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius);
+}
 
-    .wedding-announcement {
-        color: var(--teak);
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-    }
+/* Typography Hierarchy */
+.eyebrow-text {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: var(--emerald);
+    font-weight: 700;
+    margin: 10px 0 15px;
+}
 
-    /* Clean grouping for the translations */
-    .multilingual-divider {
-        margin: 30px 0;
-        padding: 20px 0;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
+.couple-names {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    margin-bottom: 5px;
+    color: var(--teak);
+    line-height: 1;
+}
 
-    .multilingual-th {
-        font-size: 1.3rem;
-        margin: 0 0 5px;
-        color: var(--emerald);
-        font-family: var(--font-main);
-    }
+.wedding-announcement {
+    color: var(--teak);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
 
-    .multilingual-ko {
-        font-size: 1.2rem;
-        margin: 0;
-        color: var(--ruby);
-        font-family: var(--font-main);
-    }
+/* Clean grouping for the translations */
+.multilingual-divider {
+    margin: 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-    /* Stationery-style Date & Location */
-    .date-display {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--teak);
-        letter-spacing: 3px;
-        margin-bottom: 5px;
-    }
+.multilingual-th {
+    font-size: 1.3rem;
+    margin: 0 0 5px;
+    color: var(--emerald);
+    font-family: var(--font-main);
+}
 
-    .location-display {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.9rem;
-        color: var(--emerald);
-    }
+.multilingual-ko {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--ruby);
+    font-family: var(--font-main);
+}
 
-    /* Subtle Footer Notes */
-    .coming-soon-notes {
-        margin-top: 40px;
-        padding-top: 30px;
-        border-top: 1px dashed rgba(0, 0, 0, 0.1);
-        /* Adds a playful "ticket" or "stationery" line */
-        opacity: 0.7;
-        /* Increased from 0.4 so it's easier to read */
-        font-size: 0.9rem;
-        line-height: 1.8;
-        color: var(--emerald);
-    }
+/* Stationery-style Date & Location */
+.date-display {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--teak);
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
 
-    .coming-soon-notes p {
-        margin: 0;
-    }
+.location-display {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    color: var(--emerald);
+}
+
+/* Subtle Footer Notes */
+.coming-soon-notes {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    /* Adds a playful "ticket" or "stationery" line */
+    opacity: 0.7;
+    /* Increased from 0.4 so it's easier to read */
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--emerald);
+}
+
+.coming-soon-notes p {
+    margin: 0;
+}

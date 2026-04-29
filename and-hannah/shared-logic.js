@@ -1,7 +1,7 @@
 const dictionary = {
     en: {
         nav_home: "Home", nav_why: "Why Thailand?",
-        nav_hotels: "Accomodations", nav_recs: "Recommendation Corner",
+        nav_hotels: "Accommodations", nav_recs: "Recommendation Corner",
         nav_faq: "FAQ", nav_rsvp: "RSVP",
         nav_events: "Schedule",
         schedule_welcome_title: "To Our Family & Friends",
@@ -22,7 +22,7 @@ const dictionary = {
         event3_title: "มื้อสายอำลา"
     },
     ko: {
-        nav_home: "홈", nav_why: "왜 태국인가요", nav_events: "일정",
+        nav_home: "홈", nav_why: "왜 태국인가요",
         nav_hotels: "호텔", nav_recs: "추천 코너",
         nav_faq: "FAQ", nav_rsvp: "참석여부",
         nav_events: "일정",
@@ -32,7 +32,6 @@ const dictionary = {
         event2_title: "결혼식 및 피로연",
         event3_title: "굿바이 브런치"
     }
-
 };
 
 const globalHeader = `
@@ -62,7 +61,6 @@ const globalHeader = `
     </nav>
 `;
 
-// Footer is cleaner and simplified
 const globalFooter = `
     <footer class="footer-container">
         <p class="footer-names">Made by Pet (and Hannah helped)</p>
@@ -83,14 +81,13 @@ function updateLanguage(lang) {
     if (activeBtn) activeBtn.classList.add('active');
 }
 
-function toggleMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open'); // Triggers the X animation
-        navMenu.classList.toggle('show');   // Triggers the full-page overlay
-    });
+function handleMenuToggle() {
+    const hamburger = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (hamburger && navMenu) {
+        hamburger.classList.toggle('open'); // Trigger x animation
+        navMenu.classList.toggle('show'); // Trigger full page overlay for mobile.
+    }
 }
 
 function init() {
@@ -109,10 +106,11 @@ function init() {
         const savedLang = localStorage.getItem('wedding_lang') || 'en';
         updateLanguage(savedLang);
 
-        // Attach hamburger logic
+        // Attach event listener directly
         const btn = document.getElementById('menuToggle');
-        if (btn) btn.onclick = toggleMenu;
-
+        if (btn) {
+            btn.addEventListener('click', handleMenuToggle);
+        }
     }
 }
 

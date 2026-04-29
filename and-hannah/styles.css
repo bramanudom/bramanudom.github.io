@@ -20,7 +20,7 @@
 }
 
 /* ==========================================================================
-   2. BASE STYLES & CONTINUOUS BACKGROUND
+   2. STAGGERED 'BRICK' BACKGROUND
    ========================================================================== */
 * { box-sizing: border-box; scroll-behavior: smooth; }
 
@@ -31,18 +31,23 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 
-    /* Continuous, non-overlapping background */
-    background-image: url('/and-hannah/assets/wedding-background.png');
+    /* Two-layer background for the 'Brick' stagger effect */
+    background-image: 
+        url('/and-hannah/assets/wedding-background.png'),
+        url('/and-hannah/assets/wedding-background.png');
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: 400px;
-    background-position: center; /* Centered tiling */
-    background-color: var(--cream);
-    background-blend-mode: multiply;
+    
+    /* Layer 1 starts at 0,0 | Layer 2 is offset by 200px (half-size) */
+    background-position: 0 0, 200px 200px; 
+    
+    background-color: rgba(253, 250, 243, 0.4);
+    background-blend-mode: multiply, overlay;
 }
 
 /* ==========================================================================
-   3. LAYOUT (Symmetrical Thirds)
+   3. MAIN LAYOUT (The Symmetrical Pillar Logic)
    ========================================================================== */
 .main-layout {
     display: flex;
@@ -55,8 +60,7 @@ body {
     background: var(--emerald);
     position: fixed;
     height: 100vh;
-    left: 0;
-    top: 0;
+    left: 0; top: 0;
     display: flex;
     flex-direction: column;
     padding: 40px 20px;
@@ -67,24 +71,22 @@ body {
 main.container {
     flex: 1;
     margin-left: var(--sidebar-width);
-    margin-right: var(--sidebar-width); /* Right gutter for symmetry */
-    padding: 80px 40px;
+    margin-right: var(--sidebar-width); 
+    padding: 80px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: var(--white);
+    width: auto; 
     min-height: 100vh;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    position: relative;
     z-index: 2;
-    width: 100%;
-    max-width: 900px;
 }
 
 /* ==========================================================================
-   4. NAVIGATION & BUTTONS (Restored)
+   4. NAVIGATION & MOBILE MENU
    ========================================================================== */
-.nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-
 .nav-logo {
     font-family: var(--font-heading);
     font-size: 1.8rem;
@@ -94,20 +96,19 @@ main.container {
     width: 100%;
 }
 
-.nav-links { display: flex; flex-direction: column; gap: 10px; }
-
 .nav-links a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
     padding: 12px 15px;
     border-radius: 8px;
     transition: 0.2s;
 }
 
-.nav-links a:hover { background: var(--teak); color: var(--white); transform: translateX(5px); }
-
-/* Language Switcher */
-.lang-switcher { display: flex; gap: 8px; margin-top: auto; padding: 20px 0; }
+.nav-links a:hover {
+    background: var(--teak);
+    color: var(--white);
+}
 
 .lang-btn {
     padding: 6px 12px;
@@ -120,91 +121,35 @@ main.container {
     font-weight: 600;
 }
 
-.lang-btn.active, .lang-btn:hover { background: var(--white); color: var(--emerald); border-color: var(--white); }
+.lang-btn.active { background: var(--white); color: var(--emerald); }
 
-/* Animated Hamburger */
-.hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 3001; }
-.hamburger span { display: block; width: 25px; height: 3px; background: var(--white); transition: 0.3s; }
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    transition: all 0.3s ease-in-out;
+}
+
 .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
 .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* ==========================================================================
-   5. TABS (Pet & Hannah Buttons Restored)
-   ========================================================================== */
-.tab-container { display: flex; gap: 15px; margin-bottom: 40px; justify-content: center; }
-
-.tab-btn {
-    border-radius: 50px;
-    padding: 12px 25px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: var(--white);
-    color: var(--text);
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.tab-btn.active {
-    background: var(--emerald);
-    color: var(--white);
-    border-color: var(--emerald);
-    box-shadow: 0 4px 12px rgba(33, 63, 34, 0.2);
-}
-
-.tab-content { display: none; width: 100%; }
-.active-content { display: block; animation: fadeIn 0.4s ease; }
-
-/* ==========================================================================
-   6. COMPONENTS (Plaques & Personal Note)
-   ========================================================================== */
-.card-title {
-    display: inline-block;
-    max-width: 90%;
-    margin-bottom: 60px;
-    padding: 20px 50px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    border-bottom: 4px solid var(--teak);
-    text-align: center;
-}
-
-.card-title h1 { margin: 0; font-size: clamp(1.4rem, 5vw, 2rem); color: var(--teak); text-transform: uppercase; letter-spacing: 0.15em; }
-
-.personal-note {
-    background-color: var(--cream);
-    padding: 40px;
-    border-radius: 4px;
-    text-align: center;
-    position: relative;
-    margin-bottom: 80px;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.personal-note::before { content: "♥"; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--white); padding: 0 15px; color: var(--teak); }
-
-.grid-cards { display: grid; grid-template-columns: 1fr; gap: 25px; width: 100%; }
-
-@media (min-width: 650px) { .grid-cards { grid-template-columns: repeat(2, 1fr); } }
-
-/* ==========================================================================
-   7. MOBILE RESPONSIVENESS (Peek Layout & Fixes)
+   5. MOBILE RESPONSIVENESS (Peek Layout)
    ========================================================================== */
 @media (max-width: 900px) {
-    .main-layout { flex-direction: column; }
-
     .sidebar-nav {
         width: 100%; height: 70px;
-        position: fixed; top: 0; left: 0;
-        flex-direction: row; justify-content: space-between; align-items: center;
+        position: fixed;
+        flex-direction: row; justify-content: space-between;
         padding: 0 20px;
     }
 
-    .hamburger { display: flex; }
-
     .nav-menu {
         display: none;
-        position: fixed; top: 0; left: 0;
+        position: fixed;
+        top: 0; left: 0;
         width: 100%; height: 100vh;
         background: var(--emerald);
         flex-direction: column; justify-content: center; align-items: center;
@@ -215,19 +160,23 @@ main.container {
 
     main.container {
         margin: 100px 0 40px 0;
-        margin-left: auto;
-        margin-right: auto;
         width: calc(100% - 30px);
+        align-self: center;
         border-radius: var(--radius);
         padding: 40px 20px;
-        min-height: auto;
     }
 }
 
 /* ==========================================================================
-   8. LANDING PAGE & SAVE THE DATE (Fix)
+   6. LANDING PAGE & SAVE THE DATE (RESTORED)
    ========================================================================== */
-.landing-body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+.landing-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
 
 .save-the-date-card {
     background: var(--white);
@@ -237,9 +186,54 @@ main.container {
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 100%;
+    position: relative;
     z-index: 10;
 }
 
-.couple-names { font-size: clamp(2.5rem, 8vw, 4rem); color: var(--teak); margin-bottom: 20px; }
+.couple-names {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    color: var(--teak);
+    line-height: 1;
+    margin-bottom: 20px;
+}
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.date-display {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--teak);
+    letter-spacing: 3px;
+}
+
+/* ==========================================================================
+   7. COMPONENTS (Plaques & Tabs)
+   ========================================================================== */
+.card-title {
+    display: inline-block;
+    padding: 20px 50px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 4px solid var(--teak);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.personal-note {
+    background-color: var(--cream);
+    padding: 40px;
+    border-radius: 4px;
+    max-width: 700px;
+    margin-bottom: 80px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.tab-btn.active {
+    background: var(--emerald);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(33, 63, 34, 0.2);
+}
+
+.tab-content { display: none; }
+.active-content { display: block; animation: fadeIn 0.4s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

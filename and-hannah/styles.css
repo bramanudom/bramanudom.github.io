@@ -29,6 +29,7 @@
 
 body {
     margin: 0;
+    padding: 0;
     font-family: var(--font-main);
     color: var(--text);
     line-height: 1.6;
@@ -38,17 +39,18 @@ body {
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: 400px;
-    background-position: 0 0;
+    background-position: center;
     background-color: rgba(253, 250, 243, 0.3);
     background-blend-mode: multiply, overlay;
 }
 
 /* ==========================================================================
-   3. MAIN LAYOUT (Single Sheet Logic)
+   3. MAIN LAYOUT (The Symmetrical Pillar Logic)
    ========================================================================== */
 .main-layout {
     display: flex;
     min-height: 100vh;
+    justify-content: center; /* Centers the sheet between the pillars */
 }
 
 .sidebar-nav {
@@ -56,6 +58,8 @@ body {
     background: var(--emerald);
     position: fixed;
     height: 100vh;
+    left: 0;
+    top: 0;
     display: flex;
     flex-direction: column;
     padding: 40px 20px;
@@ -63,19 +67,25 @@ body {
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
 }
 
+/* The 'Paper' Sheet - Balanced for Desktop */
 main.container {
     flex: 1;
+    /* Margin-left matches sidebar, margin-right creates the symmetrical 'Right Pillar' */
     margin-left: var(--sidebar-width);
+    margin-right: var(--sidebar-width); 
+    
     padding: 80px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: var(--white);
-    max-width: 900px;
-    margin-top: 0;
-    margin-bottom: 0;
+    
+    /* We remove max-width 900px to let it fill the center third properly */
+    width: auto; 
     min-height: 100vh;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
 }
 
 /* ==========================================================================
@@ -118,6 +128,32 @@ main.container {
     transform: translateX(5px);
 }
 
+/* Animated Hamburger */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    z-index: 3001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* X-Transition Logic */
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 /* Language Buttons */
 .lang-switcher {
     display: flex;
@@ -144,34 +180,9 @@ main.container {
     border-color: var(--white);
 }
 
-/* Hamburger & X-Transition */
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
-    z-index: 3001;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: var(--white);
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
-}
-
-.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
-.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
 /* ==========================================================================
-   5. RECOMMENDATION TABS
-   ========================================================================== */
+   5. TABS & RECOMMENDATIONS
+   ========================================================================= */
 .tab-container {
     display: flex;
     gap: 15px;
@@ -209,10 +220,10 @@ main.container {
 }
 
 /* ==========================================================================
-   6. CONTENT COMPONENTS (Plaques & Notes)
+   6. CONTENT COMPONENTS
    ========================================================================== */
 h1 {
-    font-size: clamp(1.6rem, 7vw, 2.4rem); /* Improved floor for long words like 'Accommodations' */
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
     text-align: center;
     word-wrap: break-word;
     hyphens: auto;
@@ -240,14 +251,6 @@ h1 {
     color: var(--teak);
 }
 
-.card-title p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: var(--text);
-    opacity: 0.8;
-}
-
-/* The 'Letter' Schedule Note */
 .personal-note {
     background-color: var(--cream);
     padding: 40px;
@@ -271,19 +274,7 @@ h1 {
     font-size: 1.2rem;
 }
 
-.personal-note p {
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin: 0;
-}
-
-.card {
-    background: transparent;
-    padding: 0;
-    margin-bottom: 60px;
-    width: 100%;
-}
+.card { background: transparent; padding: 0; margin-bottom: 60px; width: 100%; }
 
 .grid-cards {
     display: grid;
@@ -297,7 +288,7 @@ h1 {
 }
 
 /* ==========================================================================
-   7. MOBILE RESPONSIVENESS (Peek Layout)
+   7. MOBILE RESPONSIVENESS (The Peek Layout)
    ========================================================================== */
 @media (max-width: 900px) {
     .main-layout { flex-direction: column; }
@@ -306,7 +297,7 @@ h1 {
         width: 100%;
         height: 70px;
         position: fixed;
-        top: 0; left: 0;
+        left: 0; top: 0;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -317,7 +308,7 @@ h1 {
     .nav-logo { text-align: left; }
     .hamburger { display: flex; }
 
-    /* Full-Page Overlay Menu */
+    /* Overlay Menu */
     .nav-menu {
         display: none;
         position: fixed;
@@ -335,19 +326,17 @@ h1 {
 
     .nav-links { text-align: center; gap: 20px; }
     .nav-links a { font-size: 1.5rem; }
-    .lang-switcher { margin-top: 40px; justify-content: center; }
 
-    /* The 'Peek' Mobile Layout */
+    /* Return to 'Peek' layout for mobile */
     main.container {
         margin-left: 0;
+        margin-right: 0;
         margin-top: 100px;
         margin-bottom: 40px;
         width: calc(100% - 30px);
         align-self: center;
         border-radius: var(--radius);
         padding: 40px 20px;
-        min-height: auto;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 }
 
@@ -357,7 +346,7 @@ h1 {
 }
 
 /* ==========================================================================
-   8. LANDING PAGE & SAVE THE DATE
+   8. LANDING PAGE
    ========================================================================== */
 .landing-body {
     display: flex;
@@ -365,14 +354,4 @@ h1 {
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
-}
-
-.save-the-date-card {
-    background: var(--white);
-    padding: 60px 40px;
-    border-radius: var(--radius);
-    text-align: center;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
 }

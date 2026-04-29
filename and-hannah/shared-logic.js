@@ -61,13 +61,6 @@ const globalHeader = `
     </nav>
 `;
 
-const globalFooter = `
-    <footer class="footer-container">
-        <p class="footer-names">Made by Pet (and Hannah helped)</p>
-        <p class="footer-date">06 • 11 • 2027</p>
-    </footer>
-`;
-
 function updateLanguage(lang) {
     localStorage.setItem('wedding_lang', lang);
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -101,7 +94,6 @@ function init() {
         const hPlace = document.getElementById('header-placeholder');
         const fPlace = document.getElementById('footer-placeholder');
         if (hPlace) hPlace.innerHTML = globalHeader;
-        if (fPlace) fPlace.innerHTML = globalFooter;
 
         const savedLang = localStorage.getItem('wedding_lang') || 'en';
         updateLanguage(savedLang);

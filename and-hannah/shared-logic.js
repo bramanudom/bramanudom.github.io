@@ -84,8 +84,13 @@ function updateLanguage(lang) {
 }
 
 function toggleMenu() {
-    const menu = document.getElementById('navMenu');
-    menu.classList.toggle('show');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open'); // Triggers the X animation
+        navMenu.classList.toggle('show');   // Triggers the full-page overlay
+    });
 }
 
 function init() {
@@ -107,6 +112,7 @@ function init() {
         // Attach hamburger logic
         const btn = document.getElementById('menuToggle');
         if (btn) btn.onclick = toggleMenu;
+
     }
 }
 

@@ -34,7 +34,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 
-    /* Global Background Pattern */
     background-image: url('/and-hannah/assets/wedding-background.png');
     background-repeat: repeat;
     background-attachment: fixed;
@@ -45,14 +44,13 @@ body {
 }
 
 /* ==========================================================================
-   3. MAIN LAYOUT (The 'Single Sheet' Logic)
+   3. MAIN LAYOUT (Single Sheet Logic)
    ========================================================================== */
 .main-layout {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar stays fixed to the left */
 .sidebar-nav {
     width: var(--sidebar-width);
     background: var(--emerald);
@@ -61,30 +59,27 @@ body {
     display: flex;
     flex-direction: column;
     padding: 40px 20px;
-    z-index: 1000;
+    z-index: 3000; /* Highest priority */
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
 }
 
-/* The Paper Column */
 main.container {
     flex: 1;
     margin-left: var(--sidebar-width);
-    padding: 80px 60px; /* Generous editorial padding */
+    padding: 80px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    /* This creates the continuous white section */
     background: var(--white);
-    max-width: 900px; /* Prevents text lines from getting too long */
+    max-width: 900px;
     margin-top: 0;
     margin-bottom: 0;
     min-height: 100vh;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05); /* Lifts the sheet off the wallpaper */
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 }
 
 /* ==========================================================================
-   4. NAVIGATION ELEMENTS
+   4. NAVIGATION & LANGUAGE SWITCHER
    ========================================================================== */
 .nav-header {
     display: flex;
@@ -100,12 +95,6 @@ main.container {
     text-decoration: none;
     text-align: center;
     width: 100%;
-}
-
-.nav-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
 }
 
 .nav-links {
@@ -129,6 +118,32 @@ main.container {
     transform: translateX(5px);
 }
 
+.lang-switcher {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding: 20px 0;
+}
+
+.lang-btn {
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: 600;
+}
+
+.lang-btn.active, .lang-btn:hover {
+    background: var(--white);
+    color: var(--emerald);
+    border-color: var(--white);
+}
+
+/* --- Animated Hamburger --- */
 .hamburger {
     display: none;
     background: none;
@@ -136,6 +151,8 @@ main.container {
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
+    padding: 10px;
+    z-index: 3001;
 }
 
 .hamburger span {
@@ -144,24 +161,99 @@ main.container {
     height: 3px;
     background: var(--white);
     border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* X-Transition Logic */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ==========================================================================
-   5. CONTENT COMPONENTS (Cleaned of individual box styles)
+   5. MOBILE RESPONSIVENESS (Peek Layout & Overlay)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .main-layout { flex-direction: column; }
+
+    .sidebar-nav {
+        width: 100%;
+        height: 70px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .nav-header { margin-bottom: 0; width: 100%; }
+    .nav-logo { text-align: left; }
+    .hamburger { display: flex; }
+
+    /* Overlay Menu */
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--emerald);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
+
+    .nav-menu.show { display: flex; animation: fadeIn 0.3s ease forwards; }
+
+    .nav-links { text-align: center; gap: 20px; }
+    .nav-links a { font-size: 1.5rem; }
+    .lang-switcher { margin-top: 40px; justify-content: center; }
+
+    /* The 'Peek' Mobile Layout */
+    main.container {
+        margin-left: 0;
+        margin-top: 90px;
+        margin-bottom: 40px;
+        width: calc(100% - 30px); /* 15px peek on each side */
+        align-self: center;
+        border-radius: var(--radius);
+        padding: 40px 20px;
+        min-height: auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================================================
+   6. COMPONENTS (Cards & Titles)
    ========================================================================== */
 .card {
-    background: transparent; /* No longer individual white boxes */
+    background: transparent;
     padding: 0;
     margin-bottom: 60px;
-    box-shadow: none;
     width: 100%;
     max-width: 750px;
 }
 
-/* Title Plaque (Keeps the 'Glass' feel to anchor the page) */
 .card-title {
     display: inline-block;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 50px auto;
     padding: 15px 60px;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
@@ -178,125 +270,4 @@ main.container {
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--teak);
-}
-
-/* Intro Message becomes a centered text section */
-.intro-message {
-    padding: 0;
-    max-width: 700px;
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.intro-header {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--teak);
-    margin-bottom: 20px;
-}
-
-/* Section Accents (Subtle dividers instead of borders) */
-.card-top-teak, .card-top-ruby, .card-top-emerald {
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    padding-top: 40px;
-}
-
-.grid-cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    width: 100%;
-}
-
-/* ==========================================================================
-   6. UTILITIES & BUTTONS
-   ========================================================================== */
-h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; margin-top: 0; }
-h1 { font-size: clamp(2rem, 5vw, 2.5rem); text-align: center; margin-bottom: 40px; }
-
-.btn, .tab-btn {
-    border-radius: 50px;
-    padding: 12px 25px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 0.9rem;
-}
-
-.btn-teak { background: var(--teak); color: white; }
-.btn-emerald { background: var(--emerald); color: white; }
-
-.tab-btn.active { background: var(--emerald); color: white; }
-
-/* ==========================================================================
-   7. RESPONSIVE DESIGN
-   ========================================================================== */
-@media (min-width: 650px) {
-    .grid-cards { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 900px) {
-    .main-layout { flex-direction: column; }
-
-    .sidebar-nav {
-        width: 100%;
-        height: auto;
-        position: sticky;
-        top: 0;
-        padding: 15px 20px;
-    }
-
-    .hamburger { display: flex; }
-    .nav-menu { display: none; padding-top: 20px; }
-    .nav-menu.show { display: flex; height: auto; padding-bottom: 20px; }
-
-    main.container {
-        margin-left: 0;
-        padding: 40px 20px;
-        width: 100%;
-        box-shadow: none; /* Seamless white look on mobile */
-    }
-
-    .card-title { padding: 12px 30px; margin-bottom: 40px; }
-    .intro-message { margin-bottom: 50px; }
-}
-
-/* ==========================================================================
-   8. LANDING PAGE SPECIAL TREATMENT
-   ========================================================================== */
-.landing-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    flex-direction: column;
-    /* Reset background for landing to emphasize the Save the Date card */
-    background-size: 300px;
-}
-
-.save-the-date-card {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 60px 40px;
-    border-radius: var(--radius);
-    text-align: center;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-}
-
-.couple-names {
-    font-size: clamp(3rem, 10vw, 4.5rem);
-    color: var(--teak);
-    line-height: 1;
-}
-
-.date-display {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--teak);
-    letter-spacing: 3px;
 }

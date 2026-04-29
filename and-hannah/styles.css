@@ -29,7 +29,6 @@
 
 body {
     margin: 0;
-    padding: 0;
     font-family: var(--font-main);
     color: var(--text);
     line-height: 1.6;
@@ -64,7 +63,6 @@ body {
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
 }
 
-/* The 'Paper' Sheet */
 main.container {
     flex: 1;
     margin-left: var(--sidebar-width);
@@ -120,35 +118,7 @@ main.container {
     transform: translateX(5px);
 }
 
-/* Animated Hamburger */
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px;
-    z-index: 3001;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: var(--white);
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
-}
-
-/* X-Transition Logic */
-.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
-.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-/* ==========================================================================
-   5. BUTTONS & TABS
-   ========================================================================== */
+/* Language Buttons */
 .lang-switcher {
     display: flex;
     gap: 8px;
@@ -174,12 +144,40 @@ main.container {
     border-color: var(--white);
 }
 
-/* Recommendation Tabs */
+/* Hamburger & X-Transition */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    z-index: 3001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ==========================================================================
+   5. RECOMMENDATION TABS
+   ========================================================================== */
 .tab-container {
     display: flex;
     gap: 15px;
     margin-bottom: 40px;
     justify-content: center;
+    width: 100%;
 }
 
 .tab-btn {
@@ -202,11 +200,19 @@ main.container {
     box-shadow: 0 4px 12px rgba(33, 63, 34, 0.2);
 }
 
+.tab-content { display: none; width: 100%; }
+.active-content { display: block; animation: calmFadeIn 0.4s ease-out; }
+
+@keyframes calmFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* ==========================================================================
    6. CONTENT COMPONENTS (Plaques & Notes)
    ========================================================================== */
 h1 {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-size: clamp(1.6rem, 7vw, 2.4rem); /* Improved floor for long words like 'Accommodations' */
     text-align: center;
     word-wrap: break-word;
     hyphens: auto;
@@ -216,7 +222,7 @@ h1 {
     display: inline-block;
     max-width: 90%;
     margin: 0 auto 50px auto;
-    padding: 15px 50px;
+    padding: 25px 50px;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -227,11 +233,18 @@ h1 {
 }
 
 .card-title h1 {
-    margin: 0;
+    margin: 0 0 10px 0;
     font-size: clamp(1.4rem, 5vw, 2rem);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--teak);
+}
+
+.card-title p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text);
+    opacity: 0.8;
 }
 
 /* The 'Letter' Schedule Note */
@@ -270,6 +283,17 @@ h1 {
     padding: 0;
     margin-bottom: 60px;
     width: 100%;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    width: 100%;
+}
+
+@media (min-width: 650px) {
+    .grid-cards { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ==========================================================================
@@ -325,8 +349,6 @@ h1 {
         min-height: auto;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-
-    .personal-note { padding: 30px 20px; margin-bottom: 50px; }
 }
 
 @keyframes fadeIn {
@@ -354,5 +376,3 @@ h1 {
     max-width: 600px;
     width: 100%;
 }
-
-.couple-names { font-size: clamp(3rem, 10vw, 4.5rem); color: var(--teak); line-height: 1; }

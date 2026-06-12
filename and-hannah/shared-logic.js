@@ -77,11 +77,11 @@ function updateLanguage(lang) {
 function handleMenuToggle() {
     const hamburger = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
-    
+
     if (hamburger && navMenu) {
         hamburger.classList.toggle('open');
         navMenu.classList.toggle('show');
-        
+
         if (navMenu.classList.contains('show')) {
             document.body.classList.add('menu-open');
         } else {
@@ -91,15 +91,25 @@ function handleMenuToggle() {
 }
 
 function init() {
-    const path = window.location.pathname;
-    const isLandingPage = path.endsWith('index.html') || path === '/' || path.endsWith('/and-hannah/');
+    const path = window.location.pathname.toLowerCase();
+
+    // Strict matching: Only treat it as a landing page if it explicitly targets index or the bare root folder
+    const isLandingPage = path.endsWith('index.html') ||
+        path.endsWith('/') ||
+        path.endsWith('/and-hannah') ||
+        path.endsWith('/and-hannah/');
+
     const isLoginPage = path.endsWith('login.html');
 
     document.body.className = (isLandingPage || isLoginPage) ? 'landing-body' : 'main-layout';
 
     if (!isLandingPage && !isLoginPage) {
         const hPlace = document.getElementById('header-placeholder');
-        if (hPlace) hPlace.innerHTML = globalHeader;
+        if (hPlace) {
+            hPlace.innerHTML = globalHeader;
+        } else {
+            console.warn("Could not find element #header-placeholder on this page.");
+        }
 
         const savedLang = localStorage.getItem('wedding_lang') || 'en';
         updateLanguage(savedLang);

@@ -198,7 +198,7 @@ main.container {
 }
 
 /* ==========================================================================
-   5. TABS & RECOMMENDATIONS
+   5. INTERACTIVE BUTTONS, TABS & FORMS
    ========================================================================= */
 .tab-container {
     display: flex;
@@ -243,28 +243,65 @@ main.container {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+/* Form Submit / RSVP Actions Style Restored */
+input[type="submit"], 
+button[type="submit"],
+.btn-submit {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 30px auto 0 auto;
+    padding: 14px 35px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--emerald);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+input[type="submit"]:hover, 
+button[type="submit"]:hover,
+.btn-submit:hover {
+    background-color: var(--teak);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(128, 48, 48, 0.15);
+}
+
+input[type="submit"]:active, 
+button[type="submit"]:active,
+.btn-submit:active {
+    transform: translateY(0);
+}
+
 /* ==========================================================================
-   6. CONTENT COMPONENTS
+   6. CONTENT COMPONENTS & TITLES
    ========================================================================== */
 h1 {
-    font-size: clamp(1.6rem, 7vw, 2.4rem);
+    font-size: clamp(1.5rem, 6vw, 2.4rem); /* Responsive fluid floor prevents viewport breaking */
     text-align: center;
     word-wrap: break-word;
+    overflow-wrap: break-word;
     hyphens: auto;
 }
 
 .card-title {
     display: inline-block;
-    max-width: 90%;
+    max-width: 95%; /* Increased from 90% to prevent tight layouts on mobile */
     margin: 0 auto 50px auto;
-    padding: 25px 50px;
+    padding: 25px 40px;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -276,8 +313,8 @@ h1 {
 
 .card-title h1 {
     margin: 0 0 10px 0;
-    font-size: clamp(1.4rem, 5vw, 2rem);
-    letter-spacing: 0.15em;
+    font-size: clamp(1.2rem, 5vw, 2rem); /* Dynamic floor lets massive words auto-scale */
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--teak);
 }
@@ -412,20 +449,20 @@ h1 {
         border-radius: var(--radius);
         padding: 40px 20px;
     }
+    
+    /* Extra title padding shield for smaller displays */
+    .card-title {
+        padding: 20px 15px; 
+    }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* ==========================================================================
-   8. LANDING PAGE
+   8. LANDING PAGE & MOBILE BOUNCE FIXES
    ========================================================================== */
 .landing-body {
     display: flex;
@@ -441,8 +478,7 @@ h1 {
 }
 
 /* --- Mobile Polish (Allows fluid text scroll, but kills bounce jank) --- */
-@media (max-width: 900px),
-(max-height: 750px) {
+@media (max-width: 900px), (max-height: 750px) {
     .landing-body {
         height: auto;
         min-height: 100vh;

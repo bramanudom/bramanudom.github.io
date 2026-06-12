@@ -61,6 +61,7 @@ body.menu-open {
 }
 
 #header-placeholder {
+    /* Reserves desktop column width immediately before JS renders */
     display: block;
     width: var(--sidebar-width);
     flex-shrink: 0;
@@ -82,9 +83,9 @@ body.menu-open {
 
 main.container {
     flex: 1;
-    /* Margin-left matches placeholder, margin-right creates structural 'Right Pillar' balance */
-    margin-left: 0; 
+    margin-left: 0;
     margin-right: var(--sidebar-width);
+    /* Creates structural 'Right Pillar' balance */
 
     padding: 80px 60px;
     display: flex;
@@ -100,12 +101,14 @@ main.container {
 
 @media (max-width: 900px) {
     #header-placeholder {
-        width: 0;
-        display: none;
+        display: none !important;
+        width: 0 !important;
     }
-    
+
     main.container {
-        margin-right: 0;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: calc(100% - 30px);
     }
 }
 

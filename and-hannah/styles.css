@@ -425,10 +425,9 @@ h1 {
     background: var(--white);
     padding: 80px 60px;
     border-radius: var(--radius);
-    text-align: center; /* Beautiful centered invitation layout */
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.05); /* Softer, minimal shadow */
     
-    /* Generous desktop width, scales down naturally on mobile */
     width: 100%;
     max-width: 680px; 
     z-index: 10;
@@ -438,10 +437,10 @@ h1 {
     width: 100%;
 }
 
-/* --- English Section (Primary Anchor) --- */
+/* --- English Section (Clean Hierarchy) --- */
 .couple-names {
     font-size: clamp(3rem, 6vw, 4.2rem);
-    color: var(--teak);
+    color: var(--teak); /* Anchor 1: The Names */
     line-height: 1.05;
     letter-spacing: 2px;
     margin: 0 0 15px 0;
@@ -451,9 +450,9 @@ h1 {
 
 .wedding-announcement {
     font-size: 1.25rem;
-    color: var(--text);
+    color: var(--text); /* Unified: Neutral body text */
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
     font-weight: 300;
     letter-spacing: 0.5px;
 }
@@ -461,31 +460,31 @@ h1 {
 .date-display {
     font-size: clamp(2rem, 5vw, 2.6rem);
     font-weight: 700;
-    color: var(--teak);
+    color: var(--teak); /* Anchor 2: The Date matches the names */
     letter-spacing: 4px;
     font-family: var(--font-heading);
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .location-display {
     font-size: 1.1rem;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
-    color: var(--emerald);
-    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--text); /* Unified: Neutral body text instead of Emerald */
+    font-weight: 400; /* Slightly lighter weight softens it */
     margin-bottom: 35px;
 }
 
 .invitation-note {
     font-size: 1rem;
     color: var(--text);
-    opacity: 0.6;
+    opacity: 0.5; /* Keeps it very soft and secondary */
     font-style: italic;
     margin: 0;
 }
 
-/* --- Translation Group (Subordinate Hierarchy) --- */
+/* --- Translation Group (Footnote Subordination) --- */
 .translations-group {
     display: flex;
     flex-direction: column;
@@ -493,11 +492,11 @@ h1 {
 }
 
 .translation-block {
-    opacity: 0.8; /* Softer visual presence */
+    opacity: 0.75; /* Uniform softening */
 }
 
 .multilingual-text {
-    font-size: 1.1rem; /* Visually smaller than English headings */
+    font-size: 1.1rem;
     color: var(--teak);
     font-weight: 600;
     margin: 0 0 6px 0;
@@ -512,26 +511,26 @@ h1 {
 
 .multilingual-notes {
     font-size: 0.85rem;
-    color: var(--emerald);
-    opacity: 0.7;
-    font-style: dotted;
+    color: var(--text); /* Keep translations clean of extra colors */
+    opacity: 0.6;
     margin: 0;
 }
 
 /* --- Clean Modern Dividers --- */
 .section-divider {
-    width: 50px;
+    width: 40px;
     height: 1px;
-    background: var(--teak);
+    background: var(--text);
     margin: 50px auto;
-    opacity: 0.2;
+    opacity: 0.15; /* Barely-there structural line */
 }
 
 .row-divider {
-    width: 30px;
+    width: 25px;
     height: 1px;
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--text);
     margin: 0 auto;
+    opacity: 0.1;
 }
 
 /* --- Mobile Polish --- */

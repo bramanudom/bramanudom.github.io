@@ -18,19 +18,20 @@
             <h1 data-i18n="nav_rsvp">RSVP</h1>
         </div>
 
-        <div id="lookupSection" class="card text-center">
+        <div id="lookupSection" class="content-section text-center mb-4">
             <p class="mb-2">Please enter your name as it appears on your invitation.</p>
             <div class="lookup-group">
                 <input type="text" id="nameInput" placeholder="Full Name" class="form-input">
-                <button id="findBtn" class="btn btn-teak">Find Invitation</button>
+                <button id="findBtn" class="btn-submit" style="margin: 0; max-width: 200px; padding: 12px 25px; font-size: 0.95rem;">Find Invitation</button>
             </div>
-            <p id="lookupError" style="color: var(--ruby); display: none;" class="mt-2">
+            <p id="lookupError" style="color: var(--teak); font-weight: 600; display: none;" class="mt-2">
                 We couldn't find that name. Please try again or contact us!
             </p>
         </div>
 
-        <form id="rsvpForm" style="display: none;">
-            <div class="card">
+        <form id="rsvpForm" style="display: none; width: 100%; max-width: 700px;">
+            
+            <div class="content-section card-top-teak">
                 <h3 id="guest1Header" class="text-left">Guest Name</h3>
                 <input type="hidden" name="hiddenName1" id="hiddenName1">
                 <div class="radio-group">
@@ -39,7 +40,7 @@
                 </div>
             </div>
 
-            <div id="plusOneCard" class="card card-top-ruby" style="display: none;">
+            <div id="plusOneCard" class="content-section card-top-ruby" style="display: none;">
                 <h3 id="guest2Header" class="text-left">Plus One Name</h3>
                 <input type="hidden" name="hiddenName2" id="hiddenName2">
                 <div class="radio-group">
@@ -48,7 +49,7 @@
                 </div>
             </div>
 
-            <div id="babyCard" class="card card-top-ruby" style="display: none;">
+            <div id="babyCard" class="content-section card-top-ruby" style="display: none;">
                 <h3 id="babyHeader" class="text-left">Baby Name</h3>
                 <input type="hidden" name="babyName" id="babyName">
                 <div class="radio-group">
@@ -57,24 +58,24 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="content-section card-top-emerald">
                 <h3 class="text-left">Dietary Requirements</h3>
                 <textarea name="Dietary" placeholder="Allergies, vegetarian, etc." class="form-input"></textarea>
             </div>
 
-            <div class="card">
+            <div class="content-section card-top-emerald">
                 <h3 class="text-left">Song Request</h3>
                 <textarea name="Song" placeholder="New Jeans Please" class="form-input"></textarea>
             </div>
 
-            <button type="submit" id="submitBtn" class="btn btn-emerald" style="width: 100%;">
+            <button type="submit" id="submitBtn">
                 Send RSVP
             </button>
         </form>
 
-        <div id="successMsg" class="card text-center" style="display: none;">
-            <h2 class="mb-2">ขอบคุณค่ะ / 감사합니다!</h2>
-            <p>Thank you! Your response has been recorded.</p>
+        <div id="successMsg" class="content-section text-center" style="display: none; padding-top: 40px;">
+            <h2 class="mb-2" style="color: var(--emerald);">ขอบคุณค่ะ / 감사합니다!</h2>
+            <p style="font-size: 1.1rem; font-style: italic;">Thank you! Your response has been recorded.</p>
         </div>
     </main>
 

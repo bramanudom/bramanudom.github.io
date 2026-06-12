@@ -243,6 +243,7 @@ main.container {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -250,7 +251,7 @@ main.container {
 }
 
 /* Form Submit / RSVP Actions Style Restored */
-input[type="submit"], 
+input[type="submit"],
 button[type="submit"],
 .btn-submit {
     display: block;
@@ -272,7 +273,7 @@ button[type="submit"],
     text-align: center;
 }
 
-input[type="submit"]:hover, 
+input[type="submit"]:hover,
 button[type="submit"]:hover,
 .btn-submit:hover {
     background-color: var(--teak);
@@ -280,17 +281,67 @@ button[type="submit"]:hover,
     box-shadow: 0 5px 15px rgba(128, 48, 48, 0.15);
 }
 
-input[type="submit"]:active, 
+input[type="submit"]:active,
 button[type="submit"]:active,
 .btn-submit:active {
     transform: translateY(0);
+}
+
+/* --- Form Inputs Refinement --- */
+.form-input {
+    width: 100%;
+    padding: 14px 20px;
+    /* Generous padding to match the button height */
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text);
+    background-color: var(--white);
+
+    /* Matches the rounded aesthetic of your buttons */
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+/* Smooth accent glow when guests click into fields */
+.form-input:focus {
+    border-color: var(--emerald);
+    box-shadow: 0 0 0 3px rgba(33, 63, 34, 0.1);
+}
+
+/* Keep textareas looking like elegant stationery blocks while maintaining rounded corners */
+textarea.form-input {
+    min-height: 100px;
+    border-radius: var(--radius);
+    /* Uses your core 16px radius instead of pill shape */
+    resize: vertical;
+}
+
+/* --- Lookup Group Layout Polish --- */
+.lookup-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 30px auto 0 auto;
+}
+
+.lookup-group .form-input {
+    flex: 1;
+    min-width: 260px;
+    /* Ensures a comfortable typing zone on mobile */
 }
 
 /* ==========================================================================
    6. CONTENT COMPONENTS & TITLES
    ========================================================================== */
 h1 {
-    font-size: clamp(1.5rem, 6vw, 2.4rem); /* Responsive fluid floor prevents viewport breaking */
+    font-size: clamp(1.5rem, 6vw, 2.4rem);
+    /* Responsive fluid floor prevents viewport breaking */
     text-align: center;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -299,7 +350,8 @@ h1 {
 
 .card-title {
     display: inline-block;
-    max-width: 95%; /* Increased from 90% to prevent tight layouts on mobile */
+    max-width: 95%;
+    /* Increased from 90% to prevent tight layouts on mobile */
     margin: 0 auto 50px auto;
     padding: 25px 40px;
     background: rgba(255, 255, 255, 0.85);
@@ -313,7 +365,8 @@ h1 {
 
 .card-title h1 {
     margin: 0 0 10px 0;
-    font-size: clamp(1.2rem, 5vw, 2rem); /* Dynamic floor lets massive words auto-scale */
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    /* Dynamic floor lets massive words auto-scale */
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--teak);
@@ -405,11 +458,14 @@ h1 {
         height: 100vh;
         background: var(--emerald);
         flex-direction: column;
-        justify-content: flex-start; /* Pulls navigation links up toward top half */
+        justify-content: flex-start;
+        /* Pulls navigation links up toward top half */
         align-items: center;
-        padding: 100px 20px 40px 20px; /* Positions layout under fixed bar header */
+        padding: 100px 20px 40px 20px;
+        /* Positions layout under fixed bar header */
         z-index: 2000;
-        overflow-y: auto; /* Safety net if mobile view height is ultra-small */
+        overflow-y: auto;
+        /* Safety net if mobile view height is ultra-small */
     }
 
     .nav-menu.show {
@@ -425,7 +481,8 @@ h1 {
     }
 
     .nav-links a {
-        font-size: 1.35rem; /* Balanced down slightly for mobile layout ratios */
+        font-size: 1.35rem;
+        /* Balanced down slightly for mobile layout ratios */
         padding: 10px;
         display: block;
     }
@@ -449,16 +506,21 @@ h1 {
         border-radius: var(--radius);
         padding: 40px 20px;
     }
-    
+
     /* Extra title padding shield for smaller displays */
     .card-title {
-        padding: 20px 15px; 
+        padding: 20px 15px;
     }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* ==========================================================================
@@ -478,7 +540,8 @@ h1 {
 }
 
 /* --- Mobile Polish (Allows fluid text scroll, but kills bounce jank) --- */
-@media (max-width: 900px), (max-height: 750px) {
+@media (max-width: 900px),
+(max-height: 750px) {
     .landing-body {
         height: auto;
         min-height: 100vh;

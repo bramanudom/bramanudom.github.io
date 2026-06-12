@@ -99,37 +99,6 @@ main.container {
     z-index: 2;
 }
 
-@media (max-width: 900px) {
-    #header-placeholder {
-        display: none !important;
-        width: 0 !important;
-    }
-
-    .sidebar-nav {
-        width: 100% !important;
-        height: 70px !important;
-        position: fixed !important;
-        left: 0 !important;
-        top: 0 !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 0 20px !important;
-        z-index: 4000 !important; /* Pushes the nav bar back above the white content card wrapper */
-    }
-
-    main.container {
-        margin-right: 0 !important;
-        margin-left: 0 !important;
-        margin-top: 100px !important;
-        margin-bottom: 40px !important;
-        width: calc(100% - 30px) !important;
-        align-self: center !important;
-        border-radius: var(--radius) !important;
-        padding: 40px 20px !important;
-    }
-}
-
 /* ==========================================================================
    4. NAVIGATION & ANIMATED HAMBURGER
    ========================================================================== */
@@ -278,7 +247,6 @@ main.container {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
     }
@@ -439,24 +407,45 @@ h1 {
 }
 
 /* ==========================================================================
-   7. MOBILE RESPONSIVENESS (The Peek Layout)
+   7. GLOBAL SITE RESPONSIVENESS (The Mobile UI Overrides)
    ========================================================================== */
 @media (max-width: 900px) {
     .main-layout {
         flex-direction: column;
     }
 
+    #header-placeholder {
+        display: none !important;
+        width: 0 !important;
+    }
+
+    /* Primary Global Header Positioning Lock */
+    .sidebar-nav {
+        display: flex !important;
+        width: 100% !important;
+        height: 70px !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 20px !important;
+        z-index: 4000 !important; /* Force layout precedence over inner page cards */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    }
+
     .nav-header {
-        margin-bottom: 0;
-        width: 100%;
+        margin-bottom: 0 !important;
+        width: 100% !important;
     }
 
     .nav-logo {
-        text-align: left;
+        text-align: left !important;
     }
 
     .hamburger {
-        display: flex;
+        display: flex !important;
     }
 
     /* Full-Page Overlay Menu */
@@ -501,22 +490,30 @@ h1 {
         width: 100%;
     }
 
+    /* Inner Page Main Sheet Core Layout Re-proportioning */
+    main.container {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        margin-top: 100px !important;
+        margin-bottom: 40px !important;
+        width: calc(100% - 30px) !important;
+        align-self: center !important;
+        border-radius: var(--radius) !important;
+        padding: 40px 20px !important;
+    }
+
     .card-title {
         padding: 20px 15px;
     }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* ==========================================================================
-   8. LANDING PAGE & MOBILE BOUNCE FIXES
+   8. ISOLATED LANDING PAGE CONFIGURATION
    ========================================================================== */
 .landing-body {
     display: flex;
@@ -528,14 +525,15 @@ h1 {
     overscroll-behavior: none;
 }
 
-@media (max-width: 900px), (max-height: 750px) {
+/* Specific isolated frame scrolling logic strictly limited to phone viewports */
+@media (max-width: 600px), (max-height: 750px) {
     .landing-body {
         height: auto;
         min-height: 100vh;
         overflow-y: auto;
         overscroll-behavior-y: contain;
         padding: 40px 20px;
-        background-attachment: scroll;
+        background-attachment: scroll; /* Detaches background freeze exclusively on phone viewports */
     }
 }
 

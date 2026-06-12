@@ -412,7 +412,7 @@ h1 {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
 .landing-container {
@@ -425,48 +425,41 @@ h1 {
     background: var(--white);
     padding: 80px 60px;
     border-radius: var(--radius);
-    text-align: center;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+    text-align: center; /* Beautiful centered invitation layout */
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
     
-    /* Responsive Scaling: Expands gracefully on desktop, remains cozy on mobile */
+    /* Generous desktop width, scales down naturally on mobile */
     width: 100%;
-    max-width: 700px; 
+    max-width: 680px; 
     z-index: 10;
-    transition: max-width 0.3s ease;
 }
 
-/* Language Groupings */
 .lang-block {
     width: 100%;
-    margin: 0 auto;
 }
 
-.translation-block {
-    opacity: 0.85; /* Subtle drop in visual weight for translations */
-}
-
-/* Typography Hierarchy */
+/* --- English Section (Primary Anchor) --- */
 .couple-names {
-    font-size: clamp(3.2rem, 7vw, 4.5rem);
+    font-size: clamp(3rem, 6vw, 4.2rem);
     color: var(--teak);
-    line-height: 1.1;
+    line-height: 1.05;
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin: 0 0 15px 0;
     font-family: var(--font-heading);
     text-transform: uppercase;
 }
 
 .wedding-announcement {
-    font-family: var(--font-main);
     font-size: 1.25rem;
     color: var(--text);
     margin-top: 0;
     margin-bottom: 40px;
     font-weight: 300;
+    letter-spacing: 0.5px;
 }
 
 .date-display {
-    font-size: clamp(2.2rem, 5vw, 2.8rem);
+    font-size: clamp(2rem, 5vw, 2.6rem);
     font-weight: 700;
     color: var(--teak);
     letter-spacing: 4px;
@@ -476,57 +469,72 @@ h1 {
 }
 
 .location-display {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.25em;
     color: var(--emerald);
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
-.coming-soon-notes {
-    font-size: 1.05rem;
+.invitation-note {
+    font-size: 1rem;
     color: var(--text);
     opacity: 0.6;
     font-style: italic;
-    margin-top: 20px;
-}
-
-/* Translation Text Styling */
-.multilingual-text {
-    font-family: var(--font-main);
-    font-size: 1.2rem;
-    color: var(--teak);
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.multilingual-details {
-    font-family: var(--font-main);
-    font-size: 1.05rem;
-    color: var(--text);
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.multilingual-notes {
-    font-family: var(--font-main);
-    font-size: 0.95rem;
-    color: var(--emerald);
-    opacity: 0.7;
     margin: 0;
 }
 
-/* Minimalist Decorative Dividers */
+/* --- Translation Group (Subordinate Hierarchy) --- */
+.translations-group {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.translation-block {
+    opacity: 0.8; /* Softer visual presence */
+}
+
+.multilingual-text {
+    font-size: 1.1rem; /* Visually smaller than English headings */
+    color: var(--teak);
+    font-weight: 600;
+    margin: 0 0 6px 0;
+}
+
+.multilingual-details {
+    font-size: 0.95rem;
+    color: var(--text);
+    opacity: 0.8;
+    margin-bottom: 6px;
+}
+
+.multilingual-notes {
+    font-size: 0.85rem;
+    color: var(--emerald);
+    opacity: 0.7;
+    font-style: dotted;
+    margin: 0;
+}
+
+/* --- Clean Modern Dividers --- */
 .section-divider {
-    width: 40px;
+    width: 50px;
     height: 1px;
     background: var(--teak);
     margin: 50px auto;
-    opacity: 0.15;
+    opacity: 0.2;
 }
 
-/* Mobile Layout Tweak */
+.row-divider {
+    width: 30px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+}
+
+/* --- Mobile Polish --- */
 @media (max-width: 600px) {
     .save-the-date-card {
         padding: 50px 25px;
@@ -536,8 +544,7 @@ h1 {
         margin: 40px auto;
     }
     
-    .location-display {
-        letter-spacing: 0.15em;
-        margin-bottom: 30px;
+    .translations-group {
+        gap: 30px;
     }
 }

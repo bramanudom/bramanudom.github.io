@@ -57,7 +57,7 @@ body.menu-open {
     display: flex;
     min-height: 100vh;
     justify-content: center;
-    /* Centers the sheet between the pillars */
+    overscroll-behavior: none;
 }
 
 .sidebar-nav {

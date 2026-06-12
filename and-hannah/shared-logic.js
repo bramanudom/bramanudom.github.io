@@ -77,9 +77,16 @@ function updateLanguage(lang) {
 function handleMenuToggle() {
     const hamburger = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
+    
     if (hamburger && navMenu) {
         hamburger.classList.toggle('open'); // Trigger x animation
-        navMenu.classList.toggle('show'); // Trigger full page overlay for mobile.
+        navMenu.classList.toggle('show'); // Trigger full page overlay for mobile. 
+        
+        if (navMenu.classList.contains('show')) {
+            document.body.classList.add('menu-open');
+        } else {
+            document.body.classList.remove('menu-open');
+        }
     }
 }
 

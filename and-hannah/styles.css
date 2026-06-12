@@ -44,6 +44,12 @@ body {
     background-blend-mode: multiply, overlay;
 }
 
+/* Prevents the background page from scrolling when mobile menu is active */
+body.menu-open {
+    overflow: hidden;
+    height: 100vh;
+}
+
 /* ==========================================================================
    3. MAIN LAYOUT (The Symmetrical Pillar Logic)
    ========================================================================== */
@@ -352,7 +358,7 @@ h1 {
         display: flex;
     }
 
-    /* Overlay Menu */
+    /* Full-Page Overlay Menu */
     .nav-menu {
         display: none;
         position: fixed;
@@ -362,9 +368,11 @@ h1 {
         height: 100vh;
         background: var(--emerald);
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start; /* Pulls navigation links up toward top half */
         align-items: center;
+        padding: 100px 20px 40px 20px; /* Positions layout under fixed bar header */
         z-index: 2000;
+        overflow-y: auto; /* Safety net if mobile view height is ultra-small */
     }
 
     .nav-menu.show {
@@ -374,11 +382,23 @@ h1 {
 
     .nav-links {
         text-align: center;
-        gap: 20px;
+        gap: 15px;
+        width: 100%;
+        margin-top: 20px;
     }
 
     .nav-links a {
-        font-size: 1.5rem;
+        font-size: 1.35rem; /* Balanced down slightly for mobile layout ratios */
+        padding: 10px;
+        display: block;
+    }
+
+    /* Reposition Language Buttons over links on mobile */
+    .lang-switcher {
+        margin-top: 0;
+        margin-bottom: 20px;
+        justify-content: center;
+        width: 100%;
     }
 
     /* Return to 'Peek' layout for mobile */
@@ -411,24 +431,30 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Fixed viewport height locks desktop screen */
+    height: 100vh;
+    /* Fixed viewport height locks desktop screen */
     padding: 20px;
-    overflow: hidden; /* Drops scrollbars on desktop layouts */
-    overscroll-behavior: none; /* Disables generic viewport rubber-banding */
+    overflow: hidden;
+    /* Drops scrollbars on desktop layouts */
+    overscroll-behavior: none;
+    /* Disables generic viewport rubber-banding */
 }
 
 /* --- Mobile Polish (Allows fluid text scroll, but kills bounce jank) --- */
-@media (max-width: 900px), (max-height: 750px) {
+@media (max-width: 900px),
+(max-height: 750px) {
     .landing-body {
         height: auto;
         min-height: 100vh;
-        overflow-y: auto; /* Grants scrolling access to text on smaller screens */
-        overscroll-behavior-y: contain; /* Cuts off bounce-back frame dragging */
+        overflow-y: auto;
+        /* Grants scrolling access to text on smaller screens */
+        overscroll-behavior-y: contain;
+        /* Cuts off bounce-back frame dragging */
         padding: 40px 20px;
-        
+
         /* Shifting attachment keeps the background image anchored to the canvas,
            preventing it from jittering when mobile URL bars pop up and down */
-        background-attachment: scroll; 
+        background-attachment: scroll;
     }
 }
 
@@ -442,11 +468,12 @@ h1 {
     background: var(--white);
     padding: 80px 60px;
     border-radius: var(--radius);
-    text-align: center; /* Balanced centered invite style */
+    text-align: center;
+    /* Balanced centered invite style */
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.05);
-    
+
     width: 100%;
-    max-width: 680px; 
+    max-width: 680px;
     z-index: 10;
 
     /* Webkit hardware acceleration locks card layers to prevent redraw flashes */
@@ -461,7 +488,8 @@ h1 {
 /* --- English Section (Clean Hierarchy) --- */
 .couple-names {
     font-size: clamp(3rem, 6vw, 4.2rem);
-    color: var(--teak); /* Primary Structural Focus */
+    color: var(--teak);
+    /* Primary Structural Focus */
     line-height: 1.05;
     letter-spacing: 2px;
     margin: 0 0 15px 0;
@@ -471,7 +499,8 @@ h1 {
 
 .wedding-announcement {
     font-size: 1.25rem;
-    color: var(--text); /* Neutral balance */
+    color: var(--text);
+    /* Neutral balance */
     margin-top: 0;
     margin-bottom: 45px;
     font-weight: 300;
@@ -481,7 +510,8 @@ h1 {
 .date-display {
     font-size: clamp(2rem, 5vw, 2.6rem);
     font-weight: 700;
-    color: var(--teak); /* Color matching pairs names with date */
+    color: var(--teak);
+    /* Color matching pairs names with date */
     letter-spacing: 4px;
     font-family: var(--font-heading);
     text-transform: uppercase;
@@ -492,7 +522,8 @@ h1 {
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--text); /* Swapped from emerald for absolute calm */
+    color: var(--text);
+    /* Swapped from emerald for absolute calm */
     font-weight: 400;
     margin-bottom: 35px;
 }
@@ -559,11 +590,11 @@ h1 {
     .save-the-date-card {
         padding: 50px 25px;
     }
-    
+
     .section-divider {
         margin: 40px auto;
     }
-    
+
     .translations-group {
         gap: 30px;
     }

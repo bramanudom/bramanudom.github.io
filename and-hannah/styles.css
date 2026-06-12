@@ -411,8 +411,25 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 60px 20px;
+    height: 100vh; /* Fixed viewport height locks desktop screen */
+    padding: 20px;
+    overflow: hidden; /* Drops scrollbars on desktop layouts */
+    overscroll-behavior: none; /* Disables generic viewport rubber-banding */
+}
+
+/* --- Mobile Polish (Allows fluid text scroll, but kills bounce jank) --- */
+@media (max-width: 900px), (max-height: 750px) {
+    .landing-body {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto; /* Grants scrolling access to text on smaller screens */
+        overscroll-behavior-y: contain; /* Cuts off bounce-back frame dragging */
+        padding: 40px 20px;
+        
+        /* Shifting attachment keeps the background image anchored to the canvas,
+           preventing it from jittering when mobile URL bars pop up and down */
+        background-attachment: scroll; 
+    }
 }
 
 .landing-container {
@@ -425,12 +442,16 @@ h1 {
     background: var(--white);
     padding: 80px 60px;
     border-radius: var(--radius);
-    text-align: center;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.05); /* Softer, minimal shadow */
+    text-align: center; /* Balanced centered invite style */
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.05);
     
     width: 100%;
     max-width: 680px; 
     z-index: 10;
+
+    /* Webkit hardware acceleration locks card layers to prevent redraw flashes */
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .lang-block {
@@ -440,7 +461,7 @@ h1 {
 /* --- English Section (Clean Hierarchy) --- */
 .couple-names {
     font-size: clamp(3rem, 6vw, 4.2rem);
-    color: var(--teak); /* Anchor 1: The Names */
+    color: var(--teak); /* Primary Structural Focus */
     line-height: 1.05;
     letter-spacing: 2px;
     margin: 0 0 15px 0;
@@ -450,7 +471,7 @@ h1 {
 
 .wedding-announcement {
     font-size: 1.25rem;
-    color: var(--text); /* Unified: Neutral body text */
+    color: var(--text); /* Neutral balance */
     margin-top: 0;
     margin-bottom: 45px;
     font-weight: 300;
@@ -460,7 +481,7 @@ h1 {
 .date-display {
     font-size: clamp(2rem, 5vw, 2.6rem);
     font-weight: 700;
-    color: var(--teak); /* Anchor 2: The Date matches the names */
+    color: var(--teak); /* Color matching pairs names with date */
     letter-spacing: 4px;
     font-family: var(--font-heading);
     text-transform: uppercase;
@@ -471,15 +492,15 @@ h1 {
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--text); /* Unified: Neutral body text instead of Emerald */
-    font-weight: 400; /* Slightly lighter weight softens it */
+    color: var(--text); /* Swapped from emerald for absolute calm */
+    font-weight: 400;
     margin-bottom: 35px;
 }
 
 .invitation-note {
     font-size: 1rem;
     color: var(--text);
-    opacity: 0.5; /* Keeps it very soft and secondary */
+    opacity: 0.5;
     font-style: italic;
     margin: 0;
 }
@@ -492,7 +513,7 @@ h1 {
 }
 
 .translation-block {
-    opacity: 0.75; /* Uniform softening */
+    opacity: 0.75;
 }
 
 .multilingual-text {
@@ -511,7 +532,7 @@ h1 {
 
 .multilingual-notes {
     font-size: 0.85rem;
-    color: var(--text); /* Keep translations clean of extra colors */
+    color: var(--text);
     opacity: 0.6;
     margin: 0;
 }
@@ -522,7 +543,7 @@ h1 {
     height: 1px;
     background: var(--text);
     margin: 50px auto;
-    opacity: 0.15; /* Barely-there structural line */
+    opacity: 0.15;
 }
 
 .row-divider {

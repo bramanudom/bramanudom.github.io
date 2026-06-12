@@ -105,10 +105,28 @@ main.container {
         width: 0 !important;
     }
 
+    .sidebar-nav {
+        width: 100% !important;
+        height: 70px !important;
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 20px !important;
+        z-index: 4000 !important; /* Pushes the nav bar back above the white content card wrapper */
+    }
+
     main.container {
         margin-right: 0 !important;
         margin-left: 0 !important;
-        width: calc(100% - 30px);
+        margin-top: 100px !important;
+        margin-bottom: 40px !important;
+        width: calc(100% - 30px) !important;
+        align-self: center !important;
+        border-radius: var(--radius) !important;
+        padding: 40px 20px !important;
     }
 }
 
@@ -263,7 +281,6 @@ main.container {
 
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -308,31 +325,24 @@ button[type="submit"]:active,
 .form-input {
     width: 100%;
     padding: 14px 20px;
-    /* Generous padding to match the button height */
     font-family: inherit;
     font-size: 1rem;
     color: var(--text);
     background-color: var(--white);
-
-    /* Matches the rounded aesthetic of your buttons */
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 50px;
-
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     outline: none;
 }
 
-/* Smooth accent glow when guests click into fields */
 .form-input:focus {
     border-color: var(--emerald);
     box-shadow: 0 0 0 3px rgba(33, 63, 34, 0.1);
 }
 
-/* Keep textareas looking like elegant stationery blocks while maintaining rounded corners */
 textarea.form-input {
     min-height: 100px;
     border-radius: var(--radius);
-    /* Uses your core 16px radius instead of pill shape */
     resize: vertical;
 }
 
@@ -350,7 +360,6 @@ textarea.form-input {
 .lookup-group .form-input {
     flex: 1;
     min-width: 260px;
-    /* Ensures a comfortable typing zone on mobile */
 }
 
 /* ==========================================================================
@@ -358,7 +367,6 @@ textarea.form-input {
    ========================================================================== */
 h1 {
     font-size: clamp(1.5rem, 6vw, 2.4rem);
-    /* Responsive fluid floor prevents viewport breaking */
     text-align: center;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -368,7 +376,6 @@ h1 {
 .card-title {
     display: inline-block;
     max-width: 95%;
-    /* Increased from 90% to prevent tight layouts on mobile */
     margin: 0 auto 50px auto;
     padding: 25px 40px;
     background: rgba(255, 255, 255, 0.85);
@@ -383,7 +390,6 @@ h1 {
 .card-title h1 {
     margin: 0 0 10px 0;
     font-size: clamp(1.2rem, 5vw, 2rem);
-    /* Dynamic floor lets massive words auto-scale */
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--teak);
@@ -440,18 +446,6 @@ h1 {
         flex-direction: column;
     }
 
-    .sidebar-nav {
-        width: 100%;
-        height: 70px;
-        position: fixed;
-        left: 0;
-        top: 0;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 20px;
-    }
-
     .nav-header {
         margin-bottom: 0;
         width: 100%;
@@ -476,13 +470,10 @@ h1 {
         background: var(--emerald);
         flex-direction: column;
         justify-content: flex-start;
-        /* Pulls navigation links up toward top half */
         align-items: center;
         padding: 100px 20px 40px 20px;
-        /* Positions layout under fixed bar header */
         z-index: 2000;
         overflow-y: auto;
-        /* Safety net if mobile view height is ultra-small */
     }
 
     .nav-menu.show {
@@ -499,12 +490,10 @@ h1 {
 
     .nav-links a {
         font-size: 1.35rem;
-        /* Balanced down slightly for mobile layout ratios */
         padding: 10px;
         display: block;
     }
 
-    /* Reposition Language Buttons over links on mobile */
     .lang-switcher {
         margin-top: 0;
         margin-bottom: 20px;
@@ -512,19 +501,6 @@ h1 {
         width: 100%;
     }
 
-    /* Return to 'Peek' layout for mobile */
-    main.container {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 100px;
-        margin-bottom: 40px;
-        width: calc(100% - 30px);
-        align-self: center;
-        border-radius: var(--radius);
-        padding: 40px 20px;
-    }
-
-    /* Extra title padding shield for smaller displays */
     .card-title {
         padding: 20px 15px;
     }
@@ -534,7 +510,6 @@ h1 {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -548,28 +523,18 @@ h1 {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    /* Fixed viewport height locks desktop screen */
     padding: 20px;
     overflow: hidden;
-    /* Drops scrollbars on desktop layouts */
     overscroll-behavior: none;
-    /* Disables generic viewport rubber-banding */
 }
 
-/* --- Mobile Polish (Allows fluid text scroll, but kills bounce jank) --- */
-@media (max-width: 900px),
-(max-height: 750px) {
+@media (max-width: 900px), (max-height: 750px) {
     .landing-body {
         height: auto;
         min-height: 100vh;
         overflow-y: auto;
-        /* Grants scrolling access to text on smaller screens */
         overscroll-behavior-y: contain;
-        /* Cuts off bounce-back frame dragging */
         padding: 40px 20px;
-
-        /* Shifting attachment keeps the background image anchored to the canvas,
-           preventing it from jittering when mobile URL bars pop up and down */
         background-attachment: scroll;
     }
 }
@@ -585,14 +550,10 @@ h1 {
     padding: 80px 60px;
     border-radius: var(--radius);
     text-align: center;
-    /* Balanced centered invite style */
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.05);
-
     width: 100%;
     max-width: 680px;
     z-index: 10;
-
-    /* Webkit hardware acceleration locks card layers to prevent redraw flashes */
     transform: translateZ(0);
     backface-visibility: hidden;
 }
@@ -601,11 +562,9 @@ h1 {
     width: 100%;
 }
 
-/* --- English Section (Clean Hierarchy) --- */
 .couple-names {
     font-size: clamp(3rem, 6vw, 4.2rem);
     color: var(--teak);
-    /* Primary Structural Focus */
     line-height: 1.05;
     letter-spacing: 2px;
     margin: 0 0 15px 0;
@@ -616,7 +575,6 @@ h1 {
 .wedding-announcement {
     font-size: 1.25rem;
     color: var(--text);
-    /* Neutral balance */
     margin-top: 0;
     margin-bottom: 45px;
     font-weight: 300;
@@ -627,7 +585,6 @@ h1 {
     font-size: clamp(2rem, 5vw, 2.6rem);
     font-weight: 700;
     color: var(--teak);
-    /* Color matching pairs names with date */
     letter-spacing: 4px;
     font-family: var(--font-heading);
     text-transform: uppercase;
@@ -639,7 +596,6 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--text);
-    /* Swapped from emerald for absolute calm */
     font-weight: 400;
     margin-bottom: 35px;
 }
@@ -652,7 +608,6 @@ h1 {
     margin: 0;
 }
 
-/* --- Translation Group (Footnote Subordination) --- */
 .translations-group {
     display: flex;
     flex-direction: column;
@@ -684,7 +639,6 @@ h1 {
     margin: 0;
 }
 
-/* --- Clean Modern Dividers --- */
 .section-divider {
     width: 40px;
     height: 1px;
@@ -701,7 +655,6 @@ h1 {
     opacity: 0.1;
 }
 
-/* --- Mobile Polish --- */
 @media (max-width: 600px) {
     .save-the-date-card {
         padding: 50px 25px;

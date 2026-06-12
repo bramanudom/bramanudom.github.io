@@ -79,8 +79,8 @@ function handleMenuToggle() {
     const navMenu = document.getElementById('navMenu');
     
     if (hamburger && navMenu) {
-        hamburger.classList.toggle('open'); // Trigger x animation
-        navMenu.classList.toggle('show'); // Trigger full page overlay for mobile. 
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('show');
         
         if (navMenu.classList.contains('show')) {
             document.body.classList.add('menu-open');
@@ -99,13 +99,11 @@ function init() {
 
     if (!isLandingPage && !isLoginPage) {
         const hPlace = document.getElementById('header-placeholder');
-        const fPlace = document.getElementById('footer-placeholder');
         if (hPlace) hPlace.innerHTML = globalHeader;
 
         const savedLang = localStorage.getItem('wedding_lang') || 'en';
         updateLanguage(savedLang);
 
-        // Attach event listener directly
         const btn = document.getElementById('menuToggle');
         if (btn) {
             btn.addEventListener('click', handleMenuToggle);
@@ -113,4 +111,4 @@ function init() {
     }
 }
 
-window.onload = init;
+document.addEventListener('DOMContentLoaded', init);

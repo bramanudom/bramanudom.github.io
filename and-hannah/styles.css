@@ -60,6 +60,12 @@ body.menu-open {
     overscroll-behavior: none;
 }
 
+#header-placeholder {
+    display: block;
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+}
+
 .sidebar-nav {
     width: var(--sidebar-width);
     background: var(--emerald);
@@ -74,11 +80,10 @@ body.menu-open {
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
 }
 
-/* The 'Paper' Sheet - Balanced for Desktop */
 main.container {
     flex: 1;
-    /* Margin-left matches sidebar, margin-right creates the symmetrical 'Right Pillar' */
-    margin-left: var(--sidebar-width);
+    /* Margin-left matches placeholder, margin-right creates structural 'Right Pillar' balance */
+    margin-left: 0; 
     margin-right: var(--sidebar-width);
 
     padding: 80px 60px;
@@ -86,13 +91,22 @@ main.container {
     flex-direction: column;
     align-items: center;
     background: var(--white);
-
-    /* We remove max-width 900px to let it fill the center third properly */
     width: auto;
     min-height: 100vh;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
     position: relative;
     z-index: 2;
+}
+
+@media (max-width: 900px) {
+    #header-placeholder {
+        width: 0;
+        display: none;
+    }
+    
+    main.container {
+        margin-right: 0;
+    }
 }
 
 /* ==========================================================================

@@ -31,7 +31,7 @@
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         #map {
@@ -41,7 +41,7 @@
 
         .item-card {
             background: var(--white);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0,0,0,0.06);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 15px;
@@ -51,7 +51,7 @@
 
         .item-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(33, 63, 34, 0.08);
+            box-shadow: 0 6px 15px rgba(33,63,34,0.08);
             border-color: var(--emerald);
         }
 
@@ -62,18 +62,10 @@
             font-weight: 700;
             margin-bottom: 6px;
         }
-
-        .cat-pet {
-            color: var(--emerald);
-        }
-
-        .cat-hannah {
-            color: var(--teak);
-        }
-
-        .cat-shared {
-            color: var(--ruby);
-        }
+        
+        .cat-pet { color: var(--emerald); }
+        .cat-hannah { color: var(--teak); }
+        .cat-shared { color: var(--ruby); }
 
         .item-card h3 {
             margin: 0 0 8px 0;
@@ -95,14 +87,12 @@
             max-width: 220px;
             padding: 5px;
         }
-
         .map-popup h4 {
             margin: 0 0 5px 0;
             font-family: var(--font-heading);
             font-size: 1.1rem;
             color: var(--emerald);
         }
-
         .map-popup p {
             margin: 0;
             font-size: 0.85rem;
@@ -113,15 +103,12 @@
             .recs-layout {
                 grid-template-columns: 1fr;
             }
-
             .map-panel {
-                order: -1;
-                /* Pushes the map canvas above the lists on mobile viewports */
+                order: -1; /* Pushes the map canvas above the lists on mobile viewports */
                 height: 380px;
                 position: relative;
                 top: 0;
             }
-
             .list-panel {
                 height: auto;
             }
@@ -156,6 +143,7 @@
 
     <script src="shared-logic.js"></script>
     <script>
+        // Comprehensive coordinate arrays parsed from your MyMaps dataset
         const locationsData = [
             { name: "Wat Ban Den", lat: 19.1577, lng: 98.9785, category: "adventure", owner: "shared", desc: "Stunning, massive Lanna-style temple complex up in Mae Taeng. Striking blue roofs and brilliant architecture." },
             { name: "0 Kampong Village", lat: 18.7885, lng: 98.9912, category: "adventure", owner: "shared", desc: "A cozy cultural pocket to stroll through and observe traditional aesthetics." },
@@ -193,18 +181,14 @@
         // Initializes the core map layer canvas
         async function initMap() {
             const chiangMaiCenter = { lat: 18.795, lng: 98.985 };
-
+            
             // Import the library asynchronously 
             const { Map } = await google.maps.importLibrary("maps");
 
-            map = new google.maps.Map(document.getElementById("map"), {
+            map = new Map(document.getElementById("map"), {
                 zoom: 12,
                 center: chiangMaiCenter,
                 mapId: "DEMO_MAP_ID", // Required for AdvancedMarkerElement to render
-                styles: [
-                    { "featureType": "poi.business", "elementType": "labels", "stylers": [{ "visibility": "off" }] },
-                    { "featureType": "transit", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }
-                ],
                 mapTypeControl: false,
                 streetViewControl: false
             });
@@ -226,8 +210,8 @@
             const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
 
             locationsData.forEach((spot) => {
-                const matchesFilter =
-                    filterType === "all" ||
+                const matchesFilter = 
+                    filterType === "all" || 
                     (filterType === "pet" && spot.owner === "pet") ||
                     (filterType === "hannah" && spot.owner === "hannah") ||
                     (filterType === "adventure" && spot.category === "adventure");
@@ -253,7 +237,7 @@
                     position: { lat: spot.lat, lng: spot.lng },
                     map: map,
                     title: spot.name,
-                    content: customPin.element
+                    content: customPin
                 });
 
                 markersArray.push(marker);
@@ -267,7 +251,8 @@
                 `;
                 const infoWindow = new google.maps.InfoWindow({ content: infoContent });
 
-                marker.addListener("click", () => {
+                // Upgraded listener call hook to match gmp-click framework specs
+                marker.addListener("gmp-click", () => {
                     if (activeInfoWindow) activeInfoWindow.close();
                     infoWindow.open(map, marker);
                     activeInfoWindow = infoWindow;
@@ -275,7 +260,7 @@
 
                 const card = document.createElement("div");
                 card.className = "item-card";
-
+                
                 let displayOwner = spot.owner === "shared" ? "Shared Favorite" : `${spot.owner.charAt(0).toUpperCase() + spot.owner.slice(1)}'s Pick`;
                 let ownerClass = `cat-${spot.owner}`;
 
@@ -291,7 +276,7 @@
                     if (activeInfoWindow) activeInfoWindow.close();
                     infoWindow.open(map, marker);
                     activeInfoWindow = infoWindow;
-
+                    
                     if (window.innerWidth <= 900) {
                         document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
                     }
@@ -322,7 +307,7 @@
     </script>
 
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuFKwEBhMYqcRH3AyC69omkusy7bh0IzAY&callback=initMap&loading=async&libraries=marker">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuFKwEBhMYqcRH3AyC69omkusy7bh0IzA&callback=initMap&loading=async&libraries=marker">
     </script>
 </body>
 

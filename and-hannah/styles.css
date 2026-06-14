@@ -742,3 +742,50 @@ h1 {
         gap: 10px;
     }
 }
+
+/* ==========================================================================
+   10. RESPONSIVE FILTER ENGINE (TABS TO DROPDOWN)
+   ========================================================================== */
+.filter-container {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* By default, hide the mobile dropdown menu view on desktop layouts */
+.mobile-filters {
+    display: none;
+}
+
+/* Custom styling for the mobile select element using your site's form variables */
+.mobile-select {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 20px;
+    background-color: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    color: var(--text);
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23803030' d='M0 0l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 12px;
+    appearance: none;
+    /* Strips browser default arrows so our custom teak arrow shows */
+    -webkit-appearance: none;
+}
+
+/* Screen Breakpoint Sync */
+@media (max-width: 900px) {
+    .desktop-filters {
+        display: none !important;
+        /* Disappear horizontal tabs on phone screens */
+    }
+
+    .mobile-filters {
+        display: block !important;
+        /* Pop open our clean select dropdown on phone screens */
+    }
+}

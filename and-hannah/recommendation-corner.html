@@ -138,11 +138,24 @@
             <p class="text-center mb-4">Toggle across our curated maps to navigate Chiang Mai like a local.</p>
         </div>
 
-        <div class="tab-container">
-            <button class="tab-btn active" onclick="filterCategory('all', event)">All Spots</button>
-            <button class="tab-btn" onclick="filterCategory('pet', event)">Pet's Picks</button>
-            <button class="tab-btn" onclick="filterCategory('hannah', event)">Hannah's Picks</button>
-            <button class="tab-btn" onclick="filterCategory('adventure', event)">Sights & Day Trips</button>
+        <div class="filter-container">
+            <div class="tab-container desktop-filters">
+                <button class="tab-btn active" onclick="filterCategory('all', event)">All Spots</button>
+                <button class="tab-btn" onclick="filterCategory('pet', event)">Pet's Picks</button>
+                <button class="tab-btn" onclick="filterCategory('hannah', event)">Hannah's Picks</button>
+                <button class="tab-btn" onclick="filterCategory('adventure', event)">Sights & Day Trips</button>
+            </div>
+
+            <div class="mobile-filters">
+                <label for="mobileFilterSelect" class="sr-only">Filter Locations:</label>
+                <select id="mobileFilterSelect" class="form-input mobile-select"
+                    onchange="filterCategoryMobile(this.value)">
+                    <option value="all">All Spots</option>
+                    <option value="pet">Pet's Picks</option>
+                    <option value="hannah">Hannah's Picks</option>
+                    <option value="adventure">Sights & Day Trips</option>
+                </select>
+            </div>
         </div>
 
         <div class="recs-layout">
@@ -318,7 +331,28 @@
         // Connects top tab configurations directly with script filters
         function filterCategory(category, event) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
+
+            // Sync mobile dropdown value just in case layout resizes
+            document.getElementById('mobileFilterSelect').value = category;
+
+            renderCardsAndMarkers(category);
+        }
+
+        // Handles mobile select dropdown selections.
+        function filterCategoryMobile(category) {
+            // Find all desktop buttons and sync the active class framework to match
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(btn => btn.classList.remove('active'));
+
+            // Highlight the corresponding hidden desktop tab implicitly
+            if (category === 'all') tabs[0].classList.add('active');
+            if (category === 'pet') tabs[1].classList.add('active');
+            if (category === 'hannah') tabs[2].classList.add('active');
+            if (category === 'adventure') tabs[3].classList.add('active');
+
             renderCardsAndMarkers(category);
         }
     </script>

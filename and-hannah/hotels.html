@@ -8,6 +8,112 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
+    <style>
+        /* Custom split layout structures for the dynamic accommodation section */
+        .recs-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .list-panel {
+            height: 650px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .map-panel {
+            position: sticky;
+            top: 100px;
+            height: 650px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item-card {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(33,63,34,0.08);
+            border-color: var(--emerald);
+        }
+
+        .item-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .cat-venue { color: var(--ruby); }
+        .cat-boutique { color: var(--emerald); }
+        .cat-budget { color: var(--teak); }
+
+        .item-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.15rem;
+            font-family: var(--font-heading);
+            color: var(--text);
+        }
+
+        .item-card p {
+            margin: 0 0 12px 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Info Window Text Restyling */
+        .map-popup {
+            font-family: var(--font-main);
+            color: var(--text);
+            max-width: 220px;
+            padding: 5px;
+        }
+        .map-popup h4 {
+            margin: 0 0 5px 0;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--emerald);
+        }
+        .map-popup p {
+            margin: 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 900px) {
+            .recs-layout {
+                grid-template-columns: 1fr;
+            }
+            .map-panel {
+                order: -1; /* Pushes the map canvas above the lists on mobile viewports */
+                height: 380px;
+                position: relative;
+                top: 0;
+            }
+            .list-panel {
+                height: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -18,31 +124,170 @@
             <h1 data-i18n="nav_hotels">Accommodations</h1>
             <p class="text-center mb-4">We recommend staying near the Ping River for easy access to the wedding events.</p>
         </div>
-        <div class="grid-cards">
-            <div class="card card-top-ruby">
-                <span class="badge-ruby" data-i18n="hotel_v">THE VENUE</span>
-                <h3 class="text-left mt-2">Anantara Chiang Mai Resort</h3>
-                <p>A stunning blend of modern design and colonial heritage right on the river.</p>
-                <a href="https://www.anantara.com/en/chiang-mai" target="_blank" class="btn btn-teak mt-2">View
-                    Website</a>
-            </div>
 
-            <div class="card card-top-emerald">
-                <span class="badge-emerald" data-i18n="hotel_n">NEARBY BOUTIQUE</span>
-                <h3 class="text-left mt-2">Raya Heritage</h3>
-                <p>Inspired by Lanna culture, this serene spot is just a short drive from the venue.</p>
-                <a href="https://www.rayaheritage.com/" target="_blank" class="btn btn-teak mt-2">View Website</a>
-            </div>
-        </div>
+        <div class="recs-layout">
+            <div class="list-panel" id="locations-list"></div>
 
-        <div class="card map-card">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.340947708304!2d99.00223531535497!3d18.78184618725841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da30a8487de14f%3A0xc1c1c0cd4114e62d!2sAnantara%20Chiang%20Mai%20Resort!5e0!3m2!1sen!2sus!4v1689100000000!5m2!1sen!2sus"
-                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="map-panel">
+                <div id="map"></div>
+            </div>
         </div>
     </main>
 
     <script src="shared-logic.js"></script>
+    <script>
+        // Array holding your venue, premium picks, and budget-friendly alternatives
+        const hotelData = [
+            { 
+                name: "Anantara Chiang Mai Resort", 
+                lat: 18.7815954, 
+                lng: 99.003714, 
+                type: "venue", 
+                tag: "THE VENUE",
+                desc: "A stunning blend of modern design and Lanna heritage right on the river bank. This is where our ceremony and reception are taking place!",
+                link: "https://www.anantara.com/en/chiang-mai"
+            },
+            { 
+                name: "Raya Heritage", 
+                lat: 18.8486074, 
+                lng: 98.9852577, 
+                type: "boutique", 
+                tag: "NEARBY BOUTIQUE",
+                desc: "Inspired beautiful Lanna cultural textures. This serene luxury spot is a short riverside drive north of the main venue space.",
+                link: "https://www.rayaheritage.com/"
+            },
+            { 
+                name: "Yaang Come Village Hotel", 
+                lat: 18.7800564, 
+                lng: 99.0010987, 
+                type: "budget", 
+                tag: "AFFORDABLE / CLOSE BY",
+                desc: "A gorgeous, tranquil Lanna-style oasis with a great outdoor saltwater pool. Incredibly convenient—literally a 5-minute walk from the Anantara.",
+                link: "http://www.yaangcome.com/"
+            },
+            { 
+                name: "Banthai Village Hotel", 
+                lat: 18.7868341, 
+                lng: 98.9981159, 
+                type: "budget", 
+                tag: "AFFORDABLE / BOUTIQUE",
+                desc: "A cozy and charming hidden boutique hotel tucked away in a quiet lane off Tha Phae Road. Fantastic value and beautiful local atmosphere.",
+                link: "http://www.banthaivillage.com/"
+            },
+            { 
+                name: "Bodhi Serene, Chiang Mai", 
+                lat: 18.7844946, 
+                lng: 98.9905928, 
+                type: "budget", 
+                tag: "AFFORDABLE / OLD CITY",
+                desc: "A serene, beautiful courtyard retreat nestled just inside the historical Old City walls, keeping you close to both markets and the venue.",
+                link: "http://www.bodhiserene.com/"
+            }
+        ];
+
+        let map;
+        let markersArray = [];
+        let activeInfoWindow = null;
+
+        // Initializes the core map layer canvas
+        async function initMap() {
+            const chiangMaiCenter = { lat: 18.7815, lng: 99.0037 };
+            
+            const { Map } = await google.maps.importLibrary("maps");
+
+            map = new Map(document.getElementById("map"), {
+                zoom: 13,
+                center: chiangMaiCenter,
+                mapId: "DEMO_MAP_ID", // Required for AdvancedMarkerElement to render
+                mapTypeControl: false,
+                streetViewControl: false
+            });
+
+            renderHotelPanels();
+        }
+
+        // Assembles text cards and hooks up interactive markers
+        async function renderHotelPanels() {
+            const listContainer = document.getElementById("locations-list");
+            listContainer.innerHTML = "";
+
+            const bounds = new google.maps.LatLngBounds();
+            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+
+            hotelData.forEach((hotel) => {
+                // Pin color setups based on hotel grouping categories
+                let pinColor = "#213f22"; // Boutique -> Deep Green
+                if (hotel.type === "venue") pinColor = "#803030";  // Venue -> Ruby/Teak Tone
+                if (hotel.type === "budget") pinColor = "#3476ad"; // Budget Alternative -> Blue
+
+                const customPin = new PinElement({
+                    background: pinColor,
+                    borderColor: "#ffffff",
+                    glyphColor: "#ffffff",
+                    scale: 1.1
+                });
+
+                const marker = new AdvancedMarkerElement({
+                    position: { lat: hotel.lat, lng: hotel.lng },
+                    map: map,
+                    title: hotel.name,
+                    content: customPin
+                });
+
+                markersArray.push(marker);
+                bounds.extend(marker.position);
+
+                const infoContent = `
+                    <div class="map-popup">
+                        <h4>${hotel.name}</h4>
+                        <p>${hotel.desc}</p>
+                    </div>
+                `;
+                const infoWindow = new google.maps.InfoWindow({ content: infoContent });
+
+                marker.addListener("gmp-click", () => {
+                    if (activeInfoWindow) activeInfoWindow.close();
+                    infoWindow.open(map, marker);
+                    activeInfoWindow = infoWindow;
+                });
+
+                // Building the visual layout card
+                const card = document.createElement("div");
+                card.className = "item-card";
+                
+                card.innerHTML = `
+                    <div class="item-category cat-${hotel.type}">${hotel.tag}</div>
+                    <h3>${hotel.name}</h3>
+                    <p>${hotel.desc}</p>
+                    <a href="${hotel.link}" target="_blank" class="btn btn-teak mt-2" onclick="event.stopPropagation();">View Website</a>
+                `;
+
+                // Syncing card clicks directly into map movements
+                card.addEventListener("click", () => {
+                    map.panTo(marker.position);
+                    map.setZoom(15);
+                    if (activeInfoWindow) activeInfoWindow.close();
+                    infoWindow.open(map, marker);
+                    activeInfoWindow = infoWindow;
+                    
+                    if (window.innerWidth <= 900) {
+                        document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+
+                listContainer.appendChild(card);
+            });
+
+            // Naturally fits all pins inside the viewport canvas framework
+            if (hotelData.length > 0) {
+                map.fitBounds(bounds);
+            }
+        }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuFKwEBhMYqcRH3AyC69omkusy7bh0IzA&callback=initMap&loading=async&libraries=marker">
+    </script>
 </body>
 
 </html>

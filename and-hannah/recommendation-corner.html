@@ -179,12 +179,16 @@
         let activeInfoWindow = null;
 
         // Initializes the core map layer canvas
-        function initMap() {
+        async function initMap() {
             const chiangMaiCenter = { lat: 18.795, lng: 98.985 };
             
+            // Import the library asynchronously 
+            const { Map } = await google.maps.importLibrary("maps");
+
             map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 12,
                 center: chiangMaiCenter,
+                mapId: "DEMO_MAP_ID", // Required for AdvancedMarkerElement to render
                 styles: [
                     { "featureType": "poi.business", "elementType": "labels", "stylers": [{ "visibility": "off" }] },
                     { "featureType": "transit", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }
@@ -195,6 +199,101 @@
 
             // Feed and assemble the initial universal view
             renderCardsAndMarkers("all");
+        }
+
+        // Assembles text cards and anchors structural Google map pins onto the canvas
+        async function renderCardsAndMarkers(filterType) {
+            clearMarkers();
+            const listContainer = document.getElementById("locations-list");
+            listContainer.innerHTML = "";
+
+            const bounds = new google.maps.LatLngBounds();
+            let visibleCount = 0;
+
+            // Import the advanced marker library 
+            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+
+            locationsData.forEach((spot) => {
+                const matchesFilter = 
+                    filterType === "all" || 
+                    (filterType === "pet" && spot.owner === "pet") ||
+                    (filterType === "hannah" && spot.owner === "hannah") ||
+                    (filterType === "adventure" && spot.category === "adventure");
+
+                if (!matchesFilter) return;
+
+                visibleCount++;
+
+                // Determine Pin styling parameters using PinElement
+                let pinColor = "#3476ad"; // Shared / Blue
+                if (spot.owner === "pet") pinColor = "#213f22"; // Pet / Deep Green
+                if (spot.owner === "hannah") pinColor = "#803030"; // Hannah / Teak
+
+                const customPin = new PinElement({
+                    background: pinColor,
+                    borderColor: "#ffffff",
+                    glyphColor: "#ffffff",
+                    scale: 1.0
+                });
+
+                // Inject advanced marker onto the Google Map instance
+                const marker = new AdvancedMarkerElement({
+                    position: { lat: spot.lat, lng: spot.lng },
+                    map: map,
+                    title: spot.name,
+                    content: customPin.element
+                });
+
+                markersArray.push(marker);
+                bounds.extend(marker.position);
+
+                const infoContent = `
+                    <div class="map-popup">
+                        <h4>${spot.name}</h4>
+                        <p>${spot.desc}</p>
+                    </div>
+                `;
+                const infoWindow = new google.maps.InfoWindow({ content: infoContent });
+
+                marker.addListener("click", () => {
+                    if (activeInfoWindow) activeInfoWindow.close();
+                    infoWindow.open(map, marker);
+                    activeInfoWindow = infoWindow;
+                });
+
+                const card = document.createElement("div");
+                card.className = "item-card";
+                
+                let displayOwner = spot.owner === "shared" ? "Shared Favorite" : `${spot.owner.charAt(0).toUpperCase() + spot.owner.slice(1)}'s Pick`;
+                let ownerClass = `cat-${spot.owner}`;
+
+                card.innerHTML = `
+                    <div class="item-category ${ownerClass}">${displayOwner}</div>
+                    <h3>${spot.name}</h3>
+                    <p>${spot.desc}</p>
+                `;
+
+                card.addEventListener("click", () => {
+                    map.panTo(marker.position);
+                    map.setZoom(14);
+                    if (activeInfoWindow) activeInfoWindow.close();
+                    infoWindow.open(map, marker);
+                    activeInfoWindow = infoWindow;
+                    
+                    if (window.innerWidth <= 900) {
+                        document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+
+                listContainer.appendChild(card);
+            });
+
+            if (visibleCount > 0) {
+                map.fitBounds(bounds);
+                if (visibleCount === 1) {
+                    map.setZoom(14);
+                }
+            }
         }
 
         // Assembles text cards and anchors structural Google map pins onto the canvas
@@ -312,7 +411,7 @@
     </script>
 
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuFKwEBhMYqcRH3AyC69omkusy7bh0IzA&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuFKwEBhMYqcRH3AyC69omkusy7bh0IzAY&callback=initMap&loading=async&libraries=marker">
     </script>
 </body>
 

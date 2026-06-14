@@ -143,7 +143,6 @@
 
     <script src="shared-logic.js"></script>
     <script>
-        // Comprehensive coordinate arrays parsed from your MyMaps dataset
         const locationsData = [
             { name: "Wat Ban Den", lat: 19.1577, lng: 98.9785, category: "adventure", owner: "shared", desc: "Stunning, massive Lanna-style temple complex up in Mae Taeng. Striking blue roofs and brilliant architecture." },
             { name: "0 Kampong Village", lat: 18.7885, lng: 98.9912, category: "adventure", owner: "shared", desc: "A cozy cultural pocket to stroll through and observe traditional aesthetics." },
@@ -290,107 +289,6 @@
 
             if (visibleCount > 0) {
                 map.fitBounds(bounds);
-                if (visibleCount === 1) {
-                    map.setZoom(14);
-                }
-            }
-        }
-
-        // Assembles text cards and anchors structural Google map pins onto the canvas
-        function renderCardsAndMarkers(filterType) {
-            // Flush out active DOM elements and existing pins
-            clearMarkers();
-            const listContainer = document.getElementById("locations-list");
-            listContainer.innerHTML = "";
-
-            const bounds = new google.maps.LatLngBounds();
-            let visibleCount = 0;
-
-            locationsData.forEach((spot) => {
-                // Sorting conditional filters
-                const matchesFilter = 
-                    filterType === "all" || 
-                    (filterType === "pet" && spot.owner === "pet") ||
-                    (filterType === "hannah" && spot.owner === "hannah") ||
-                    (filterType === "adventure" && spot.category === "adventure");
-
-                if (!matchesFilter) return;
-
-                visibleCount++;
-
-                // Determine Pin styling parameters depending on owners
-                let pinColor = "#3476ad"; // Shared / Blue
-                if (spot.owner === "pet") pinColor = "#213f22"; // Pet / Deep Green
-                if (spot.owner === "hannah") pinColor = "#803030"; // Hannah / Teak
-
-                // Inject marker onto the Google Map instance
-                const marker = new google.maps.Marker({
-                    position: { lat: spot.lat, lng: spot.lng },
-                    map: map,
-                    title: spot.name,
-                    icon: {
-                        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                        fillColor: pinColor,
-                        fillOpacity: 0.9,
-                        strokeWeight: 1,
-                        strokeColor: "#ffffff",
-                        scale: 6
-                    }
-                });
-
-                markersArray.push(marker);
-                bounds.extend(marker.getPosition());
-
-                // Set pop-up Info Window formatting
-                const infoContent = `
-                    <div class="map-popup">
-                        <h4>${spot.name}</h4>
-                        <p>${spot.desc}</p>
-                    </div>
-                `;
-                const infoWindow = new google.maps.InfoWindow({ content: infoContent });
-
-                // Pin click listener activation
-                marker.addListener("click", () => {
-                    if (activeInfoWindow) activeInfoWindow.close();
-                    infoWindow.open(map, marker);
-                    activeInfoWindow = infoWindow;
-                });
-
-                // Construct text panel cards
-                const card = document.createElement("div");
-                card.className = "item-card";
-                
-                let displayOwner = spot.owner === "shared" ? "Shared Favorite" : `${spot.owner.charAt(0).toUpperCase() + spot.owner.slice(1)}'s Pick`;
-                let ownerClass = `cat-${spot.owner}`;
-
-                card.innerHTML = `
-                    <div class="item-category ${ownerClass}">${displayOwner}</div>
-                    <h3>${spot.name}</h3>
-                    <p>${spot.desc}</p>
-                `;
-
-                // Handle click synchronization between list panel text cards and map viewports
-                card.addEventListener("click", () => {
-                    map.panTo(marker.getPosition());
-                    map.setZoom(14);
-                    if (activeInfoWindow) activeInfoWindow.close();
-                    infoWindow.open(map, marker);
-                    activeInfoWindow = infoWindow;
-                    
-                    // Smooth bounce transition to scroll layout into focus on small viewports
-                    if (window.innerWidth <= 900) {
-                        document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-
-                listContainer.appendChild(card);
-            });
-
-            // Adjust viewport camera bounding frames naturally
-            if (visibleCount > 0) {
-                map.fitBounds(bounds);
-                // Clamp max automatic zoom on single targets
                 if (visibleCount === 1) {
                     map.setZoom(14);
                 }

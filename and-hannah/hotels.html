@@ -215,19 +215,25 @@
 
         // Initializes the core map layer canvas
         async function initMap() {
-            const chiangMaiCenter = { lat: 18.7815, lng: 99.0037 };
+            const chiangMaiCenter = { lat: 18.795, lng: 98.985 };
 
+            // Import the library asynchronously 
             const { Map } = await google.maps.importLibrary("maps");
 
             map = new Map(document.getElementById("map"), {
-                zoom: 13,
+                zoom: 12,
                 center: chiangMaiCenter,
-                mapId: "DEMO_MAP_ID", // Required for AdvancedMarkerElement to render
+                mapId: "DEMO_MAP_ID",
                 mapTypeControl: false,
-                streetViewControl: false
+                streetViewControl: false,
+
+                // Prevents mobile thumb trapping. 
+                // One finger scrolls the page, two fingers pans the map.
+                gestureHandling: "cooperative"
             });
 
-            renderHotelPanels();
+            // Feed and assemble the initial universal view
+            renderCardsAndMarkers("all"); // (or renderHotelPanels() for accommodations)
         }
 
         // Assembles text cards and hooks up interactive markers

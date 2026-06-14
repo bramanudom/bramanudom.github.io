@@ -665,3 +665,40 @@ h1 {
         gap: 30px;
     }
 }
+
+/* ==========================================================================
+   9. WHIMSICAL DOODLE ASSET ENGINE 
+   ========================================================================== */
+.subevent-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.doodle-accent {
+    width: 70px;
+    height: auto;
+    flex-shrink: 0;
+    opacity: 0.8;
+    pointer-events: none; /* Prevents users from accidentally grabbing/dragging the image asset */
+    transition: transform 0.3s ease;
+}
+
+/* Organic Utility Adjustments (Simulating Hand-Placed Stamps) */
+.doodle-tilt-left   { transform: rotate(-12deg); }
+.doodle-tilt-right  { transform: rotate(15deg); }
+.doodle-shift-up    { transform: translateY(-15px); }
+.doodle-shift-down  { transform: translateY(15px); }
+
+/* Clean, responsive breakpoint protection */
+@media (max-width: 600px) {
+    .doodle-accent {
+        width: 45px; /* Safely shrinks the doodles on mobile viewports so your text stays readable */
+    }
+    .subevent-wrapper {
+        gap: 10px;
+    }
+}

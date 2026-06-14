@@ -31,7 +31,7 @@
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         #map {
@@ -41,7 +41,7 @@
 
         .item-card {
             background: var(--white);
-            border: 1px solid rgba(0,0,0,0.06);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 15px;
@@ -51,7 +51,7 @@
 
         .item-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(33,63,34,0.08);
+            box-shadow: 0 6px 15px rgba(33, 63, 34, 0.08);
             border-color: var(--emerald);
         }
 
@@ -62,10 +62,18 @@
             font-weight: 700;
             margin-bottom: 6px;
         }
-        
-        .cat-venue { color: var(--ruby); }
-        .cat-boutique { color: var(--emerald); }
-        .cat-budget { color: var(--teak); }
+
+        .cat-venue {
+            color: var(--ruby);
+        }
+
+        .cat-boutique {
+            color: var(--emerald);
+        }
+
+        .cat-budget {
+            color: var(--teak);
+        }
 
         .item-card h3 {
             margin: 0 0 8px 0;
@@ -87,12 +95,14 @@
             max-width: 220px;
             padding: 5px;
         }
+
         .map-popup h4 {
             margin: 0 0 5px 0;
             font-family: var(--font-heading);
             font-size: 1.1rem;
             color: var(--emerald);
         }
+
         .map-popup p {
             margin: 0;
             font-size: 0.85rem;
@@ -103,12 +113,15 @@
             .recs-layout {
                 grid-template-columns: 1fr;
             }
+
             .map-panel {
-                order: -1; /* Pushes the map canvas above the lists on mobile viewports */
+                order: -1;
+                /* Pushes the map canvas above the lists on mobile viewports */
                 height: 380px;
                 position: relative;
                 top: 0;
             }
+
             .list-panel {
                 height: auto;
             }
@@ -122,7 +135,18 @@
     <main class="container">
         <div class="card-title">
             <h1 data-i18n="nav_hotels">Accommodations</h1>
-            <p class="text-center mb-4">We recommend staying near the Ping River for easy access to the wedding events.</p>
+        </div>
+
+        <div class="personal-note" style="margin-bottom: 40px; max-width: 100%;">
+            <p><strong>A Quick Note on Staying in Chiang Mai:</strong></p>
+            <p style="font-size: 0.95rem; line-height: 1.6; max-width: 680px; margin: 0 auto;">
+                While we are staying at the Anantara and hosting our main wedding day events there, please do not feel
+                any pressure to stay at the same hotel! Chiang Mai is filled with endless incredible, highly
+                affordable boutique hotels right nearby. We have secured a <strong>preferred group rate</strong> at the
+                Anantara for anyone who wishes to stay at the venue with us (details listed below), but we will be
+                spending plenty of time exploring the city proper together—so please choose whichever space fits your
+                comfort and travel budget best!
+            </p>
         </div>
 
         <div class="recs-layout">
@@ -138,47 +162,47 @@
     <script>
         // Array holding your venue, premium picks, and budget-friendly alternatives
         const hotelData = [
-            { 
-                name: "Anantara Chiang Mai Resort", 
-                lat: 18.7815954, 
-                lng: 99.003714, 
-                type: "venue", 
-                tag: "THE VENUE",
-                desc: "A stunning blend of modern design and Lanna heritage right on the river bank. This is where our ceremony and reception are taking place!",
+            {
+                name: "Anantara Chiang Mai Resort",
+                lat: 18.7815954,
+                lng: 99.003714,
+                type: "venue",
+                tag: "THE VENUE & OUR HOME BASE",
+                desc: "A stunning blend of modern design and Lanna heritage right on the river bank. This is where our ceremony and reception are taking place! <br><br><strong>🔑 Special Guest Discount:</strong> Use code <strong>PETANDHANNAH2026</strong> when booking directly on their website for a preferred rate.",
                 link: "https://www.anantara.com/en/chiang-mai"
             },
-            { 
-                name: "Raya Heritage", 
-                lat: 18.8486074, 
-                lng: 98.9852577, 
-                type: "boutique", 
+            {
+                name: "Raya Heritage",
+                lat: 18.8486074,
+                lng: 98.9852577,
+                type: "boutique",
                 tag: "NEARBY BOUTIQUE",
                 desc: "Inspired beautiful Lanna cultural textures. This serene luxury spot is a short riverside drive north of the main venue space.",
                 link: "https://www.rayaheritage.com/"
             },
-            { 
-                name: "Yaang Come Village Hotel", 
-                lat: 18.7800564, 
-                lng: 99.0010987, 
-                type: "budget", 
+            {
+                name: "Yaang Come Village Hotel",
+                lat: 18.7800564,
+                lng: 99.0010987,
+                type: "budget",
                 tag: "AFFORDABLE / CLOSE BY",
                 desc: "A gorgeous, tranquil Lanna-style oasis with a great outdoor saltwater pool. Incredibly convenient—literally a 5-minute walk from the Anantara.",
                 link: "http://www.yaangcome.com/"
             },
-            { 
-                name: "Banthai Village Hotel", 
-                lat: 18.7868341, 
-                lng: 98.9981159, 
-                type: "budget", 
+            {
+                name: "Banthai Village Hotel",
+                lat: 18.7868341,
+                lng: 98.9981159,
+                type: "budget",
                 tag: "AFFORDABLE / BOUTIQUE",
                 desc: "A cozy and charming hidden boutique hotel tucked away in a quiet lane off Tha Phae Road. Fantastic value and beautiful local atmosphere.",
                 link: "http://www.banthaivillage.com/"
             },
-            { 
-                name: "Bodhi Serene, Chiang Mai", 
-                lat: 18.7844946, 
-                lng: 98.9905928, 
-                type: "budget", 
+            {
+                name: "Bodhi Serene, Chiang Mai",
+                lat: 18.7844946,
+                lng: 98.9905928,
+                type: "budget",
                 tag: "AFFORDABLE / OLD CITY",
                 desc: "A serene, beautiful courtyard retreat nestled just inside the historical Old City walls, keeping you close to both markets and the venue.",
                 link: "http://www.bodhiserene.com/"
@@ -192,7 +216,7 @@
         // Initializes the core map layer canvas
         async function initMap() {
             const chiangMaiCenter = { lat: 18.7815, lng: 99.0037 };
-            
+
             const { Map } = await google.maps.importLibrary("maps");
 
             map = new Map(document.getElementById("map"), {
@@ -254,7 +278,7 @@
                 // Building the visual layout card
                 const card = document.createElement("div");
                 card.className = "item-card";
-                
+
                 card.innerHTML = `
                     <div class="item-category cat-${hotel.type}">${hotel.tag}</div>
                     <h3>${hotel.name}</h3>
@@ -269,7 +293,7 @@
                     if (activeInfoWindow) activeInfoWindow.close();
                     infoWindow.open(map, marker);
                     activeInfoWindow = infoWindow;
-                    
+
                     if (window.innerWidth <= 900) {
                         document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
                     }
@@ -287,7 +311,7 @@
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuFKwEBhMYqcRH3AyC69omkusy7bh0IzA&callback=initMap&loading=async&libraries=marker">
-    </script>
+        </script>
 </body>
 
 </html>

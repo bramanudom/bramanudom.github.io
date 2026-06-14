@@ -37,7 +37,7 @@ const dictionary = {
 const globalHeader = `
     <nav class="sidebar-nav">
         <div class="nav-header">
-            <a href="why.html" class="nav-logo">Pet & Hannah</a>
+            <a href="schedule.html" class="nav-logo">Pet & Hannah</a>
             <button class="hamburger" id="menuToggle" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
@@ -50,10 +50,10 @@ const globalHeader = `
                 <button id="btn-ko" class="lang-btn" onclick="updateLanguage('ko')">KO</button>
             </div>
             <div class="nav-links">
-                <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
                 <a href="schedule.html" data-i18n="nav_events">Schedule</a>
                 <a href="hotels.html" data-i18n="nav_hotels">Hotels</a>
                 <a href="recommendation-corner.html" data-i18n="nav_recs">Recommendations</a>
+                <a href="why.html" data-i18n="nav_why">Why Thailand?</a>
                 <a href="faq.html" data-i18n="nav_faq">FAQ</a>
                 <a href="rsvp.html" data-i18n="nav_rsvp">RSVP</a>
             </div>

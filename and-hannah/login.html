@@ -8,25 +8,79 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
+    <style>
+        /* Modern Photo Placeholder Design */
+        .login-photo-placeholder {
+            width: 100%;
+            max-width: 450px;
+            height: 280px; /* Comfortable landscape height threshold */
+            background-color: var(--cream);
+            border: 1px dashed rgba(128, 48, 48, 0.2);
+            border-radius: var(--radius);
+            margin: 0 auto 35px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+        }
+
+        /* Heart Core Graphic decoration */
+        .login-photo-placeholder::before {
+            content: "♥";
+            font-size: 2.5rem;
+            color: var(--teak);
+            opacity: 0.25;
+        }
+
+        /* When you have your file ready, comment out the placeholder div 
+           and uncomment this real image style wrapper ruleset */
+        .login-photo {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: var(--radius);
+            margin: 0 auto 35px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            filter: grayscale(100%);
+        }
+
+        .login-back-link {
+            display: inline-block;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--emerald);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .login-back-link:hover {
+            color: var(--teak);
+        }
+    </style>
 </head>
 
 <body class="landing-body">
-    <main class="container">
-        <div class="card" style="max-width: 400px; margin: 100px auto; text-align: center;">
-            <h2 style="color: var(--teak);">Welcome!</h2>
-            <p>Please enter the guest code from your invitation:</p>
+    <div class="landing-container">
+        <main class="save-the-date-card">
+            
+            <div class="login-photo-placeholder"></div>
+            
+            <h2 class="couple-names" style="font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 10px;">Welcome</h2>
+            <p class="wedding-announcement" style="margin-bottom: 30px;">Please enter the guest code from your invitation:</p>
 
-            <div class="input-group" style="display: flex; gap: 10px; justify-content: center; margin: 20px 0;">
-                <input type="password" id="passInput" placeholder="Enter Code"
-                    style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-                <button onclick="checkPass()" class="btn btn-teak">Enter</button>
+            <div class="lookup-group">
+                <input type="password" id="passInput" class="form-input" placeholder="Enter Code" onkeypress="handleKeyPress(event)">
+                <button onclick="checkPass()" class="btn-submit" style="margin: 0; max-width: 120px; padding: 14px 25px;">Enter</button>
             </div>
 
-            <p id="err" style="color: var(--ruby); display: none;">Incorrect code, please try again.</p>
+            <p id="err" style="color: var(--teak); display: none; margin-top: 20px; font-weight: 600;">Incorrect code, please try again.</p>
 
-            <a href="index.html" style="font-size: 0.8rem; color: var(--emerald);">← Back to Save the Date</a>
-        </div>
-    </main>
+            <a href="index.html" class="login-back-link">← Back to Save the Date</a>
+        </main>
+    </div>
 
     <script>
         function checkPass() {
@@ -35,7 +89,15 @@
                 localStorage.setItem('wedding_auth', 'true');
                 window.location.href = 'why.html';
             } else {
-                document.getElementById('err').style.display = 'block';
+                const errElement = document.getElementById('err');
+                errElement.style.display = 'block';
+                errElement.style.animation = 'calmFadeIn 0.4s ease-out';
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkPass();
             }
         }
     </script>

@@ -115,15 +115,19 @@
             }
 
             .map-panel {
-                order: -1;
-                /* Pushes the map canvas above the lists on mobile viewports */
-                height: 380px;
-                position: relative;
-                top: 0;
+                order: -1 !important;
+                /* Force map to top on mobile */
+                height: 340px !important;
+                /* Prevent mobile screen swallowing */
+                position: relative !important;
+                top: 0 !important;
+                margin-bottom: 20px;
             }
 
             .list-panel {
-                height: auto;
+                height: auto !important;
+                overflow-y: visible !important;
+                /* Disable double scrollbars on phone screens */
             }
         }
     </style>
@@ -141,8 +145,10 @@
             <p><strong>A Quick Note on Staying in Chiang Mai:</strong></p>
             <p style="font-size: 0.95rem; line-height: 1.6; max-width: 680px; margin: 0 auto;">
                 While we are staying at the Anantara and hosting our main wedding day events there, please do not feel
-                any pressure to stay at the same hotel! Chiang Mai is filled with endless incredible, highly
-                affordable boutique hotels right nearby. We have secured a <strong>preferred group rate</strong> at the
+                any pressure to stay at the same hotel. There are so many great accomodation options from more
+                affordable boutique to resorts nearby.
+
+                We have secured a <strong>preferred group rate</strong> at the
                 Anantara for anyone who wishes to stay at the venue with us (details listed below), but we will be
                 spending plenty of time exploring the city proper together—so please choose whichever space fits your
                 comfort and travel budget best!
@@ -160,14 +166,14 @@
 
     <script src="shared-logic.js"></script>
     <script>
-        // Array holding your venue, premium picks, and budget-friendly alternatives
+        // Array holding your venue, premium picks, and tiered price alternatives
         const hotelData = [
             {
                 name: "Anantara Chiang Mai Resort",
                 lat: 18.7815954,
                 lng: 99.003714,
                 type: "venue",
-                tag: "THE VENUE & OUR HOME BASE",
+                tag: "$$$$ / THE VENUE & OUR HOME BASE",
                 desc: "A stunning blend of modern design and Lanna heritage right on the river bank. This is where our ceremony and reception are taking place! <br><br><strong>🔑 Special Guest Discount:</strong> Use code <strong>PETANDHANNAH2026</strong> when booking directly on their website for a preferred rate.",
                 link: "https://www.anantara.com/en/chiang-mai"
             },
@@ -176,16 +182,25 @@
                 lat: 18.8486074,
                 lng: 98.9852577,
                 type: "boutique",
-                tag: "NEARBY BOUTIQUE",
-                desc: "Inspired beautiful Lanna cultural textures. This serene luxury spot is a short riverside drive north of the main venue space.",
+                tag: "$$$$ / RIVERSIDE RETREAT",
+                desc: "Inspired beautiful Lanna cultural textures. This serene luxury spot is a short, scenic riverside drive north of the main venue space.",
                 link: "https://www.rayaheritage.com/"
+            },
+            {
+                name: "Hotel Loy Chiang Mai",
+                lat: 18.784013,
+                lng: 99.000624,
+                type: "budget",
+                tag: "$$ / CHIC BOUTIQUE (WE LOVE THIS ONE!)",
+                desc: "A beautiful, exceptionally designed boutique hotel with a warm wood aesthetic and wonderful local hospitality. Highly recommended, exceptionally comfortable, and very close to the river neighborhood.",
+                link: "https://www.hotelloy.com/"
             },
             {
                 name: "Yaang Come Village Hotel",
                 lat: 18.7800564,
                 lng: 99.0010987,
                 type: "budget",
-                tag: "AFFORDABLE / CLOSE BY",
+                tag: "$$ / LANNA OASIS (5-MIN WALK)",
                 desc: "A gorgeous, tranquil Lanna-style oasis with a great outdoor saltwater pool. Incredibly convenient—literally a 5-minute walk from the Anantara.",
                 link: "http://www.yaangcome.com/"
             },
@@ -194,18 +209,9 @@
                 lat: 18.7868341,
                 lng: 98.9981159,
                 type: "budget",
-                tag: "AFFORDABLE / BOUTIQUE",
-                desc: "A cozy and charming hidden boutique hotel tucked away in a quiet lane off Tha Phae Road. Fantastic value and beautiful local atmosphere.",
+                tag: "$$ / HIDDEN GEM NEAR NIGHT BAZAAR",
+                desc: "A cozy and charming boutique hotel tucked away in a quiet lane off Tha Phae Road. Fantastic value, a lovely pool area, and beautiful local character.",
                 link: "http://www.banthaivillage.com/"
-            },
-            {
-                name: "Bodhi Serene, Chiang Mai",
-                lat: 18.7844946,
-                lng: 98.9905928,
-                type: "budget",
-                tag: "AFFORDABLE / OLD CITY",
-                desc: "A serene, beautiful courtyard retreat nestled just inside the historical Old City walls, keeping you close to both markets and the venue.",
-                link: "http://www.bodhiserene.com/"
             }
         ];
 
@@ -226,14 +232,11 @@
                 mapId: "DEMO_MAP_ID",
                 mapTypeControl: false,
                 streetViewControl: false,
-
-                // Prevents mobile thumb trapping. 
-                // One finger scrolls the page, two fingers pans the map.
                 gestureHandling: "cooperative"
             });
 
-            // Feed and assemble the initial universal view
-            renderCardsAndMarkers("all"); // (or renderHotelPanels() for accommodations)
+            // FIX: Corrected target execution to draw the hotel specific lists
+            renderHotelPanels();
         }
 
         // Assembles text cards and hooks up interactive markers
@@ -308,7 +311,6 @@
                 listContainer.appendChild(card);
             });
 
-            // Naturally fits all pins inside the viewport canvas framework
             if (hotelData.length > 0) {
                 map.fitBounds(bounds);
             }

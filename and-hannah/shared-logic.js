@@ -22,13 +22,16 @@ const dictionary = {
         event3_title: "มื้อสายอำลา"
     },
     ko: {
-        nav_home: "홈", nav_why: "왜 태국인가요",
-        nav_hotels: "호텔", nav_recs: "추천 코너",
-        nav_faq: "FAQ", nav_rsvp: "참석여부",
+        nav_home: "홈",
+        nav_why: "태국을 선택한 이유", 
+        nav_hotels: "숙소 안내",        
+        nav_recs: "추천 코너",
+        nav_faq: "FAQ",               
+        nav_rsvp: "참석 여부",          
         nav_events: "일정",
         schedule_welcome_title: "사랑하는 가족과 친구들에게",
         schedule_welcome_text: "저희와 함께 축하해 주시기 위해 멀리 태국까지 와 주셔서 진심으로 기쁘고 감사합니다. 치앙마이는 저희 두 사람의 마음속에 특별한 의미가 있는 곳이며, 이곳에서 여러분과 함께할 수 있다는 사실이 저희에겐 무엇보다 소중합니다. 저희의 소중한 순간에 함께하기 위해 먼 길을 와 주신 여러분의 정성과 사랑에 깊이 감사드립니다.",
-        event1_title: "웰컴 런치: 무카타 (태국식 바베큐)",
+        event1_title: "웰컴 레이트 런치: 무카타", 
         event2_title: "결혼식 및 피로연",
         event3_title: "굿바이 브런치"
     }

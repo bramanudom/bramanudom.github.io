@@ -142,16 +142,22 @@
         </div>
 
         <div class="personal-note" style="margin-bottom: 40px; max-width: 100%;">
-            <p><strong>A Quick Note on Staying in Chiang Mai:</strong></p>
+            <p><strong>Staying in Chiang Mai:</strong></p>
             <p style="font-size: 0.95rem; line-height: 1.6; max-width: 680px; margin: 0 auto;">
                 While we are staying at the Anantara and hosting our main wedding day events there, please do not feel
-                any pressure to stay at the same hotel. There are so many great accomodation options from more
-                affordable boutique to resorts nearby.
-
-                We have secured a <strong>preferred group rate</strong> at the
-                Anantara for anyone who wishes to stay at the venue with us (details listed below), but we will be
-                spending plenty of time exploring the city proper together—so please choose whichever space fits your
-                comfort and travel budget best!
+                any pressure to stay at the same hotel. The city has many many great boutique options across
+                different neighborhoods.
+                We reccommend staying either along the scenic Ping River (close to the venue) or
+                in Nimman neighborhood(very hip, lots of specialty coffee shops, and
+                boutiques).
+                <br><br>
+                Don't worry too much about the distance between as the city center fairly compact.
+                Even if you choose to stay in Nimman, getting across the entire city center to the river only takes
+                about 10 to 15 minutes in a local songthaew red truck or a Grab ride (transportation <a href="faq.html#transportation" style="color: var(--emerald); text-decoration: underline; font-weight: 600;">FAQ</a>).
+                <br><br>
+                We have secured a <strong>preferred group rate</strong> at the Anantara for anyone who wishes to stay at
+                the venue with us (details listed below), but we want you to choose whichever neighborhood and space fit
+                your travel style and budget best.
             </p>
         </div>
 
@@ -191,16 +197,25 @@
                 lat: 18.784013,
                 lng: 99.000624,
                 type: "budget",
-                tag: "$$ / CHIC BOUTIQUE (WE LOVE THIS ONE!)",
+                tag: "$$ / PING RIVER CHIC BOUTIQUE (WE LOVE THIS ONE!)",
                 desc: "A beautiful, exceptionally designed boutique hotel with a warm wood aesthetic and wonderful local hospitality. Highly recommended, exceptionally comfortable, and very close to the river neighborhood.",
                 link: "https://www.hotelloy.com/"
+            },
+            {
+                name: "G Nimman Chiang Mai",
+                lat: 18.799482,
+                lng: 98.967885,
+                type: "budget",
+                tag: "$$ / NIMMAN MINIMALIST DESIGN GEM",
+                desc: "An architectural masterpiece right in trendy Nimman. Features a gorgeous, crisp white minimalist design with a central open-air pool layout. Surrounded entirely by the city's best cafes, dining, and walkable boutiques.",
+                link: "https://www.gnimmanchiangmai.com/"
             },
             {
                 name: "Yaang Come Village Hotel",
                 lat: 18.7800564,
                 lng: 99.0010987,
                 type: "budget",
-                tag: "$$ / LANNA OASIS (5-MIN WALK)",
+                tag: "$$ / PING RIVER LANNA OASIS (5-MIN WALK)",
                 desc: "A gorgeous, tranquil Lanna-style oasis with a great outdoor saltwater pool. Incredibly convenient—literally a 5-minute walk from the Anantara.",
                 link: "http://www.yaangcome.com/"
             },
@@ -209,7 +224,7 @@
                 lat: 18.7868341,
                 lng: 98.9981159,
                 type: "budget",
-                tag: "$$ / HIDDEN GEM NEAR NIGHT BAZAAR",
+                tag: "$$ / PING RIVER HIDDEN GEM",
                 desc: "A cozy and charming boutique hotel tucked away in a quiet lane off Tha Phae Road. Fantastic value, a lovely pool area, and beautiful local character.",
                 link: "http://www.banthaivillage.com/"
             }
@@ -235,7 +250,6 @@
                 gestureHandling: "cooperative"
             });
 
-            // FIX: Corrected target execution to draw the hotel specific lists
             renderHotelPanels();
         }
 
@@ -250,8 +264,8 @@
             hotelData.forEach((hotel) => {
                 // Pin color setups based on hotel grouping categories
                 let pinColor = "#213f22"; // Boutique -> Deep Green
-                if (hotel.type === "venue") pinColor = "#803030";  // Venue -> Ruby/Teak Tone
-                if (hotel.type === "budget") pinColor = "#3476ad"; // Budget Alternative -> Blue
+                if (hotel.type === "venue") pinColor = "#803030";  // Venue -> Ruby Tone
+                if (hotel.type === "budget") pinColor = "#3476ad"; // Neighborhood Options -> Blue
 
                 const customPin = new PinElement({
                     background: pinColor,

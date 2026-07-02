@@ -898,3 +898,32 @@ a:hover {
     text-decoration: none !important; /* Prevents text from underlining inside buttons */
     box-shadow: 0 4px 10px rgba(128, 48, 48, 0.1);
 }
+
+.timeline .card a.btn-teak {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--white) !important;
+            color: var(--teak) !important;
+            border: 1px solid rgba(128, 48, 48, 0.25) !important;
+            padding: 10px 18px !important;
+            border-radius: var(--radius) !important;
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none !important;
+            margin-top: 15px;
+            transition: all 0.25s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Smooth interactive hover shift state */
+        .timeline .card a.btn-teak:hover {
+            background-color: var(--teak) !important;
+            color: var(--white) !important;
+            border-color: var(--teak) !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 12px rgba(128, 48, 48, 0.15);
+            transform: translateY(-1px);
+        }

@@ -858,3 +858,43 @@ h1 {
         width: 100%;
     }
 }
+
+/* ==========================================================================
+   Links/Buttons
+   ========================================================================== */
+
+/* Fixes all standard text links across the entire site */
+a {
+    color: var(--emerald); 
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--teak);
+    text-decoration: underline;
+}
+
+/* Fixes the specific 'View Website' buttons on your accommodations page */
+.item-card .btn {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--teak) !important; 
+    border: 1px solid rgba(128, 48, 48, 0.2);
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.item-card .btn:hover {
+    background-color: var(--teak); /* Fills the button with teak on hover */
+    color: var(--white) !important; /* Flips text to white so it remains legible */
+    border-color: var(--teak);
+    text-decoration: none !important; /* Prevents text from underlining inside buttons */
+    box-shadow: 0 4px 10px rgba(128, 48, 48, 0.1);
+}

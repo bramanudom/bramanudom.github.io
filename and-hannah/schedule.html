@@ -9,7 +9,6 @@
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
     <style>
-        /* Modern Asymmetric Layout for your existing cards and new photos */
         .schedule-row {
             display: flex;
             align-items: center;
@@ -24,37 +23,44 @@
             flex-direction: row-reverse;
         }
 
-        /* Ensures your current cards expand beautifully but don't blow up */
         .schedule-row .card {
             flex: 1;
-            margin-bottom: 0 !important; /* Cleans up old bottom margins */
+            margin-bottom: 0 !important;
             width: 100%;
         }
 
-        /* Polaroid Print Simulation Box */
         .film-frame {
             width: 100%;
             max-width: 220px;
             flex-shrink: 0;
-            background-color: #fbf9f6; /* Thick paper stock look */
-            padding: 12px 12px 32px 12px; /* Thick bottom margins for a classic Polaroid print */
+            background-color: #efeae2;
+            padding: 12px 12px 32px 12px;
             border-radius: 2px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04), 0 2px 6px rgb(136 98 9 / 11%);
             border: 1px solid rgba(0, 0, 0, 0.04);
             transition: transform 0.4s ease;
         }
 
         .film-frame img {
             width: 100%;
-            height: 220px; /* Perfect square snapshot crop */
+            height: 220px;
+            /* Perfect square snapshot crop */
             object-fit: cover;
             border-radius: 1px;
             display: block;
         }
 
-        .tilt-left { transform: rotate(-3deg) translateY(-5px); }
-        .tilt-right { transform: rotate(3.5deg) translateY(5px); }
-        .tilt-slight { transform: rotate(1.5deg) translateY(-2px); }
+        .tilt-left {
+            transform: rotate(-3deg) translateY(-5px);
+        }
+
+        .tilt-right {
+            transform: rotate(3.5deg) translateY(5px);
+        }
+
+        .tilt-slight {
+            transform: rotate(1.5deg) translateY(-2px);
+        }
 
         /* .film-frame:hover {
             transform: rotate(0deg) scale(1.04);
@@ -63,7 +69,9 @@
 
         /* Mobile responsiveness layout collapse */
         @media (max-width: 768px) {
-            .schedule-row, .schedule-row.reverse {
+
+            .schedule-row,
+            .schedule-row.reverse {
                 flex-direction: column !important;
                 gap: 20px;
                 margin-bottom: 45px;
@@ -71,7 +79,8 @@
 
             .film-frame {
                 max-width: 240px;
-                transform: none !important; /* Disables scroll tilts on touch viewports */
+                transform: none !important;
+                /* Disables scroll tilts on touch viewports */
                 padding: 10px 10px 24px 10px;
             }
 
@@ -102,7 +111,7 @@
 
 
         <div class="timeline">
-            
+
             <!-- EVENT 1 ROW -->
             <div class="schedule-row">
                 <div class="card card-left-emerald">
@@ -126,7 +135,8 @@
                     <p class="event-time">4:30 PM — Late</p>
                     <p><strong>Anantara Chiang Mai Resort</strong></p>
                     <p data-i18n="event2_desc">The main event. Please join us for our ceremony by the river...</p>
-                    <a href="https://maps.app.goo.gl/AnantaraLink" target="_blank" class="btn btn-teak mt-2">📍 View Map</a>
+                    <a href="https://maps.app.goo.gl/AnantaraLink" target="_blank" class="btn btn-teak mt-2">📍 View
+                        Map</a>
                 </div>
                 <!-- Photo B sitting on the left side on desktop -->
                 <div class="film-frame tilt-left">

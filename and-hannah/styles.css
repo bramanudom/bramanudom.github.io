@@ -597,7 +597,7 @@ h1 {
 
 .wedding-announcement {
     font-size: 1.25rem;
-    color: var(--text);
+    color: var(--teak);
     margin-top: 0;
     margin-bottom: 45px;
     font-weight: 300;
@@ -607,9 +607,8 @@ h1 {
 .date-display {
     font-size: clamp(2rem, 5vw, 2.6rem);
     font-weight: 700;
-    color: var(--teak);
+    color: var(--text);
     letter-spacing: 4px;
-    font-family: var(--font-heading);
     text-transform: uppercase;
     margin-bottom: 8px;
 }

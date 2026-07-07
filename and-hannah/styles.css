@@ -601,11 +601,12 @@ h1 {
     margin-bottom: 45px;
     font-weight: 300;
     letter-spacing: 0.5px;
+    font-family: var(--font-heading);
 }
 
 .date-display {
     font-size: clamp(1.1rem, 5vw, 1.5rem);
-    font-weight: 700;
+    font-weight: 500;
     color: var(--text);
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -617,7 +618,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--text);
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 35px;
 }
 

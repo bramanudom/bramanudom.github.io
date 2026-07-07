@@ -592,11 +592,10 @@ h1 {
     letter-spacing: 2px;
     margin: 0 0 15px 0;
     font-family: var(--font-heading);
-    text-transform: uppercase;
 }
 
 .wedding-announcement {
-    font-size: 1.25rem;
+    font-size: 2rem;
     color: var(--teak);
     margin-top: 0;
     margin-bottom: 45px;
@@ -605,7 +604,7 @@ h1 {
 }
 
 .date-display {
-    font-size: clamp(2rem, 5vw, 2.6rem);
+    font-size: clamp(1.1rem, 5vw, 2.6rem);
     font-weight: 700;
     color: var(--text);
     letter-spacing: 4px;

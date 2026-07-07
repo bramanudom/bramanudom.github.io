@@ -136,7 +136,6 @@ main.container {
 .nav-links a:hover {
     background: var(--teak);
     color: var(--white);
-    transform: translateX(5px);
 }
 
 /* Animated Hamburger */

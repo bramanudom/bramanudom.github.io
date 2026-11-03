@@ -8,87 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
-    <style>
-        .schedule-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 50px;
-            width: 100%;
-        }
-
-        /* Reverses the order on desktop to alternate photo placement */
-        .schedule-row.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .schedule-row .card {
-            flex: 1;
-            margin-bottom: 0 !important;
-            width: 100%;
-        }
-
-        .film-frame {
-            width: 100%;
-            max-width: 220px;
-            flex-shrink: 0;
-            background-color: #efeae2;
-            padding: 12px 12px 32px 12px;
-            border-radius: 2px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04), 0 2px 6px rgb(136 98 9 / 11%);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            transition: transform 0.4s ease;
-        }
-
-        .film-frame img {
-            width: 100%;
-            height: 220px;
-            /* Perfect square snapshot crop */
-            object-fit: cover;
-            border-radius: 1px;
-            display: block;
-        }
-
-        .tilt-left {
-            transform: rotate(-3deg) translateY(-5px);
-        }
-
-        .tilt-right {
-            transform: rotate(3.5deg) translateY(5px);
-        }
-
-        .tilt-slight {
-            transform: rotate(1.5deg) translateY(-2px);
-        }
-
-        /* .film-frame:hover {
-            transform: rotate(0deg) scale(1.04);
-            box-shadow: 0 15px 35px rgba(33, 63, 34, 0.08);
-        } */
-
-        /* Mobile responsiveness layout collapse */
-        @media (max-width: 768px) {
-
-            .schedule-row,
-            .schedule-row.reverse {
-                flex-direction: column !important;
-                gap: 20px;
-                margin-bottom: 45px;
-            }
-
-            .film-frame {
-                max-width: 240px;
-                transform: none !important;
-                /* Disables scroll tilts on touch viewports */
-                padding: 10px 10px 24px 10px;
-            }
-
-            .film-frame img {
-                height: 240px;
-            }
-        }
-    </style>
 </head>
 
 <body class="landing-body">
@@ -99,7 +18,7 @@
             <h1 data-i18n="nav_events">Schedule</h1>
         </div>
 
-        <div class="personal-note mb-4">
+        <div class="personal-note">
             <h2 data-i18n="schedule_welcome_title" class="intro-header">To Our Family & Friends</h2>
             <p data-i18n="schedule_welcome_text" class="lead-text">
                 We are so incredibly excited that you are traveling so far to celebrate with us.
@@ -119,7 +38,7 @@
                     <h3 class="text-left" data-i18n="event1_title">Welcome Late Lunch: Moo Krata</h3>
                     <p class="event-time">2:00 PM — 4:00 PM</p>
                     <p data-i18n="event1_desc">Join us for a casual Thai BBQ experience...</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-teak mt-2">📍 View Map</a>
+                    <a href="https://maps.google.com" target="_blank" class="btn-teak mt-2">📍 View Map</a>
                 </div>
                 <!-- Photo A sitting on the right side on desktop -->
                 <div class="film-frame tilt-right">
@@ -129,13 +48,13 @@
 
             <!-- EVENT 2 ROW (REVERSED) -->
             <div class="schedule-row reverse">
-                <div class="card card-left-ruby">
+                <div class="card card-left-midnightblue">
                     <span class="event-date">Saturday, Nov 6</span>
                     <h3 class="text-left" data-i18n="event2_title">The Wedding Ceremony & Reception</h3>
                     <p class="event-time">4:30 PM — Late</p>
                     <p><strong>Anantara Chiang Mai Resort</strong></p>
                     <p data-i18n="event2_desc">The main event. Please join us for our ceremony by the river...</p>
-                    <a href="https://maps.app.goo.gl/AnantaraLink" target="_blank" class="btn btn-teak mt-2">📍 View
+                    <a href="https://maps.app.goo.gl/AnantaraLink" target="_blank" class="btn-teak mt-2">📍 View
                         Map</a>
                 </div>
                 <!-- Photo B sitting on the left side on desktop -->
@@ -151,7 +70,7 @@
                     <h3 class="text-left" data-i18n="event3_title">Goodbye Brunch</h3>
                     <p class="event-time">10:30 AM — 12:30 PM</p>
                     <p data-i18n="event3_desc">One last coffee and meal at our favorite local coffee shop...</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-teak mt-2">📍 View Map</a>
+                    <a href="https://maps.google.com" target="_blank" class="btn-teak mt-2">📍 View Map</a>
                 </div>
                 <!-- Photo C sitting on the right side on desktop -->
                 <div class="film-frame tilt-slight">

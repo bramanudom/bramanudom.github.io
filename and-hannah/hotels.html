@@ -8,129 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
-    <style>
-        /* Custom split layout structures for the dynamic accommodation section */
-        .recs-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .list-panel {
-            height: 650px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .map-panel {
-            position: sticky;
-            top: 100px;
-            height: 650px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-
-        .item-card {
-            background: var(--white);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .item-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(33, 63, 34, 0.08);
-            border-color: var(--emerald);
-        }
-
-        .item-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .cat-venue {
-            color: var(--ruby);
-        }
-
-        .cat-boutique {
-            color: var(--emerald);
-        }
-
-        .cat-budget {
-            color: var(--teak);
-        }
-
-        .item-card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.15rem;
-            font-family: var(--font-heading);
-            color: var(--text);
-        }
-
-        .item-card p {
-            margin: 0 0 12px 0;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Info Window Text Restyling */
-        .map-popup {
-            font-family: var(--font-main);
-            color: var(--text);
-            max-width: 220px;
-            padding: 5px;
-        }
-
-        .map-popup h4 {
-            margin: 0 0 5px 0;
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            color: var(--emerald);
-        }
-
-        .map-popup p {
-            margin: 0;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        @media (max-width: 900px) {
-            .recs-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .map-panel {
-                order: -1 !important;
-                /* Force map to top on mobile */
-                height: 340px !important;
-                /* Prevent mobile screen swallowing */
-                position: relative !important;
-                top: 0 !important;
-                margin-bottom: 20px;
-            }
-
-            .list-panel {
-                height: auto !important;
-                overflow-y: visible !important;
-                /* Disable double scrollbars on phone screens */
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -141,9 +18,9 @@
             <h1 data-i18n="nav_hotels">Accommodations</h1>
         </div>
 
-        <div class="personal-note" style="margin-bottom: 40px; max-width: 100%;">
+        <div class="personal-note hotels-intro">
             <p><strong>Staying in Chiang Mai:</strong></p>
-            <p style="font-size: 0.95rem; line-height: 1.6; max-width: 680px; margin: 0 auto;">
+            <p class="hotels-intro-text">
                 While we are staying at the Anantara and hosting our main wedding day events there, please do not feel
                 any pressure to stay at the same hotel. The city has many many great boutique options across
                 different neighborhoods.
@@ -153,7 +30,7 @@
                 <br><br>
                 Don't worry too much about the distance between as the city center fairly compact.
                 Even if you choose to stay in Nimman, getting across the entire city center to the river only takes
-                about 10 to 15 minutes in a local songthaew red truck or a Grab ride (transportation <a href="faq.html#transportation" style="color: var(--emerald); text-decoration: underline; font-weight: 600;">FAQ</a>).
+                about 10 to 15 minutes in a local songthaew red truck or a Grab ride (transportation <a href="faq.html#transportation" class="text-link">FAQ</a>).
                 <br><br>
                 We have secured a <strong>preferred group rate</strong> at the Anantara for anyone who wishes to stay at
                 the venue with us (details listed below), but we want you to choose whichever neighborhood and space fit
@@ -297,7 +174,7 @@
                     <div class="item-category cat-${hotel.type}">${hotel.tag}</div>
                     <h3>${hotel.name}</h3>
                     <p>${hotel.desc}</p>
-                    <a href="${hotel.link}" target="_blank" class="btn btn-teak mt-2" onclick="event.stopPropagation();">View Website</a>
+                    <a href="${hotel.link}" target="_blank" class="btn-teak mt-2" onclick="event.stopPropagation();">View Website</a>
                 `;
 
                 // Syncing card clicks directly into map movements

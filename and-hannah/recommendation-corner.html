@@ -8,125 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
-    <style>
-        /* Custom layout structures for the dynamic recommendation section */
-        .recs-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .list-panel {
-            height: 650px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .map-panel {
-            position: sticky;
-            top: 100px;
-            height: 650px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-
-        .item-card {
-            background: var(--white);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .item-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(33, 63, 34, 0.08);
-            border-color: var(--emerald);
-        }
-
-        .item-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .cat-pet {
-            color: var(--emerald);
-        }
-
-        .cat-hannah {
-            color: var(--teak);
-        }
-
-        .cat-shared {
-            color: var(--ruby);
-        }
-
-        .item-card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.15rem;
-            font-family: var(--font-heading);
-            color: var(--text);
-        }
-
-        .item-card p {
-            margin: 0;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Info Window Text Restyling */
-        .map-popup {
-            font-family: var(--font-main);
-            color: var(--text);
-            max-width: 220px;
-            padding: 5px;
-        }
-
-        .map-popup h4 {
-            margin: 0 0 5px 0;
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            color: var(--emerald);
-        }
-
-        .map-popup p {
-            margin: 0;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        @media (max-width: 900px) {
-            .recs-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .map-panel {
-                order: -1;
-                /* Pushes the map canvas above the lists on mobile viewports */
-                height: 380px;
-                position: relative;
-                top: 0;
-            }
-
-            .list-panel {
-                height: auto;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -135,7 +16,7 @@
     <main class="container">
         <div class="card-title">
             <h1 data-i18n="nav-recommendations">Our Favorite Spots</h1>
-            <p class="text-center mb-4">Toggle across our curated maps to navigate Chiang Mai like a local.</p>
+            <p class="text-center">Toggle across our curated maps to navigate Chiang Mai like a local.</p>
         </div>
 
         <div class="filter-container">

@@ -265,6 +265,7 @@ main.container {
 .lang-switcher {
     display: flex;
     gap: 8px;
+    margin-left: 12px;
     margin-top: auto;
     padding: 20px 0;
 }

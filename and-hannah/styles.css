@@ -437,8 +437,6 @@ input[type="submit"]:hover,
 button[type="submit"]:hover,
 .btn-submit:hover {
     background-color: var(--teak);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(128, 48, 48, 0.15);
 }
 
 input[type="submit"]:active,
@@ -449,6 +447,7 @@ button[type="submit"]:active,
 
 /* Compact variant that sits next to an input inside .lookup-group */
 .btn-submit.btn-inline {
+    border-radius: var(--radius);
     margin: 0;
     width: auto;
     padding: 14px 25px;
@@ -894,7 +893,7 @@ textarea.form-input {
    12. PLACE LISTS (Accommodations & Recommendations)
    ========================================================================== */
 
-/* Row of jump links under the page title */
+/* Row of category tabs under the page title */
 .section-jump {
     display: flex;
     flex-wrap: wrap;
@@ -903,20 +902,24 @@ textarea.form-input {
     margin-bottom: 40px;
 }
 
-.section-jump a {
-    padding: 8px 20px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 50px;
+.section-tab {
+    padding: 10px 24px;
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: var(--radius);
     font-family: var(--font-heading);
+    font-size: 0.95rem;
     letter-spacing: 1px;
     color: var(--text);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.section-jump a:hover {
+.section-tab:hover,
+.section-tab.active {
     background: var(--emerald);
     border-color: var(--emerald);
     color: var(--white);
-    text-decoration: none;
 }
 
 .place-section {
@@ -924,8 +927,7 @@ textarea.form-input {
     max-width: 720px;
     margin-bottom: 50px;
     padding-left: 8px;
-    /* Keeps headings visible below the fixed mobile top bar when jumped to */
-    scroll-margin-top: 100px;
+    animation: calmFadeIn 0.3s ease-out;
 }
 
 .place-section-title {

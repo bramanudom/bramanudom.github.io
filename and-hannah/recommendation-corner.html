@@ -20,11 +20,11 @@
             <p class="text-center">A few of our favorite places to eat, shop, and explore around Chiang Mai.</p>
         </div>
 
-        <nav class="section-jump" aria-label="Jump to section">
-            <a href="#food">Food &amp; Drink</a>
-            <a href="#shop">Shop</a>
-            <a href="#sights">Sights</a>
-        </nav>
+        <div class="section-jump" role="tablist" aria-label="Recommendation categories">
+            <button type="button" class="section-tab active" onclick="showRecSection('food', this)">Food &amp; Drink</button>
+            <button type="button" class="section-tab" onclick="showRecSection('shop', this)">Shop</button>
+            <button type="button" class="section-tab" onclick="showRecSection('sights', this)">Sights</button>
+        </div>
 
         <!-- Optional later: link to a shared Google Maps list here -->
 
@@ -171,7 +171,7 @@
         </section>
 
         <!-- ================= SHOP ================= -->
-        <section id="shop" class="place-section">
+        <section id="shop" class="place-section is-hidden">
             <h2 class="place-section-title">Shop</h2>
             <ul class="place-list">
                 <li class="place">
@@ -213,7 +213,7 @@
         </section>
 
         <!-- ================= SIGHTS ================= -->
-        <section id="sights" class="place-section">
+        <section id="sights" class="place-section is-hidden">
             <h2 class="place-section-title">Sights</h2>
             <ul class="place-list">
                 <li class="place">
@@ -275,6 +275,16 @@
     </main>
 
     <script src="shared-logic.js"></script>
+    <script>
+        function showRecSection(sectionId, activeBtn) {
+            document.querySelectorAll('.place-section').forEach(section => {
+                section.classList.toggle('is-hidden', section.id !== sectionId);
+            });
+            document.querySelectorAll('.section-tab').forEach(btn => {
+                btn.classList.toggle('active', btn === activeBtn);
+            });
+        }
+    </script>
 </body>
 
 </html>

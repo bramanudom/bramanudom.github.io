@@ -5,18 +5,17 @@
    3.  Utilities
    4.  Main Layout (The Symmetrical Pillar Logic)
    5.  Navigation & Animated Hamburger (+ mobile header)
-   6.  Buttons, Tabs & Forms
+   6.  Buttons & Forms
    7.  Content Components & Titles
    8.  Landing Page (Save the Date)
    9.  Login Page
    10. Schedule Page
    11. Whimsical Doodle Asset Engine
-   12. Map + List Layout (Accommodations & Recommendations)
-   13. Responsive Filter Engine (Tabs to Dropdown)
-   14. Why Page
-   15. Accommodations Page
-   16. RSVP Page
-   17. Animations
+   12. Place Lists (Accommodations & Recommendations)
+   13. Why Page
+   14. Accommodations Page
+   15. RSVP Page
+   16. Animations
    ========================================================================== */
 
 /* ==========================================================================
@@ -361,7 +360,7 @@ main.container {
 }
 
 /* ==========================================================================
-   6. BUTTONS, TABS & FORMS
+   6. BUTTONS & FORMS
    ========================================================================== */
 
 /* --- Outlined teak button (used for "View Map" / "View Website") --- */
@@ -435,45 +434,6 @@ button[type="submit"]:active,
     width: auto;
     padding: 14px 25px;
     white-space: nowrap;
-}
-
-/* --- Tabs --- */
-.tab-container {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 40px;
-    justify-content: center;
-    width: 100%;
-}
-
-.tab-btn {
-    border-radius: 50px;
-    padding: 10px 30px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: var(--white);
-    color: var(--text);
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: var(--font-heading);
-    letter-spacing: 1px;
-}
-
-.tab-btn.active {
-    background: var(--emerald);
-    color: var(--white);
-    border-color: var(--emerald);
-    box-shadow: 0 4px 12px rgba(33, 63, 34, 0.2);
-}
-
-.tab-content {
-    display: none;
-    width: 100%;
-}
-
-.active-content {
-    display: block;
-    animation: calmFadeIn 0.4s ease-out;
 }
 
 /* --- Form Inputs --- */
@@ -914,182 +874,155 @@ textarea.form-input {
 }
 
 /* ==========================================================================
-   12. MAP + LIST LAYOUT (Accommodations & Recommendations)
+   12. PLACE LISTS (Accommodations & Recommendations)
    ========================================================================== */
-.recs-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    width: 100%;
-    margin-top: 20px;
+
+/* Row of jump links under the page title */
+.section-jump {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
 }
 
-.list-panel {
-    height: 650px;
-    overflow-y: auto;
-    padding-right: 10px;
-}
-
-.map-panel {
-    position: sticky;
-    top: 100px;
-    height: 650px;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-#map {
-    width: 100%;
-    height: 100%;
-}
-
-/* --- List cards --- */
-.item-card {
-    background: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.item-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(33, 63, 34, 0.08);
-    border-color: var(--emerald);
-}
-
-.item-card h3 {
-    margin: 0 0 8px 0;
-    font-size: 1.15rem;
+.section-jump a {
+    padding: 8px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
     font-family: var(--font-heading);
+    letter-spacing: 1px;
     color: var(--text);
 }
 
-.item-card p {
-    margin: 0 0 12px 0;
-    font-size: 0.9rem;
-    opacity: 0.8;
+.section-jump a:hover {
+    background: var(--emerald);
+    border-color: var(--emerald);
+    color: var(--white);
+    text-decoration: none;
 }
 
-.item-card p:last-child {
-    margin-bottom: 0;
+.place-section {
+    width: 100%;
+    max-width: 720px;
+    margin-bottom: 50px;
+    /* Keeps headings visible below the fixed mobile top bar when jumped to */
+    scroll-margin-top: 100px;
 }
 
-/* --- Category labels (small caps line above each card title) --- */
-.item-category {
-    font-size: 0.75rem;
+.place-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
+    color: var(--teak);
+    margin: 0 0 6px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(128, 48, 48, 0.2);
+}
+
+.place-section-intro {
+    margin: 10px 0 0 0;
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+.place-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* A single place: simple divided rows rather than boxed cards */
+.place {
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.place:last-child {
+    border-bottom: none;
+}
+
+.place-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 12px;
     margin-bottom: 6px;
 }
 
-/* Accommodations categories */
-.cat-venue    { color: var(--midnightblue); }
-.cat-boutique { color: var(--emerald); }
-.cat-budget   { color: var(--teak); }
-
-/* Recommendation categories */
-.cat-pet      { color: var(--emerald); }
-.cat-hannah   { color: var(--teak); }
-.cat-shared   { color: var(--midnightblue); }
-
-/* --- Map popup content --- */
-.map-popup {
-    font-family: var(--font-main);
-    color: var(--text);
-    max-width: 220px;
-    padding: 5px;
-}
-
-.map-popup h4 {
-    margin: 0 0 5px 0;
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    color: var(--emerald);
-}
-
-.map-popup p {
+.place-header h3 {
     margin: 0;
-    font-size: 0.85rem;
-    line-height: 1.4;
-}
-
-@media (max-width: 900px) {
-    .recs-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .map-panel {
-        order: -1;
-        /* Keeps the map at the top of the page on mobile */
-        height: 340px;
-        /* Leaves cards visible below */
-        position: relative;
-        top: 0;
-        margin-bottom: 20px;
-    }
-
-    .list-panel {
-        height: auto;
-        /* Lets the card list flow naturally down the page */
-        overflow-y: visible;
-        /* Disables the inner scrollbar on mobile */
-    }
-}
-
-/* ==========================================================================
-   13. RESPONSIVE FILTER ENGINE (TABS TO DROPDOWN)
-   ========================================================================== */
-.filter-container {
-    width: 100%;
-    margin-bottom: 25px;
-}
-
-/* By default, hide the mobile dropdown menu view on desktop layouts */
-.mobile-filters {
-    display: none;
-}
-
-/* Custom styling for the mobile select element using your site's form variables */
-.mobile-select {
-    width: 100%;
-    max-width: 100%;
-    padding: 14px 20px;
-    background-color: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: var(--radius);
-    font-family: var(--font-main);
-    font-size: 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
     color: var(--text);
-    cursor: pointer;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23803030' d='M0 0l5 5 5-5z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 20px center;
-    background-size: 12px;
-    appearance: none;
-    /* Strips browser default arrows so our custom teak arrow shows */
-    -webkit-appearance: none;
 }
 
-@media (max-width: 900px) {
-    .desktop-filters {
-        display: none;
-        /* Hide horizontal tabs on phone screens */
-    }
+.place p {
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
 
-    .mobile-filters {
-        display: block;
-        /* Show the select dropdown on phone screens */
+/* Small label next to the name ("Pet's pick", "$$", etc.) */
+.place-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(44, 62, 80, 0.6);
+}
+
+.tag-pet    { color: var(--emerald); }
+.tag-hannah { color: var(--teak); }
+.tag-shared { color: var(--midnightblue); }
+
+.place-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.place-link {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+/* Highlighted block for the venue */
+.place-featured {
+    margin-top: 16px;
+    padding: 25px 30px;
+    background: var(--cream);
+    border: 1px solid rgba(128, 48, 48, 0.12);
+    border-left: 4px solid var(--teak);
+    border-radius: 4px;
+}
+
+.place .discount-note {
+    opacity: 1;
+}
+
+.discount-code {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--teak);
+    background: var(--white);
+    padding: 2px 8px;
+    border: 1px dashed rgba(128, 48, 48, 0.35);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .place-featured {
+        padding: 20px;
     }
 }
 
 /* ==========================================================================
-   14. WHY PAGE
+   13. WHY PAGE
    ========================================================================== */
 .why-hero-split {
     display: grid;
@@ -1174,7 +1107,7 @@ textarea.form-input {
 }
 
 /* ==========================================================================
-   15. ACCOMMODATIONS PAGE
+   14. ACCOMMODATIONS PAGE
    ========================================================================== */
 .hotels-intro {
     max-width: 100%;
@@ -1189,7 +1122,7 @@ textarea.form-input {
 }
 
 /* ==========================================================================
-   16. RSVP PAGE
+   15. RSVP PAGE
    ========================================================================== */
 .rsvp-form {
     width: 100%;
@@ -1210,7 +1143,7 @@ textarea.form-input {
 }
 
 /* ==========================================================================
-   17. ANIMATIONS
+   16. ANIMATIONS
    ========================================================================== */
 @keyframes fadeIn {
     from { opacity: 0; }

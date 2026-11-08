@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Recommendations | Pet & Hannah</title>
+    <title>Our Recommendations | Pet &amp; Hannah</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
@@ -16,231 +16,264 @@
     <main class="container">
         <div class="card-title">
             <h1 data-i18n="recs_title">Our Favorite Spots</h1>
-            <p class="text-center">Toggle across our curated maps to navigate Chiang Mai like a local.</p>
+            <p class="text-center">A few of our favorite places to eat, shop, and explore around Chiang Mai.</p>
         </div>
 
-        <div class="filter-container">
-            <div class="tab-container desktop-filters">
-                <button class="tab-btn active" onclick="filterCategory('all', event)">All Spots</button>
-                <button class="tab-btn" onclick="filterCategory('pet', event)">Pet's Picks</button>
-                <button class="tab-btn" onclick="filterCategory('hannah', event)">Hannah's Picks</button>
-                <button class="tab-btn" onclick="filterCategory('adventure', event)">Sights & Day Trips</button>
-            </div>
+        <nav class="section-jump" aria-label="Jump to section">
+            <a href="#food">Food &amp; Drink</a>
+            <a href="#shop">Shop</a>
+            <a href="#sights">Sights</a>
+        </nav>
 
-            <div class="mobile-filters">
-                <label for="mobileFilterSelect" class="sr-only">Filter Locations:</label>
-                <select id="mobileFilterSelect" class="form-input mobile-select"
-                    onchange="filterCategoryMobile(this.value)">
-                    <option value="all">All Spots</option>
-                    <option value="pet">Pet's Picks</option>
-                    <option value="hannah">Hannah's Picks</option>
-                    <option value="adventure">Sights & Day Trips</option>
-                </select>
-            </div>
-        </div>
+        <!-- Optional later: link to a shared Google Maps list here -->
 
-        <div class="recs-layout">
-            <div class="list-panel" id="locations-list"></div>
+        <!-- ================= FOOD & DRINK ================= -->
+        <section id="food" class="place-section">
+            <h2 class="place-section-title">Food &amp; Drink</h2>
+            <ul class="place-list">
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Chang Moi Ice Syrup Stall</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Pet's absolute favorite Thai dessert stall. Running since Pet's mom was a child, now managed by
+                        the next generation. Order the shaved ice with red syrup, grass jelly, and condensed milk!</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Chang+Moi+Ice+Syrup+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Pet's Family Favorite Seafood Spot</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Pet's family's favorite celebratory dinner spot! Only come if you like fresh seafood. If you
+                        decide to go, let Pet or Hannah know! We'll tell you how to order (or maybe we will tag along!)</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=18.7460,98.9620" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>3 Baht Noodle</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Classic tiny bowls of pork noodles for just 3 Baht a pop. Stacking the empty bowls high is half
+                        the fun!</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=3+Baht+Noodle+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Kanomjeen Sanpakoi</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Incredible, spice-fueled rice noodle curry bowls inside a local market corner. Highly
+                        recommended.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Kanomjeen+Sanpakoi+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Soy Milk &amp; Congee (Sanpakoi)</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Comforting late-night Thai congee bowls, smooth hot soy milk, and fresh crispy dough sticks.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Soy+Milk+Congee+Sanpakoi+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Mun Gai Hai Lam</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Superb Hainanese style chicken rice plates. Fast, tender, and intensely flavorful seasoning.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mun+Gai+Hai+Lam+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Ruamchok Night Market</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Lively local night market packed with fantastic street stalls, local snacks, and northern
+                        curries.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ruamchok+Night+Market+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Mahason Music Bar</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Fun, high-energy local live music tavern to listen to acoustic Thai indie sets.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mahason+Music+Bar+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Sourdough by Apple Fahey</h3>
+                        <span class="place-tag tag-hannah">Hannah's pick</span>
+                    </div>
+                    <p>Phenomenal crusty artisanal sourdough breads and pastries. A favorite breakfast escape.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Sourdough+by+Apple+Fahey+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Blue Coffee at Agriculture CMU</h3>
+                        <span class="place-tag tag-hannah">Hannah's pick</span>
+                    </div>
+                    <p>Towering glass and timber cafe tucked into the university grounds. Dramatic views over fields.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Blue+Coffee+Agriculture+CMU+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Flow Coffee Brewers</h3>
+                        <span class="place-tag tag-hannah">Hannah's pick</span>
+                    </div>
+                    <p>Expertly pulled espresso shots, clean filter coffees, and sleek minimalist architecture.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Flow+Coffee+Brewers+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Teahouse by Meijaihai Matcha</h3>
+                        <span class="place-tag tag-hannah">Hannah's pick</span>
+                    </div>
+                    <p>Serene, beautifully silent tatami room dedicated to premium Japanese whisked matcha pairings.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Meijaihai+Matcha+Teahouse+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Ohkajhu (Nim City Daily)</h3>
+                        <span class="place-tag tag-hannah">Hannah's pick</span>
+                    </div>
+                    <p>Massive organic farm-to-table salads, fresh cold-pressed juices, and healthy, robust mains.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ohkajhu+Nim+City+Daily+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>THE HOUSE by Ginger</h3>
+                        <span class="place-tag tag-shared">Shared favorite</span>
+                    </div>
+                    <p>Sophisticated Lanna-bistro setting. Perfect for a beautiful, premium sit-down dinner. Order the
+                        traditional northern platters!</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=THE+HOUSE+by+Ginger+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Good View Bar &amp; Restaurant</h3>
+                        <span class="place-tag tag-shared">Shared favorite</span>
+                    </div>
+                    <p>Classic open-air restaurant right on the Ping River bank. Massive menu, live bands, and lively
+                        evening atmosphere.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Good+View+Bar+Restaurant+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Huay Tueng Thao Restaurant</h3>
+                        <span class="place-tag tag-shared">Shared favorite</span>
+                    </div>
+                    <p>Great place to have a meal with a stunning, open view of the lake while sitting in bamboo huts.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Huay+Tueng+Thao+Restaurant+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+            </ul>
+        </section>
 
-            <div class="map-panel">
-                <div id="map"></div>
-            </div>
-        </div>
+        <!-- ================= SHOP ================= -->
+        <section id="shop" class="place-section">
+            <h2 class="place-section-title">Shop</h2>
+            <ul class="place-list">
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Si Tong Linen Clothing Shop</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Pet's favorite linen clothing boutique. Beautiful fabrics, modern minimalist items, and custom
+                        adjustments for very reasonable prices.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Si+Tong+Linen+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Traditional Thai Textile Shop</h3>
+                        <span class="place-tag tag-pet">Pet's pick</span>
+                    </div>
+                    <p>Beautiful handcrafted local northern fabrics, hand-woven indigo cottons, and custom garments.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=18.7891,98.9915" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Baan Kang Wat</h3>
+                        <span class="place-tag tag-hannah">Hannah's pick</span>
+                    </div>
+                    <p>Charming local artist village built out of traditional wood houses. Incredible craft studios,
+                        boutiques, and calm morning coffee.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Baan+Kang+Wat+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Madam Muk Second Hand Warehouse</h3>
+                        <span class="place-tag tag-hannah">Hannah's pick</span>
+                    </div>
+                    <p>Prepare for this thrifting behemoth if you like vintage searching. Gigantic interconnected
+                        warehouses with cool coffee shops inside.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Madam+Muk+Second+Hand+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ================= SIGHTS ================= -->
+        <section id="sights" class="place-section">
+            <h2 class="place-section-title">Sights</h2>
+            <ul class="place-list">
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Wat Phra That Doi Suthep</h3>
+                    </div>
+                    <p>Chiang Mai's iconic golden mountain temple. Climbed via a Naga staircase for city-wide views.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Wat+Phra+That+Doi+Suthep" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Wat Umong Suan Putthatham</h3>
+                    </div>
+                    <p>Enchanting 700-year-old forest monastery temple featuring historic underground tunnels and mossy
+                        ruins.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Wat+Umong+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Wat Ban Den</h3>
+                        <span class="place-tag tag-shared">Day trip</span>
+                    </div>
+                    <p>Stunning, massive Lanna-style temple complex up in Mae Taeng. Striking blue roofs and brilliant
+                        architecture.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Wat+Ban+Den+Mae+Taeng" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Namtok Bua Thong (Sticky Waterfall)</h3>
+                        <span class="place-tag tag-shared">Day trip</span>
+                    </div>
+                    <p>The famous mineral waterfall you can climb right up like a lizard because the limestone is
+                        sticky!</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bua+Thong+Sticky+Waterfall" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Huay Tueng Thao Waterfall</h3>
+                    </div>
+                    <p>Tranquil trail escape at the base of the mountain range.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Huay+Tueng+Thao+Waterfall+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Muang Mai Wholesale Market</h3>
+                    </div>
+                    <p>Vibrant, chaotic 24/7 wholesale fruit and vegetable market right along the river lines.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Muang+Mai+Market+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>0 Kampong Village</h3>
+                    </div>
+                    <p>A cozy cultural pocket to stroll through and observe traditional aesthetics.</p>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=18.7885,98.9912" target="_blank" rel="noopener">Google Maps ↗</a>
+                </li>
+            </ul>
+        </section>
     </main>
 
     <script src="shared-logic.js"></script>
-    <script>
-        // Comprehensive coordinate arrays parsed from your MyMaps dataset
-        const locationsData = [
-            { name: "Wat Ban Den", lat: 19.1577, lng: 98.9785, category: "adventure", owner: "shared", desc: "Stunning, massive Lanna-style temple complex up in Mae Taeng. Striking blue roofs and brilliant architecture." },
-            { name: "0 Kampong Village", lat: 18.7885, lng: 98.9912, category: "adventure", owner: "shared", desc: "A cozy cultural pocket to stroll through and observe traditional aesthetics." },
-            { name: "Blue Coffee at Agriculture CMU", lat: 18.7946, lng: 98.9591, category: "hannah", owner: "hannah", desc: "Towering glass and timber cafe tucked into the university grounds. Dramatic views over fields." },
-            { name: "Baan Kang Wat", lat: 18.7763, lng: 98.9487, category: "hannah", owner: "hannah", desc: "Charming local artist village village built out of traditional wood houses. Incredible craft studios, boutiques, and calm morning coffee." },
-            { name: "Sourdough by Apple Fahey", lat: 18.7852, lng: 98.9650, category: "hannah", owner: "hannah", desc: "Phenomenal crusty artisanal sourdough breads and pastries. A favorite breakfast escape." },
-            { name: "Huay Tueng Thao Waterfall", lat: 18.8654, lng: 98.9322, category: "adventure", owner: "shared", desc: "Tranquil trail escape at the base of the mountain range." },
-            { name: "Huay Tueng Thao Restaurant", lat: 18.8631, lng: 98.9415, category: "adventure", owner: "shared", desc: "Great place to have a meal with a stunning, open view of the lake while sitting in bamboo huts." },
-            { name: "Ruamchok Night Market", lat: 18.8239, lng: 99.0118, category: "pet", owner: "pet", desc: "Lively local night market packed with fantastic street stalls, local snacks, and northern curries." },
-            { name: "Soy Milk & Congee (Sanpakoi)", lat: 18.7865, lng: 99.0088, category: "pet", owner: "pet", desc: "Comforting late-night Thai congee bowls, smooth hot soy milk, and fresh crispy dough sticks." },
-            { name: "Mun Gai Hai Lam", lat: 18.7861, lng: 99.0073, category: "pet", owner: "pet", desc: "Superb Hainanese style chicken rice plates. Fast, tender, and intensely flavorful seasoning." },
-            { name: "Ohkajhu (Nim City Daily)", lat: 18.7725, lng: 98.9783, category: "hannah", owner: "hannah", desc: "Massive organic farm-to-table salads, fresh cold-pressed juices, and healthy, robust mains." },
-            { name: "Wat Phra That Doi Suthep", lat: 18.8050, lng: 98.9216, category: "adventure", owner: "shared", desc: "Chiang Mai's iconic golden mountain temple. Climbed via a Naga staircase for city-wide views." },
-            { name: "Namtok Bua Thong (Sticky Waterfall)", lat: 19.0742, lng: 99.0805, category: "adventure", owner: "shared", desc: "The famous mineral waterfall you can climb right up like a lizard because the limestone is sticky!" },
-            { name: "Pet's Family Favorite Seafood Spot", lat: 18.7460, lng: 98.9620, category: "pet", owner: "pet", desc: "Pet's family's favorite celebratory dinner spot! Only come if you like fresh seafood. If you decide to go, let Pet or Hannah know! We'll tell you how to order (or maybe we will tag along!)" },
-            { name: "Madam Muk Second Hand Warehouse", lat: 18.8012, lng: 99.0195, category: "hannah", owner: "hannah", desc: "Prepare for this thrifting behemoth if you like vintage searching. Gigantic interconnected warehouses with cool coffee shops inside." },
-            { name: "3 Baht Noodle", lat: 18.7905, lng: 99.0098, category: "pet", owner: "pet", desc: "Classic tiny bowls of pork noodles for just 3 Baht a pop. Stacking the empty bowls high is half the fun!" },
-            { name: "THE HOUSE by Ginger", lat: 18.7925, lng: 98.9931, category: "shared", owner: "shared", desc: "Sophisticated Lanna-bistro setting. Perfect for a beautiful, premium sit-down dinner. Order the traditional northern platters!" },
-            { name: "Si Tong Linen Clothing Shop", lat: 18.7882, lng: 98.9902, category: "pet", owner: "pet", desc: "Pet's favorite linen clothing boutique. Beautiful fabrics, modern minimalist items, and custom adjustments for very reasonable prices." },
-            { name: "Muang Mai Wholesale Market", lat: 18.7954, lng: 98.9972, category: "adventure", owner: "shared", desc: "Vibrant, chaotic 24/7 wholesale fruit and vegetable market right along the river lines." },
-            { name: "Mahason Music Bar", lat: 18.7981, lng: 99.0018, category: "pet", owner: "pet", desc: "Fun, high-energy local live music tavern to listen to acoustic Thai indie sets." },
-            { name: "Good View Bar & Restaurant", lat: 18.7915, lng: 99.0035, category: "shared", owner: "shared", desc: "Classic open-air restaurant right on the Ping River bank. Massive menu, live bands, and lively evening atmosphere." },
-            { name: "Wat Umong Suan Putthatham", lat: 18.7834, lng: 98.9515, category: "adventure", owner: "shared", desc: "Enchanting 700-year-old forest monastery temple featuring historic underground tunnels and mossy ruins." },
-            { name: "Kanomjeen Sanpakoi", lat: 18.7857, lng: 99.0086, category: "pet", owner: "pet", desc: "Incredible, spice-fueled rice noodle curry bowls inside a local market corner. Highly recommended." },
-            { name: "Flow Coffee Brewers", lat: 18.7901, lng: 98.9744, category: "hannah", owner: "hannah", desc: "Expertly pulled espresso shots, clean filter coffees, and sleek minimalist architecture." },
-            { name: "Traditional Thai Textile Shop", lat: 18.7891, lng: 98.9915, category: "pet", owner: "pet", desc: "Beautiful handcrafted local northern fabrics, hand-woven indigo cottons, and custom garments." },
-            { name: "Teahouse by Meijaihai Matcha", lat: 18.7825, lng: 98.9698, category: "hannah", owner: "hannah", desc: "Serene, beautifully silent tatami room dedicated to premium Japanese whisked matcha pairings." },
-            { name: "Chang Moi Ice Syrup Stall", lat: 18.7911, lng: 98.9961, category: "pet", owner: "pet", desc: "Pet's absolute favorite Thai dessert stall. Running since Pet's mom was a child, now managed by the next generation. Order the shaved ice with red syrup, grass jelly, and condensed milk!" }
-        ];
-
-        let map;
-        let markersArray = [];
-        let activeInfoWindow = null;
-
-        // Initializes the core map layer canvas
-        async function initMap() {
-            const chiangMaiCenter = { lat: 18.795, lng: 98.985 };
-
-            // Import the library asynchronously 
-            const { Map } = await google.maps.importLibrary("maps");
-
-            map = new Map(document.getElementById("map"), {
-                zoom: 12,
-                center: chiangMaiCenter,
-                mapId: "DEMO_MAP_ID",
-                mapTypeControl: false,
-                streetViewControl: false,
-
-                // Prevents mobile thumb trapping. 
-                // One finger scrolls the page, two fingers pans the map.
-                gestureHandling: "cooperative"
-            });
-
-            // Feed and assemble the initial universal view
-            renderCardsAndMarkers("all"); // (or renderHotelPanels() for accommodations)
-        }
-
-        // Assembles text cards and anchors structural Google map pins onto the canvas
-        async function renderCardsAndMarkers(filterType) {
-            clearMarkers();
-            const listContainer = document.getElementById("locations-list");
-            listContainer.innerHTML = "";
-
-            const bounds = new google.maps.LatLngBounds();
-            let visibleCount = 0;
-
-            // Import the advanced marker library 
-            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
-
-            locationsData.forEach((spot) => {
-                const matchesFilter =
-                    filterType === "all" ||
-                    (filterType === "pet" && spot.owner === "pet") ||
-                    (filterType === "hannah" && spot.owner === "hannah") ||
-                    (filterType === "adventure" && spot.category === "adventure");
-
-                if (!matchesFilter) return;
-
-                visibleCount++;
-
-                // Determine Pin styling parameters using PinElement
-                let pinColor = "#3476ad"; // Shared / Blue
-                if (spot.owner === "pet") pinColor = "#213f22"; // Pet / Deep Green
-                if (spot.owner === "hannah") pinColor = "#803030"; // Hannah / Teak
-
-                const customPin = new PinElement({
-                    background: pinColor,
-                    borderColor: "#ffffff",
-                    glyphColor: "#ffffff",
-                    scale: 1.0
-                });
-
-                // Inject advanced marker onto the Google Map instance
-                const marker = new AdvancedMarkerElement({
-                    position: { lat: spot.lat, lng: spot.lng },
-                    map: map,
-                    title: spot.name,
-                    content: customPin
-                });
-
-                markersArray.push(marker);
-                bounds.extend(marker.position);
-
-                const infoContent = `
-                    <div class="map-popup">
-                        <h4>${spot.name}</h4>
-                        <p>${spot.desc}</p>
-                    </div>
-                `;
-                const infoWindow = new google.maps.InfoWindow({ content: infoContent });
-
-                // Upgraded listener call hook to match gmp-click framework specs
-                marker.addListener("gmp-click", () => {
-                    if (activeInfoWindow) activeInfoWindow.close();
-                    infoWindow.open(map, marker);
-                    activeInfoWindow = infoWindow;
-                });
-
-                const card = document.createElement("div");
-                card.className = "item-card";
-
-                let displayOwner = spot.owner === "shared" ? "Shared Favorite" : `${spot.owner.charAt(0).toUpperCase() + spot.owner.slice(1)}'s Pick`;
-                let ownerClass = `cat-${spot.owner}`;
-
-                card.innerHTML = `
-                    <div class="item-category ${ownerClass}">${displayOwner}</div>
-                    <h3>${spot.name}</h3>
-                    <p>${spot.desc}</p>
-                `;
-
-                card.addEventListener("click", () => {
-                    map.panTo(marker.position);
-                    map.setZoom(14);
-                    if (activeInfoWindow) activeInfoWindow.close();
-                    infoWindow.open(map, marker);
-                    activeInfoWindow = infoWindow;
-
-                    if (window.innerWidth <= 900) {
-                        document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-
-                listContainer.appendChild(card);
-            });
-
-            if (visibleCount > 0) {
-                map.fitBounds(bounds);
-                if (visibleCount === 1) {
-                    map.setZoom(14);
-                }
-            }
-        }
-
-        function clearMarkers() {
-            markersArray.forEach(m => m.setMap(null));
-            markersArray = [];
-        }
-
-        // Connects top tab configurations directly with script filters
-        function filterCategory(category, event) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
-            }
-
-            // Sync mobile dropdown value just in case layout resizes
-            document.getElementById('mobileFilterSelect').value = category;
-
-            renderCardsAndMarkers(category);
-        }
-
-        // Handles mobile select dropdown selections.
-        function filterCategoryMobile(category) {
-            // Find all desktop buttons and sync the active class framework to match
-            const tabs = document.querySelectorAll('.tab-btn');
-            tabs.forEach(btn => btn.classList.remove('active'));
-
-            // Highlight the corresponding hidden desktop tab implicitly
-            if (category === 'all') tabs[0].classList.add('active');
-            if (category === 'pet') tabs[1].classList.add('active');
-            if (category === 'hannah') tabs[2].classList.add('active');
-            if (category === 'adventure') tabs[3].classList.add('active');
-
-            renderCardsAndMarkers(category);
-        }
-    </script>
-
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuFKwEBhMYqcRH3AyC69omkusy7bh0IzA&callback=initMap&loading=async&libraries=marker">
-        </script>
 </body>
 
 </html>

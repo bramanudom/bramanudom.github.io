@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Where to Stay | Pet & Hannah</title>
+    <title>Where to Stay | Pet &amp; Hannah</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
     <link rel="icon" href="/and-hannah/assets/heart.svg" sizes="any">
@@ -38,170 +38,96 @@
             </p>
         </div>
 
-        <div class="recs-layout">
-            <div class="list-panel" id="locations-list"></div>
-
-            <div class="map-panel">
-                <div id="map"></div>
+        <!-- ================= THE VENUE ================= -->
+        <section class="place-section">
+            <h2 class="place-section-title">The Venue</h2>
+            <div class="place place-featured">
+                <div class="place-header">
+                    <h3>Anantara Chiang Mai Resort</h3>
+                    <span class="place-tag">$$$$</span>
+                </div>
+                <p>A stunning blend of modern design and Lanna heritage right on the river bank. This is where our
+                    ceremony and reception are taking place!</p>
+                <p class="discount-note">
+                    <strong>Guest discount:</strong> use code <span class="discount-code">PETANDHANNAH2026</span>
+                    when booking directly on their website for a preferred rate.
+                </p>
+                <div class="place-links">
+                    <a class="place-link" href="https://www.anantara.com/en/chiang-mai" target="_blank" rel="noopener">Website ↗</a>
+                    <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Anantara+Chiang+Mai+Resort" target="_blank" rel="noopener">Google Maps ↗</a>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- ================= PING RIVER ================= -->
+        <section class="place-section">
+            <h2 class="place-section-title">Ping River</h2>
+            <p class="place-section-intro">Close to the venue, quiet, and scenic.</p>
+            <ul class="place-list">
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Hotel Loy Chiang Mai</h3>
+                        <span class="place-tag tag-shared">$$ · We love this one!</span>
+                    </div>
+                    <p>A beautiful, exceptionally designed boutique hotel with a warm wood aesthetic and wonderful local
+                        hospitality. Highly recommended, exceptionally comfortable, and very close to the river
+                        neighborhood.</p>
+                    <div class="place-links">
+                        <a class="place-link" href="https://www.hotelloy.com/" target="_blank" rel="noopener">Website ↗</a>
+                        <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Loy+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                    </div>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Yaang Come Village Hotel</h3>
+                        <span class="place-tag">$$ · 5-min walk to the venue</span>
+                    </div>
+                    <p>A gorgeous, tranquil Lanna-style oasis with a great outdoor saltwater pool. Incredibly
+                        convenient—literally a 5-minute walk from the Anantara.</p>
+                    <div class="place-links">
+                        <a class="place-link" href="http://www.yaangcome.com/" target="_blank" rel="noopener">Website ↗</a>
+                        <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Yaang+Come+Village+Hotel+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                    </div>
+                </li>
+                <li class="place">
+                    <div class="place-header">
+                        <h3>Banthai Village Hotel</h3>
+                        <span class="place-tag">$$ · Hidden gem</span>
+                    </div>
+                    <p>A cozy and charming boutique hotel tucked away in a quiet lane off Tha Phae Road. Fantastic
+                        value, a lovely pool area, and beautiful local character.</p>
+                    <div class="place-links">
+                        <a class="place-link" href="http://www.banthaivillage.com/" target="_blank" rel="noopener">Website ↗</a>
+                        <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=Banthai+Village+Hotel+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ================= NIMMAN ================= -->
+        <section class="place-section">
+            <h2 class="place-section-title">Nimman</h2>
+            <p class="place-section-intro">Trendy and walkable, full of cafes and boutiques. About 10–15 minutes from
+                the venue.</p>
+            <ul class="place-list">
+                <li class="place">
+                    <div class="place-header">
+                        <h3>G Nimman Chiang Mai</h3>
+                        <span class="place-tag">$$ · Minimalist design</span>
+                    </div>
+                    <p>An architectural masterpiece right in trendy Nimman. Features a gorgeous, crisp white minimalist
+                        design with a central open-air pool layout. Surrounded entirely by the city's best cafes,
+                        dining, and walkable boutiques.</p>
+                    <div class="place-links">
+                        <a class="place-link" href="https://www.gnimmanchiangmai.com/" target="_blank" rel="noopener">Website ↗</a>
+                        <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=G+Nimman+Chiang+Mai" target="_blank" rel="noopener">Google Maps ↗</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
     </main>
 
     <script src="shared-logic.js"></script>
-    <script>
-        // Array holding your venue, premium picks, and tiered price alternatives
-        const hotelData = [
-            {
-                name: "Anantara Chiang Mai Resort",
-                lat: 18.7815954,
-                lng: 99.003714,
-                type: "venue",
-                tag: "$$$$ / THE VENUE & OUR HOME BASE",
-                desc: "A stunning blend of modern design and Lanna heritage right on the river bank. This is where our ceremony and reception are taking place! <br><br><strong>🔑 Special Guest Discount:</strong> Use code <strong>PETANDHANNAH2026</strong> when booking directly on their website for a preferred rate.",
-                link: "https://www.anantara.com/en/chiang-mai"
-            },
-            {
-                name: "Hotel Loy Chiang Mai",
-                lat: 18.784013,
-                lng: 99.000624,
-                type: "budget",
-                tag: "$$ / PING RIVER CHIC BOUTIQUE (WE LOVE THIS ONE!)",
-                desc: "A beautiful, exceptionally designed boutique hotel with a warm wood aesthetic and wonderful local hospitality. Highly recommended, exceptionally comfortable, and very close to the river neighborhood.",
-                link: "https://www.hotelloy.com/"
-            },
-            {
-                name: "G Nimman Chiang Mai",
-                lat: 18.799482,
-                lng: 98.967885,
-                type: "budget",
-                tag: "$$ / NIMMAN MINIMALIST DESIGN GEM",
-                desc: "An architectural masterpiece right in trendy Nimman. Features a gorgeous, crisp white minimalist design with a central open-air pool layout. Surrounded entirely by the city's best cafes, dining, and walkable boutiques.",
-                link: "https://www.gnimmanchiangmai.com/"
-            },
-            {
-                name: "Yaang Come Village Hotel",
-                lat: 18.7800564,
-                lng: 99.0010987,
-                type: "budget",
-                tag: "$$ / PING RIVER LANNA OASIS (5-MIN WALK)",
-                desc: "A gorgeous, tranquil Lanna-style oasis with a great outdoor saltwater pool. Incredibly convenient—literally a 5-minute walk from the Anantara.",
-                link: "http://www.yaangcome.com/"
-            },
-            {
-                name: "Banthai Village Hotel",
-                lat: 18.7868341,
-                lng: 98.9981159,
-                type: "budget",
-                tag: "$$ / PING RIVER HIDDEN GEM",
-                desc: "A cozy and charming boutique hotel tucked away in a quiet lane off Tha Phae Road. Fantastic value, a lovely pool area, and beautiful local character.",
-                link: "http://www.banthaivillage.com/"
-            }
-        ];
-
-        let map;
-        let markersArray = [];
-        let activeInfoWindow = null;
-
-        // Initializes the core map layer canvas
-        async function initMap() {
-            const chiangMaiCenter = { lat: 18.795, lng: 98.985 };
-
-            // Import the library asynchronously 
-            const { Map } = await google.maps.importLibrary("maps");
-
-            map = new Map(document.getElementById("map"), {
-                zoom: 12,
-                center: chiangMaiCenter,
-                mapId: "DEMO_MAP_ID",
-                mapTypeControl: false,
-                streetViewControl: false,
-                gestureHandling: "cooperative"
-            });
-
-            renderHotelPanels();
-        }
-
-        // Assembles text cards and hooks up interactive markers
-        async function renderHotelPanels() {
-            const listContainer = document.getElementById("locations-list");
-            listContainer.innerHTML = "";
-
-            const bounds = new google.maps.LatLngBounds();
-            const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
-
-            hotelData.forEach((hotel) => {
-                // Pin color setups based on hotel grouping categories
-                let pinColor = "#213f22"; // Boutique -> Deep Green
-                if (hotel.type === "venue") pinColor = "#803030";  // Venue -> Ruby Tone
-                if (hotel.type === "budget") pinColor = "#3476ad"; // Neighborhood Options -> Blue
-
-                const customPin = new PinElement({
-                    background: pinColor,
-                    borderColor: "#ffffff",
-                    glyphColor: "#ffffff",
-                    scale: 1.1
-                });
-
-                const marker = new AdvancedMarkerElement({
-                    position: { lat: hotel.lat, lng: hotel.lng },
-                    map: map,
-                    title: hotel.name,
-                    content: customPin
-                });
-
-                markersArray.push(marker);
-                bounds.extend(marker.position);
-
-                const infoContent = `
-                    <div class="map-popup">
-                        <h4>${hotel.name}</h4>
-                        <p>${hotel.desc}</p>
-                    </div>
-                `;
-                const infoWindow = new google.maps.InfoWindow({ content: infoContent });
-
-                marker.addListener("gmp-click", () => {
-                    if (activeInfoWindow) activeInfoWindow.close();
-                    infoWindow.open(map, marker);
-                    activeInfoWindow = infoWindow;
-                });
-
-                // Building the visual layout card
-                const card = document.createElement("div");
-                card.className = "item-card";
-
-                card.innerHTML = `
-                    <div class="item-category cat-${hotel.type}">${hotel.tag}</div>
-                    <h3>${hotel.name}</h3>
-                    <p>${hotel.desc}</p>
-                    <a href="${hotel.link}" target="_blank" class="btn-teak mt-2" onclick="event.stopPropagation();">View Website</a>
-                `;
-
-                // Syncing card clicks directly into map movements
-                card.addEventListener("click", () => {
-                    map.panTo(marker.position);
-                    map.setZoom(15);
-                    if (activeInfoWindow) activeInfoWindow.close();
-                    infoWindow.open(map, marker);
-                    activeInfoWindow = infoWindow;
-
-                    if (window.innerWidth <= 900) {
-                        document.getElementById("map").scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-
-                listContainer.appendChild(card);
-            });
-
-            if (hotelData.length > 0) {
-                map.fitBounds(bounds);
-            }
-        }
-    </script>
-
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuFKwEBhMYqcRH3AyC69omkusy7bh0IzA&callback=initMap&loading=async&libraries=marker">
-        </script>
 </body>
 
 </html>

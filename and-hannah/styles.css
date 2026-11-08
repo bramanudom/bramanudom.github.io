@@ -988,37 +988,17 @@ textarea.form-input {
     letter-spacing: 0.5px;
 }
 
-/* Highlighted block for the venue */
-.place-featured {
-    margin-top: 16px;
-    padding: 25px 30px;
-    background: var(--cream);
-    border: 1px solid rgba(128, 48, 48, 0.12);
-    border-left: 4px solid var(--teak);
-    border-radius: 4px;
-}
-
-.place .discount-note {
-    opacity: 1;
-}
-
 .discount-code {
     font-family: monospace;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--teak);
-    background: var(--white);
+    background: var(--cream);
     padding: 2px 8px;
     border: 1px dashed rgba(128, 48, 48, 0.35);
     border-radius: 4px;
     white-space: nowrap;
-}
-
-@media (max-width: 600px) {
-    .place-featured {
-        padding: 20px;
-    }
 }
 
 /* ==========================================================================

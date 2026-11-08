@@ -1,3 +1,19 @@
+const AUTH_TOKEN = '9cd22dd9cc4cf431bff63efc249ec8644100c768b88d85be52cf4b3eb900a87b';
+
+(function enforceAuthGate() {
+    const path = window.location.pathname.toLowerCase();
+    const isPublicPage = path.endsWith('index.html') ||
+        path.endsWith('login.html') ||
+        path.endsWith('/') ||
+        path.endsWith('/and-hannah') ||
+        path.endsWith('/and-hannah/');
+
+    if (!isPublicPage && localStorage.getItem('wedding_auth') !== AUTH_TOKEN) {
+        const currentFile = window.location.pathname.split('/').pop() || 'schedule.html';
+        window.location.replace(`login.html?next=${encodeURIComponent(currentFile)}`);
+    }
+})();
+
 const dictionary = {
     en: {
         nav_home: "Home", nav_why: "Why Thailand?",

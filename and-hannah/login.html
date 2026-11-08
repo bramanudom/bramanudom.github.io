@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Login | Pet & Hannah</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/and-hannah/assets/heart.svg" type="image/svg+xml">
@@ -31,11 +32,33 @@
     </div>
 
     <script>
-        function checkPass() {
+        // Salted SHA-256 hash of "pet-and-hannah:<code_in_lowercase>"
+        // To generate a new hash in Terminal: printf "pet-and-hannah:newcode" | shasum -a 256
+        const EXPECTED_HASH = '9cd22dd9cc4cf431bff63efc249ec8644100c768b88d85be52cf4b3eb900a87b';
+
+        async function sha256(text) {
+            const data = new TextEncoder().encode(text);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            return Array.from(new Uint8Array(hashBuffer))
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('');
+        }
+
+        function getRedirectTarget() {
+            const next = new URLSearchParams(window.location.search).get('next');
+            if (next && /^[a-z0-9_-]+\.html$/i.test(next) && next.toLowerCase() !== 'login.html') {
+                return next;
+            }
+            return 'schedule.html';
+        }
+
+        async function checkPass() {
             const pass = document.getElementById('passInput').value.toLowerCase().trim();
-            if (pass === 'yay') {
-                localStorage.setItem('wedding_auth', 'true');
-                window.location.href = 'schedule.html';
+            const hash = await sha256(`pet-and-hannah:${pass}`);
+
+            if (hash === EXPECTED_HASH) {
+                localStorage.setItem('wedding_auth', EXPECTED_HASH);
+                window.location.replace(getRedirectTarget());
             } else {
                 const errElement = document.getElementById('err');
                 errElement.style.display = 'block';

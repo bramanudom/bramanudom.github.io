@@ -21,8 +21,7 @@
 /* ==========================================================================
    1. VARIABLES & PALETTE
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans+Thai:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Playpen+Sans+Thai:wght@100..800&family=Young+Serif&display=swap');
 
 :root {
     --emerald: #213f22;        /* Deep green */
@@ -32,11 +31,25 @@
     --white: #ffffff;
     --text: #2c3e50;
 
-    --font-heading: 'Roboto Condensed', sans-serif;
-    --font-main: 'Inter', 'Noto Sans Thai', 'Noto Sans KR', sans-serif;
+    --font-heading: 'Young Serif', 'Playpen Sans Thai', 'Gugi', serif;
+    --font-main: 'Young Serif', 'Playpen Sans Thai', 'Gugi', sans-serif;
+    /* Tip: if Young Serif / Gugi feel too heavy for long paragraphs, swap --font-main to:
+       --font-main: 'Inter', 'Playpen Sans Thai', 'Noto Sans KR', sans-serif; */
 
     --sidebar-width: 260px;
     --radius: 24px;
+}
+
+:lang(th) {
+    --font-heading: 'Playpen Sans Thai', 'Young Serif', sans-serif;
+    --font-main: 'Playpen Sans Thai', 'Inter', sans-serif;
+    line-height: 1.75;
+}
+
+:lang(ko) {
+    --font-heading: 'Gugi', 'Young Serif', sans-serif;
+    --font-main: 'Gugi', 'Noto Sans KR', sans-serif;
+    word-break: keep-all;
 }
 
 /* ==========================================================================
@@ -81,6 +94,11 @@ a {
 a:hover {
     color: var(--teak);
     text-decoration: underline;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
 }
 
 h1 {

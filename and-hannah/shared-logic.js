@@ -85,6 +85,7 @@ const globalHeader = `
 
 function updateLanguage(lang) {
     localStorage.setItem('wedding_lang', lang);
+    document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dictionary[lang] && dictionary[lang][key]) {

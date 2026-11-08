@@ -24,7 +24,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Maitree:wght@200;300;400;500;600;700&family=Song+Myung&family=Young+Serif&display=swap');
 
 :root {
-    --emerald: #1d430a;        
+    --emerald: #193502;        
     --teak: #803030;          
     --midnightblue: #3476ad;
     --cream: #fdfaf3;
@@ -201,6 +201,7 @@ main.container {
 .nav-links {
     display: flex;
     flex-direction: column;
+    font-size: large;
     align-items: flex-start;
     gap: 10px;
 }

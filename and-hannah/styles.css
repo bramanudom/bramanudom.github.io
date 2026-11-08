@@ -189,6 +189,7 @@ main.container {
     margin-bottom: 40px;
 }
 
+.nav-logo :hover,
 .nav-logo {
     font-family: var(--font-heading);
     font-size: 1.8rem;

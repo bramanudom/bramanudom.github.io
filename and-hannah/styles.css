@@ -24,9 +24,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Maitree:wght@200;300;400;500;600;700&family=Song+Myung&family=Young+Serif&display=swap');
 
 :root {
-    --emerald: #213f22;        /* Deep green */
-    --teak: #803030;           /* Deep red / burgundy */
-    --midnightblue: #3476ad;   /* Blue */
+    --emerald: #1d430a;        
+    --teak: #803030;          
+    --midnightblue: #3476ad;
     --cream: #fdfaf3;
     --white: #ffffff;
     --text: #2c3e50;
@@ -35,7 +35,7 @@
     --font-main: 'Maitree', 'Song Myung', serif;
 
     --sidebar-width: 260px;
-    --radius: 24px;
+    --radius: 4px;
 }
 
 :lang(th) {
@@ -208,6 +208,7 @@ main.container {
 .nav-links {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
 }
 
@@ -216,14 +217,17 @@ main.container {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 500;
     padding: 12px 15px;
-    border-radius: 8px;
-    transition: 0.2s;
+    transition: transform 0.25s ease, color 0.2s ease;
 }
 
 .nav-links a:hover {
-    background: var(--teak);
     color: var(--white);
     text-decoration: none;
+    transform: rotate(-3deg);
+}
+
+.nav-links a:nth-child(even):hover {
+    transform: rotate(3deg);
 }
 
 /* Animated Hamburger (hidden on desktop) */
@@ -243,7 +247,7 @@ main.container {
     width: 25px;
     height: 3px;
     background: var(--white);
-    border-radius: 3px;
+    border-radius: 4px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -271,7 +275,7 @@ main.container {
 
 .lang-btn {
     padding: 6px 12px;
-    border-radius: 50px;
+    border-radius: 4px;
     font-size: 0.75rem;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.4);
@@ -346,6 +350,7 @@ main.container {
     }
 
     .nav-links {
+        align-items: center;
         text-align: center;
         gap: 15px;
         width: 100%;
@@ -461,7 +466,7 @@ button[type="submit"]:active,
     color: var(--text);
     background-color: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 50px;
+    border-radius: var(--radius);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     outline: none;
 }
@@ -513,7 +518,7 @@ textarea.form-input {
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 4px solid var(--teak);
-    border-radius: 4px;
+    border-radius: var(--radius);
     text-align: center;
 }
 
@@ -529,7 +534,7 @@ textarea.form-input {
     background-color: var(--cream);
     padding: 40px;
     border: 1px solid rgba(128, 48, 48, 0.1);
-    border-radius: 4px;
+    border-radius: var(--radius);
     max-width: 700px;
     margin-bottom: 80px;
     text-align: center;
@@ -829,8 +834,6 @@ textarea.form-input {
 
     .film-frame {
         max-width: 240px;
-        transform: none;
-        /* Disables tilts on touch viewports */
         padding: 10px 10px 24px 10px;
     }
 

@@ -39,14 +39,10 @@
 }
 
 :lang(th) {
-    --font-heading: 'Maitree', 'Young Serif', serif;
-    --font-main: 'Maitree', serif;
     line-height: 1.75;
 }
 
 :lang(ko) {
-    --font-heading: 'Song Myung', 'Young Serif', serif;
-    --font-main: 'Song Myung', 'Maitree', serif;
     word-break: keep-all;
 }
 
@@ -283,6 +279,8 @@ main.container {
     cursor: pointer;
     transition: 0.2s;
     font-weight: 600;
+    height: 32px;
+    width: 48px;
 }
 
 .lang-btn.active,

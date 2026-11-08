@@ -446,11 +446,12 @@ button[type="submit"]:active,
     transform: translateY(0);
 }
 
-/* Compact variant that sits next to an input inside .lookup-group */
+/* Compact variant that sits inside .lookup-group */
 .btn-submit.btn-inline {
     border-radius: var(--radius);
     margin: 0;
-    width: auto;
+    width: 100%;
+    max-width: 240px;
     padding: 14px 25px;
     white-space: nowrap;
 }
@@ -487,20 +488,19 @@ textarea.form-input {
     margin-top: 20px;
 }
 
-/* --- Lookup Group (input + button side by side) --- */
+/* --- Lookup Group (input + button stacked consistently on desktop & mobile) --- */
 .lookup-group {
     display: flex;
-    gap: 12px;
+    flex-direction: column;
+    gap: 14px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    max-width: 500px;
+    max-width: 420px;
     margin: 30px auto 0 auto;
 }
 
 .lookup-group .form-input {
-    flex: 1;
-    min-width: 260px;
+    width: 100%;
 }
 
 /* ==========================================================================
@@ -897,23 +897,38 @@ textarea.form-input {
 /* Row of category tabs under the page title */
 .section-jump {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 10px;
+    width: 100%;
+    max-width: 480px;
     margin-bottom: 40px;
 }
 
 .section-tab {
-    padding: 10px 24px;
+    flex: 1;
+    padding: 10px 16px;
     background: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: var(--radius);
     font-family: var(--font-heading);
-    font-size: 0.95rem;
-    letter-spacing: 1px;
+    font-size: clamp(0.78rem, 2.8vw, 0.95rem);
+    letter-spacing: 0.5px;
     color: var(--text);
+    white-space: nowrap;
+    text-align: center;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+@media (max-width: 600px) {
+    .section-jump {
+        gap: 6px;
+    }
+
+    .section-tab {
+        padding: 9px 10px;
+    }
 }
 
 .section-tab:hover,

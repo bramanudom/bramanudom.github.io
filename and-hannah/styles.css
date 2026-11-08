@@ -21,7 +21,7 @@
 /* ==========================================================================
    1. VARIABLES & PALETTE
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Playpen+Sans+Thai:wght@100..800&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;700&family=Playpen+Sans+Thai:wght@100..800&family=Song+Myung&family=Young+Serif&display=swap');
 
 :root {
     --emerald: #213f22;        /* Deep green */
@@ -31,9 +31,9 @@
     --white: #ffffff;
     --text: #2c3e50;
 
-    --font-heading: 'Young Serif', 'Playpen Sans Thai', 'Gugi', serif;
-    --font-main: 'Young Serif', 'Playpen Sans Thai', 'Gugi', sans-serif;
-    /* Tip: if Young Serif / Gugi feel too heavy for long paragraphs, swap --font-main to:
+    --font-heading: 'Young Serif', 'Playpen Sans Thai', 'Song Myung', serif;
+    --font-main: 'Young Serif', 'Playpen Sans Thai', 'Song Myung', sans-serif;
+    /* Tip: if Young Serif / Song Myung feel too heavy for long paragraphs, swap --font-main to:
        --font-main: 'Inter', 'Playpen Sans Thai', 'Noto Sans KR', sans-serif; */
 
     --sidebar-width: 260px;
@@ -47,8 +47,8 @@
 }
 
 :lang(ko) {
-    --font-heading: 'Gugi', 'Young Serif', sans-serif;
-    --font-main: 'Gugi', 'Noto Sans KR', sans-serif;
+    --font-heading: 'Song Myung', 'Young Serif', serif;
+    --font-main: 'Song Myung', 'Noto Sans KR', serif;
     word-break: keep-all;
 }
 

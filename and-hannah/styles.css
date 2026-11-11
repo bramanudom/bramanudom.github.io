@@ -853,36 +853,44 @@ textarea.form-input {
 }
 
 .doodle-accent {
-    width: 70px;
+    width: 80px;
     height: auto;
     flex-shrink: 0;
-    opacity: 0.8;
+    opacity: 0.9;
     pointer-events: none;
     /* Prevents users from accidentally grabbing/dragging the image asset */
     transition: transform 0.3s ease;
 }
 
+.doodle-lg {
+    width: 105px;
+}
+
 /* Organic Utility Adjustments (Simulating Hand-Placed Stamps) */
 .doodle-tilt-left {
-    transform: rotate(-12deg);
+    rotate: -10deg;
 }
 
 .doodle-tilt-right {
-    transform: rotate(15deg);
+    rotate: 12deg;
 }
 
 .doodle-shift-up {
-    transform: translateY(-15px);
+    translate: 0 -14px;
 }
 
 .doodle-shift-down {
-    transform: translateY(15px);
+    translate: 0 14px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .doodle-accent {
-        width: 45px;
-        /* Safely shrinks the doodles on mobile viewports so your text stays readable */
+        width: 60px;
+        translate: 0 0;
+    }
+
+    .doodle-lg {
+        width: 80px;
     }
 
     .subevent-wrapper {
